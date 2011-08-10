@@ -1,0 +1,675 @@
+/* ===== Body ===== */
+html,body {
+	height: 100%;
+	background: #DCF0FC url(../images/bg_geral.gif) repeat-y;
+	width: 100%;
+	min-width: 760px;
+}
+
+img {
+	border: 0;
+}
+
+html,* {
+	margin: 0;
+	padding: 0;
+}
+
+/* ======== Estrutura ======== */
+#topo {
+	width: 100%;
+	height: 40px;
+	text-align: left;
+	background: #FFFFFF; /*Fundo do topo do tamplate */
+}
+
+#conteudo {
+	width: 100%;
+	clear: both;
+}
+
+#rodape {
+	width: 100%;
+	position: absolute;
+	bottom: 0 !important;
+	bottom: -1px; /* Resolve eventuais problemas de largura no IE */
+	background: url(../images/bg_rodape.gif) repeat-x;
+	text-align: center;
+}
+
+#rodape_img {
+	background: url(../images/rodape.gif) no-repeat;
+	margin: 0 auto;
+	width: 600px;
+	height: 40px;
+}
+
+/*t_default*/ /*Coluna do menu vertival */
+.c1 {
+	width: 170px;
+	vertical-align: top;
+	/*background: url(../images/bg_menu.jpg) no-repeat;*/
+}
+
+.c2 {
+	width: 10px;
+}
+
+.c3 {
+	vertical-align: top;
+}
+
+.c4 {
+	width: 10px;
+}
+
+/*panel_2*/
+.p2_left {
+	valign: top;
+}
+
+.p2_right {
+	width: 180px;
+	valign: top;
+	align: right;
+	/*background: #ffff00;*/
+}
+
+/*panel_4 e panel_5 */
+.p4_left {
+	valign: top;
+}
+
+.p4_right {
+	width: 180px;
+	valign: top;
+	align: right;
+	/*background: #ffff00;*/
+}
+
+.info1 {
+	float: left;
+	valign: top;
+	border-right: #fff 1px solid;
+	padding-right: 20px;
+}
+
+.info2 {
+	float: left;
+	valign: top;
+	padding-left: 20px;
+}
+
+.panel_termo_sucesso {
+	text-align: left;
+}
+
+/* ====== Header ==========*/
+.header_processando_panel {
+	text-align: center;
+}
+
+/* ====== Painel de consulta **/
+.cl20_consulta {
+	width: 20%;
+	padding: 0 0 0 3px;
+	text-align: left;
+	font-weight: bold;
+	border: #C4E3F4 2px solid;
+}
+
+.cl80_consulta {
+	width: 79%;
+	padding: 0 0 0 3px;
+	background: #DCF0FC;
+	font: 11px "Verdana", Tahoma, Arial, Helvetica, sans-serif;
+	margin: 1px 0px 1px 0px;
+}
+
+.cl30_consulta {
+	width: 30%;
+	padding: 0 0 0 3px;
+	text-align: left;
+	font-weight: bold;
+	border: #C4E3F4 2px solid;
+}
+
+.cl70_consulta {
+	width: 68%;
+	padding: 0 0 0 3px;
+	background: #DCF0FC;
+	font: 11px "Verdana", Tahoma, Arial, Helvetica, sans-serif;
+	margin: 1px 0px 1px 0px;
+}
+
+.rich-mpnl-header { /* Override style for header modalPanel*/
+	height: 15px;
+	font-size: 0.9em;
+}
+
+/* ======== Internas ======== */ /* ---------- Topo ---------- */
+#logo {
+	width: 190px;
+	height: 40px;
+	float: left;
+}
+
+#usuario {
+	width: 340px;
+	height: 26px;
+	text-align: right;
+	padding: 14px 10px 0px 0px;
+	float: right;
+}
+
+/* ---------- Menu Horizontal ---------- */
+#menu1 {
+	width: 100%;
+	height: 31px;
+	text-align: left;
+	background: url(../images/bg_naveg.jpg) repeat-x;
+}
+
+#menu_h_1 { /*width: 90%;*/
+	height: 25px;
+	padding: 3px 3px 3px 3px;
+	text-align: left;
+	float: left;
+	border: 0px;
+}
+
+#menu_h_2 {
+	width: 224px;
+	height: 24px;
+	padding: 5px 10px 0px 0px;
+	background: url(../images/bg_barra_acess.jpg) no-repeat;
+	text-align: right;
+	float: right;
+}
+
+/*  ---- menu_horiz----  rich:toolBar properties ------------ */
+	/* ---- rich:dropDownMenu ----*/
+	/*definicoes do item do dropDownMenu selecionado*/
+.rich-toolbar {
+	background: #B8D6E7; /* Fundo do menu superior */
+	border-color: #B8D6E7;
+}
+
+/*Defines styles for borders*/
+.rich-menu-list-border {
+	border: #000000 1px solid;
+}
+
+/*Defines styles for a general background list*/
+.rich-menu-list-bg {
+	background-color: #DCF0FC;
+	border-color: #C4E3F4;
+}
+
+/*Defines styles for a wrapper <div> element for a strut of a popup list*/
+.rich-menu-list-strut {
+	background-color: #DCF0FC
+}
+
+/* ---------- Barra de Acessibilidade ---------- */
+#barra_naveg {
+	width: 100%;
+	height: 31px;
+	text-align: left;
+	background: url(../images/bg_naveg.jpg) repeat-x;
+}
+
+#barra_naveg span a:hover {
+	text-decoration: none;
+	color: #000;
+}
+
+#caminho_naveg {
+	width: 65%;
+	height: 22px;
+	padding: 5px 0px 0px 28px;
+	background: url(../images/bg_naveg.jpg) no-repeat;
+	text-align: left;
+	float: left;
+}
+
+.caminho_naveg2 {
+	width: 100%;
+	height: 18px;
+	float: left;
+	background: #b2d1e2;
+	/*background: url(../images/bg_barra_naveg.jpg) no-repeat;
+	text-align: left;*/
+}
+
+.caminhoNavegPage {
+	background: url(../images/arrow_right.png) no-repeat left -3px;
+	display: inline;
+	padding-left: 20px;
+}
+
+#barra_acess {
+	width: 224px;
+	height: 24px;
+	padding: 5px 6px 0px 0px;
+	background: url(../images/bg_barra_acess.jpg) no-repeat;
+	text-align: right;
+	float: right;
+}
+
+#cont1 {
+	width: 170px;
+	padding: 10px 0px 23px 0px;
+	vertical-align: top;
+}
+
+#cont2 {
+	width: 100%;
+	padding: 1px 0px 23px 0px;
+	/*margin-left:10px;*/
+}
+
+#cont2 em {
+	font-size: normal;
+	font-weight: bold;
+	color: #ff0000;
+}
+
+/* ---------- MENU ---------- */
+.box_menu {
+	width: 80%;
+}
+
+#box_opcoes {
+	width: 100%;
+	margin-bottom: 6px;
+	clear: both;
+	border: 0px;
+	background: url(../images/bg_barra_acess.jpg) no-repeat;
+}
+
+.box_sub_opcoes {
+	margin-bottom: 4px;
+	padding-left: 10px;
+	clear: both;
+	border: 0px;
+}
+
+/*  ------ menu_vert  ---------   rich:panelMenu ----*/ /*1 nivel*/
+.menu_v_1 {
+	width: 165px;
+	_width: 160px;
+	border: red 2px solid;
+}
+
+/*Defines styles for a top panel menu item*/ /*.rich-pmenu-top-item{
+	width: 100%;
+	margin-bottom: 6px;
+	clear: both;
+	}
+	*/ /*Defines styles for a top panel menu item icon*/
+.rich-pmenu-top-item-icon {
+	width: 30px;
+	hegth: 30px;
+}
+
+/*segundo nivel*/ /*Defines styles for a top panel menu item*/
+.rich-pmenu-top-item {
+	width: 30px;
+	hegth: 30px;
+}
+
+/*Defines styles for a top panel menu item icon*/
+.rich-pmenu-top-item-icon {
+	width: 30px;
+	hegth: 30px;
+}
+
+/*Defines styles for a top panel menu item label*/
+.rich-pmenu-top-item-label {
+	
+}
+
+/* ---------- Tela de Apresentacao ---------- */
+#apres {
+	width: 560px;
+	height: 200px;
+	/*height: 380px;*/
+	background: url(../images/logo_principal.png) no-repeat;
+	margin: 0 auto;
+}
+
+#apres_texto {
+	width: 310px;
+	padding: 30px 0px 0px 15px;
+	float: right;
+}
+
+#apres_cap {
+	width: 560px;
+	text-align: right;
+	padding-bottom: 10px;
+	margin: 0 auto;
+	clear: both;
+}
+
+/* ------- Calendar ------- */
+.rich-calendar-input {
+	margin: 1px 0px 1px 0px;
+	background-color: #FFFFFF; /*Fundo do calendario*/
+	width: 65px;
+}
+
+/* ------- Grade com Abas ------- */
+.rich-tabpanel {
+	width: 99%;
+}
+
+.rich-tabpanel-content {
+	width: 98%;
+	padding: 10px;
+	border: 0px;
+	background: #C4E3F4;
+}
+
+.rich-tabpanel-content-position {
+	border: #C4E3F4 2px solid;
+}
+
+.rich-tabhdr-side-border {
+	border: #C4E3F4;
+}
+
+.rich-tabhdr-side-cell {
+	width: 100%;
+	height: 25px;
+	padding-top: 0px;
+	text-align: center;
+	float: left;
+	margin-right: 5%;
+	border-color: #C4E3F4;
+	border-bottom: 0px;
+}
+
+/* header states*/
+.rich-tabhdr-cell-active {
+	background: #D7E8CE;
+	color: #D7E8CE;
+	text-decoration: underline;
+	border: 0px;
+}
+
+.rich-tabhdr-cell-inactive {
+	background: #C4E3F4;
+	color: #C4E3F4;
+	text-decoration: none;
+	border: 0px;
+}
+
+.rich-tabhdr-cell-disabled {
+	background: #FFFFFF;
+	color: #000000;
+	text-decoration: none;
+	border: 0px;
+}
+
+/*  ----  header   --- tab */
+.rich-tab-header {
+	border: 2px;
+}
+
+.rich-tab-label {
+	border: 0px;
+	background: #ff0000;
+}
+
+.rich-tab-active {
+	font-weight: bold;
+	border: 0px;
+}
+
+.rich-tab-inactive {
+	font-weight: normal;
+	font-style: italic;
+}
+
+.rich-tab-disabled {
+	font-weight: normal;
+	background: #ffffff;
+}
+
+.rich-tabhdr-side-cell {
+	background: #ffff00;
+}
+
+/*scroller*/
+.rich-datascr-act {
+	font: bold;
+}
+
+.rich-datascr-button {
+	color: #000;
+}
+
+/*  Tables  */
+.col_button {
+	width: 22px;
+	text-align: center;
+}
+
+.rich-table-header {
+	font-weight: bold;
+	height: 14px;
+	color: #172626;
+}
+
+.rich-table-headercell {
+	background-color: #B8D6E7;
+	color: #172626;
+}
+
+.rich-table-subheader {
+	background: #B8D6E7;
+	height: 19px;
+	text-align: center;
+	padding: 6px 5px 6px 5px;
+	font-weight: bold;
+	border: 1px solid #EAF9FF;
+}
+
+.rich-table-subheadercell {
+	color: #172626;
+}
+
+/*alinhamento das colunas*/
+.rich-table-cell {
+	text-align: center;
+}
+
+.table-cell_left {
+	text-align: left;
+}
+
+.table-cell_left_rp {
+	text-align: left;
+	width: 40px;
+}
+
+.table-cell_left_st {
+	text-align: left;
+	width: 30px;
+}
+
+.rich-table-row {
+	overflow: auto;
+	width: 100%;
+	height: 20px;
+	padding: 6px 5px 6px 5px;
+	text-align: left;
+	border: 2px solid #fff;
+}
+
+/* stgl*/
+.rich-stglpanel-body {
+	width: 95%;
+	margin-left: 10px;
+	padding-top: 10px;
+	margin-bottom: 10px;
+	background: #C4E3F4;
+}
+
+.rich-stglpanel {
+	background: #C4E3F4;
+}
+
+/* panel Bar*/
+.rich-panelbar-content {
+	width: 95%;
+	margin: 10px;
+	background: #C4E3F4;
+}
+
+.rich-panelbar-header-act {
+	vertical-align: middle;
+	height: 17px;
+}
+
+.rich-panelbar-header {
+	vertical-align: middle;
+	height: 17px;
+}
+
+.rich-panelbar {
+	background: #C4E3F4;
+	border: 2px solid #EAF9FF;
+}
+
+.doc_panel {
+	background-color: #EAF9FF;
+	border: 1px solid #C4E3F4;
+	width: 100%;
+}
+
+.doc_panel_item {
+	background-color: #EAF9FF;
+	width: 100%;
+}
+
+.head_doc {
+	vertical-align: middle;
+	height: 17px;
+	font-weight: normal;
+	text-align: center;
+}
+
+.head_doc_ativa {
+	vertical-align: middle;
+	height: 17px;
+	font-weight: bold;
+	text-align: center;
+}
+
+/*Panel*/
+.rich-panel-body {
+	width: 99%;
+	_width: 100%;
+	background: #C4E3F4;
+	padding: 10px 0 0 10px;
+	border: 0px;
+}
+
+/* Scrooler */
+.rich-datascr-act {
+	color: #000;
+	background: #EAF9FF;
+}
+
+.rich-datascr-inact {
+	color: #8FBC8F;
+	background: #EAF9FF;
+}
+
+.rich-datascr-button-dsbld {
+	background: #EAF9FF;
+}
+
+.simpleTogglePanel {
+	height: 25px;
+	font-size: 16px;
+}
+
+/*TOOLTIP*/
+.tooltip {
+	background-color: #EAF9FF;
+	border-color: #B8D6E7;
+	border-width: 2px;
+	padding: 5px;
+}
+
+.tooltip-text {
+	width: 350px;
+	height: 80px;
+	cursor: arrow;
+	border-width: 2px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.tooltipData {
+	font-weight: bold;
+}
+
+.ajuda_div {
+	border: 1px solid #FFCC00;
+	padding: 10px;
+	background: #fff;
+	margin: 15px auto;
+	text-align: center;
+	font-size: 1em;
+	color: #333 !important;
+}
+
+.ajuda_titulo1,.ajuda_titulo2,.ajuda_paragrafo {
+	text-align: left;
+}
+
+.ajuda_div a {
+	font-size: 1em !important;
+	color: #157 !important;
+	font-weight: bold;
+	font-style: normal;
+}
+
+.ajuda_div img {
+	margin-top: 1em;
+	background: transparent url(shadow.gif) no-repeat scroll right bottom;
+	border-color: #ccc;
+	border-style: solid none none solid;
+	border-width: 1px 0 0 1px;
+	padding: 4px 10px 10px 4px;
+}
+
+.ajuda_titulo1 {
+	border-bottom: 2px #ccc solid;
+	font-size: 1.2em !important;
+	margin-bottom: 1em;
+}
+
+.ajuda_titulo2 {
+	border-bottom: 2px #ccc dotted;
+	font-size: 1.1em !important;
+	margin-left: 2em;
+	margin-bottom: 0.3em;
+}
+
+.ajuda_paragrafo {
+	font-style: italic;
+	font-size: 1em !important;
+	margin-left: 4em;
+}
+
+.ajuda_imagem_descricao {
+	font-weight: bold;
+	color: #333;
+}

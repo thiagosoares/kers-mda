@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+	    <groupId>br.com.capanema</groupId>
+	    <artifactId>kers</artifactId>
+	    <version>1.0-SNAPSHOT</version>
+	</parent>
+	
+	<groupId>br.com.capanema</groupId>
+	<artifactId>kers-xml-engine</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<name>calangoMDA :: Xml Template Engine</name>
+	<packaging>jar</packaging>
+	<description>calangoMDA ::  Xml Template Engine</description>
+	
+	
+	<dependencies> 
+		<dependency>
+			<groupId>br.com.capanema</groupId>
+			<artifactId>kers-common</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+	</dependencies>	
+	
+</project>

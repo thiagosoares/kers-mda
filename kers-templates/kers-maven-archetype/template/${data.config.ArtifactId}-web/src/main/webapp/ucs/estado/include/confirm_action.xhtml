@@ -1,0 +1,45 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UFT-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+ 	 xmlns:ui="http://java.sun.com/jsf/facelets" 
+ 	 xmlns:h="http://java.sun.com/jsf/html" 
+	 xmlns:f="http://java.sun.com/jsf/core" 
+	 xmlns:s="http://jboss.com/products/seam/taglib" 
+	 xmlns:a4j="http://richfaces.org/a4j" 
+	 xmlns:rich="http://richfaces.org/rich" > 
+	 
+	<rich:modalPanel id="mp_cadastro_sucesso" height="140" width="470" zindex="2000" showWhenRendered="#{estadoAction.showConfirmCadastro}">
+		<f:facet name="header"> 
+			<h:outputText value="Estado"/> 
+		</f:facet>
+		<f:facet name="controls">
+			<a4j:commandButton image="../../images/ico_fecharjanela.gif" action="#{estadoAction.backToSearch}" />
+ 		</f:facet> 
+ 		 
+		<h:panelGrid columns="2">
+		 
+		 	<h:graphicImage value="../../images/ico_sucesso.gif" />
+		 	
+		 	<h:outputText value="Cadastro realizado com sucesso. Cadastrar novo ?" 
+		 	              style="componente_label_view" rendered="#{operacao eq 'form'}"/>
+		 	              
+		 	<h:outputText value="Alteraço realizada com sucesso." 
+		 	              style="componente_label_view" rendered="#{operacao eq 'update'}"/>
+		 	
+		</h:panelGrid>
+		<br/>
+		<br/>
+		<br/>
+	 	<h:panelGrid style="text-align: center; width:100%;" columns="1">
+		 	<h:panelGroup>
+		 	
+		 		<a4j:commandButton id="addNotifier" value="Sim" action="#{estadoAction.formConversation}" immediate="true" styleClass="botao" rendered="#{operacao eq 'form'}" /> 
+		 		<a4j:commandButton id="fechar" value="No" action="#{estadoAction.startConversation}" immediate="true" styleClass="botao" />
+		 		 
+		 	</h:panelGroup>
+	 	</h:panelGrid> 
+ 	</rich:modalPanel> 
+ </ui:composition> 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+ 			    xmlns:ui="http://java.sun.com/jsf/facelets"
+      			xmlns:h="http://java.sun.com/jsf/html">
+
+	<h:panelGroup rendered="#{condition}">
+		<h:graphicImage value="../../images/pencil.png" styleClass="gridLegendImg"/>
+		<h:outputText value="Alterar #{uc}" styleClass="gridLegendDesc" />
+		 
+		<h:graphicImage value="../../images/ico_lixo.png" styleClass="gridLegendImg"/>
+		<h:outputText value="Excluir #{uc}" styleClass="gridLegendDesc" />
+	</h:panelGroup>
+</ui:composition>

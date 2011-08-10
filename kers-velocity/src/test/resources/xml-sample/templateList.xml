@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list PUBLIC "-//J2EE Spider//DTD Template List 1.0//EN" "http://www.j2eespider.org/dtds/template_list_1_1.dtd">
+
+<list>
+  <repositoryTemplateInfo>
+    <name>SPIDER JEE JSF</name>
+    <folder>jee-jsf</folder>
+    <description>This template was created by Gleyve Barros. It generates JEE code using JSF and Facelets. Create your templates too!</description>
+    <techGroup>JEE</techGroup>
+    <compatibilityDate>20091025111528</compatibilityDate>
+    <url>http://www.j2eespider.org</url>
+    <internalOnly>false</internalOnly>
+  </repositoryTemplateInfo>
+  <repositoryTemplateInfo>
+    <name>SPIDER JEE Dojo</name>
+    <folder>jee-dojo</folder>
+    <description>It generates JEE code using Servlets and Dojo. Create your templates too!</description>
+    <techGroup>JEE</techGroup>
+    <compatibilityDate>20091113211528</compatibilityDate>
+    <url>http://www.j2eespider.org</url>
+    <internalOnly>false</internalOnly>
+  </repositoryTemplateInfo>  
+  <repositoryTemplateInfo>
+    <name>SPIDER JEE Legacy</name>
+    <folder>jee-legacy</folder>
+    <description>This template contains a demonstration of SPIDER features. It generates JEE code compatible with old MVC frameworks like Struts 1. Create your templates too!</description>
+    <techGroup>JEE</techGroup>
+    <compatibilityDate>20091025111528</compatibilityDate>
+    <url>http://www.j2eespider.org</url>
+    <internalOnly>false</internalOnly>
+  </repositoryTemplateInfo> 
+  <repositoryTemplateInfo>
+    <name>SPIDER JEE common</name>
+    <folder>jee-common</folder>
+    <description>This is a JEE internal support template.</description>
+    <techGroup>JEE</techGroup>
+    <compatibilityDate>20091025111528</compatibilityDate>
+    <url>http://www.j2eespider.org</url>
+    <internalOnly>true</internalOnly>
+  </repositoryTemplateInfo>
+  <repositoryTemplateInfo>
+    <name>SPIDER Dojo common</name>
+    <folder>jee-common</folder>
+    <description>This is a Dojo internal support template.</description>
+    <techGroup>Dojo</techGroup>
+    <compatibilityDate>20091113211528</compatibilityDate>
+    <url>http://www.j2eespider.org</url>
+    <internalOnly>true</internalOnly>
+  </repositoryTemplateInfo>  
+  <repositoryTemplateInfo>
+    <name>SPIDER Django</name>
+    <folder>django</folder>
+    <description>This template generates code for Django. Create your templates too!</description>
+    <techGroup>Django</techGroup>
+    <compatibilityDate>20091025111528</compatibilityDate>
+    <url>http://www.j2eespider.org</url>
+    <internalOnly>false</internalOnly>
+  </repositoryTemplateInfo>
+  <repositoryTemplateInfo>
+    <name>SPIDER PHP</name>
+    <folder>php-dojo</folder>
+    <description>This template generates code for PHP. Create your templates too!</description>
+    <techGroup>PHP</techGroup>
+    <compatibilityDate>20091113211528</compatibilityDate>
+    <url>http://www.j2eespider.org</url>
+    <internalOnly>false</internalOnly>
+  </repositoryTemplateInfo>  
+  <repositoryTemplateInfo>
+    <name>Demoiselle 1.0.6</name>
+    <folder>demoiselle1.0.6</folder>
+    <description>This template was created by Serge Rehem. It generates JEE code using Demoiselle Framework. Create your templates too!</description>
+    <techGroup>JEE</techGroup>
+    <compatibilityDate>20091025111528</compatibilityDate>
+    <url>http://www.j2eespider.org</url>
+    <internalOnly>false</internalOnly>
+  </repositoryTemplateInfo>
+  
+</list>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+   
+   <!-- Connection for initial tests -->
+   <local-tx-datasource>
+      <jndi-name>${data.config.artifactId}DS</jndi-name>
+      <!--<connection-url>jdbc:hsqldb:hsql://localhost:9005/${data.config.dbName}</connection-url>-->
+      <connection-url>jdbc:hsqldb:mem.</connection-url>
+      <driver-class>org.hsqldb.jdbcDriver</driver-class>
+      <user-name>sa</user-name>
+      <password></password>
+   </local-tx-datasource>
+   
+   <!-- Connection for postgesql -->
+   <!-- 
+   <xa-datasource>
+     <jndi-name>${data.config.artifactId}DS</jndi-name>
+     <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
+     <xa-datasource-property name="ServerName">${data.config.dbHost}</xa-datasource-property>
+     <xa-datasource-property name="PortNumber">5432</xa-datasource-property>
+     <xa-datasource-property name="DatabaseName">${data.config.dbName}</xa-datasource-property>
+     <xa-datasource-property name="User">${data.config.dbUsername}</xa-datasource-property>
+     <xa-datasource-property name="Password">${data.config.dbPassword}</xa-datasource-property>
+     <track-connection-by-tx/>
+   </xa-datasource>
+    -->
+   
+   
+   
+</datasources>
+
+
+
+

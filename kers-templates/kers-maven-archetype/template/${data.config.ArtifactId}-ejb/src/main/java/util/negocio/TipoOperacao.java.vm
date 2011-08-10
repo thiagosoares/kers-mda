@@ -1,0 +1,26 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.util.negocio;
+
+public enum TipoOperacao {
+
+  CADASTRO(1, "Cadastro"),
+  ALTERACAO(2, "Alteração"),
+  EXCLUSAO(3, "Exclusão"),
+  BUSCA(4, "Busca");
+  
+  private int codigo;
+  private String descricao;
+  
+  private TipoOperacao(int codigo, String descricao) {
+    this.codigo = codigo;
+    this.descricao = descricao;
+  }
+
+  public int getCodigo() {
+    return codigo;
+  }
+
+  public String getDescricao() {
+    return descricao;
+  }
+}

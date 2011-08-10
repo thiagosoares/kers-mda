@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template_config>
+
+	<name>kers-maven-archetype</name>
+	<description>This template was created by thiago.soares</description>
+	<version>01012011</version>	
+	<techGroup>JEE</techGroup>
+	<rootFolder>template</rootFolder>
+
+	<compatibilityDate>20091025111528</compatibilityDate>
+	
+	<!-- TODO
+	<web-repository>http://kers.org/template/repository</web-repository>
+	 -->
+</template_config>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
+
+
+  <persistence-unit name="bookmarks">
+    
+    <jta-data-source>java:/bookmarksDS</jta-data-source>
+    <mapping-file>META-INF/bookmarks-orm.xml</mapping-file>
+    
+    <!-- Propriedades -->
+    <properties>
+      <!-- Hibernate General Configurations -->
+      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /> 
+
+	  <!--  Export to schema 
+	  	e.g. true | false -->
+      <property name="hibernate.hbm2ddl.auto" value="none" />
+      
+      <!--  Write all SQL statements to console. This is an alternative to setting the log category org.hibernate.SQL to debug.
+		e.g. true | false  --> 
+      <property name="hibernate.show_sql" value="true" />
+      
+      <!-- Pretty print the SQL in the log and console.
+		e.g. true | false -->
+      <property name="hibernate.format_sql" value="true" />
+      
+      <!-- If turned on, Hibernate will generate comments inside the SQL, for easier debugging, defaults to false.
+		e.g. true | false -->
+      <property name="hibernate.use_sql_comments" value="true" />
+      
+      <!-- Sets a maximum "depth" for the outer join fetch tree for single-ended associations (one-to-one, many-to-one). A 0 disables default outer join fetching.
+		e.g. recommended values between 0 and 3 
+      <property name="hibernate.max_fetch_depth" value="1" />
+ 	  -->
+      
+      <!-- Sets a default size for Hibernate batch fetching of associations.
+		e.g. recommended values 4, 8, 16   
+      -->
+      <property name="hibernate.default_batch_fetch_size" value="4" />
+      
+      <!-- Hibernate to order SQL updates by the primary key value of the items being updated. 
+      This will result in fewer transaction deadlocks in highly concurrent systems.
+		e.g. true | false  
+      <property name="hibernate.order_updates" value="false" />
+       -->
+      
+      <!--If enabled, Hibernate will collect statistics useful for performance tuning.
+		e.g. true | false 
+      <property name="hibernate.generate_statistics" value="false" />
+       -->
+
+      <!-- Hibernate Cache -->
+      <property name="hibernate.cache.use_query_cache" value="false" />
+      
+      
+      <!-- Jboss Configurations -->
+      <property name="jboss.entity.manager.factory.jndi.name" value="java:/EntityManagerFactories/bookmarksFactory" />
+      <property name="jboss.entity.manager.jndi.name" value="java:/EntityManagers/bookmarks" />
+      
+    </properties>
+  </persistence-unit>
+
+
+</persistence>

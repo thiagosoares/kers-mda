@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<project name="SisPat-Web" default="allclean" basedir=".">
+
+	<!-- Details of build -->
+	<property name="Name" value="Kers" />
+	<dirname property="imported.basedir" file="${ant.file.ICALANGO}" />
+	<property name="jbossHasMyFacesLifecycleBug" value="true" />
+	<property name="project.name" value="kers" />
+	<property name="jboss.home" value="/opt/as/4.2/jboss-4.2.3.GA/" />
+	<property name="deploy.dir" value="${jboss.home}/server/homologacao/deploy" />
+	<property name="webroot.dir" value="${deploy.dir}/jbossweb-tomcat55.sar/ROOT.war" />
+	<property name="lib.dir" value="/opt/librarys/prodepa-sar-light" />
+	<property name="target.dir" value="target" />
+	<property name="build.test.dir" value="target/test-classes" />
+	<property name="bin.dir" value="bin" />
+	<property name="classes.dir" value="${build.dir}/classes" />
+	<property name="dist.name" value="${project.name}-${TODAY}" />
+	<property name="resources.dir" value="${imported.basedir}/resources" />
+	<property name="src.dir" value="${imported.basedir}/src" />
+	<property name="version" value="1.0" />
+
+	<target name="init" description="Initialize the build">
+		<echo message="Build ${Name} ${version}" />
+
+		<mkdir dir="${classes.dir}" />
+		<copy todir="${classes.dir}">
+			<fileset dir="${src.java.dir}">
+				<patternset refid="meta.files" />
+			</fileset>
+		</copy>
+		<!-- Copia o META-INF para que os testes rodarem no TestNG -->
+	</target>
+
+	<target name="allclean">
+		<antcall target="clean" />
+		<antcall target="clean-jboss-cache" />
+		<antcall target="undeploy" />
+	</target>
+
+	<!-- Limpeza da cache do projeto -->
+	<patternset id="clean.files">
+		<include name="*.jar" />
+	</patternset>
+	<target name="clean">
+		
+		<delete dir="${imported.basedir}/${project.name}-ear/target" />
+		<delete dir="${imported.basedir}/${project.name}-ejb/target" />
+		<delete dir="${imported.basedir}/${project.name}-web/target" />
+		<delete dir="${imported.basedir}/${project.name}-migracao/target" />
+		
+		<!--
+		<delete>
+			<fileset dir="${target.dir}">
+				<patternset refid="clean.files" />
+			</fileset>
+		</delete>
+		-->
+	</target>
+
+	<!-- Limpeza da cache do jboss -->
+	<target name="clean-jboss-cache">
+		<delete dir="${jboss.home}/server/homologacao/tmp" />
+		<delete dir="${jboss.home}/server/homologacao/work" />
+		<delete dir="${jboss.home}/server/homologacao/data" />
+		<delete dir="${jboss.home}/server/homologacao/log" />
+	</target>
+	
+	
+	<!-- Limpeza da cache do jboss -->
+	<target name="clean-view">
+		<delete dir="${imported.basedir}/${project.name}-ear/target" />
+		<delete dir="${imported.basedir}/${project.name}-web/target" />
+	</target>
+
+	
+	<!-- Undeploy -->
+	<patternset id="undeploy">
+		<include name="_NONE_" />
+	</patternset>
+
+	<target name="undeploy" description="Undeploy the example from JBoss">
+		<property name="unit.ext" value="ear" />
+		<delete file="${deploy.dir}/${project.name}.ear" />
+		<delete>
+			<fileset dir="${deploy.dir}">
+				<patternset refid="undeploy" />
+			</fileset>
+		</delete>
+	</target>
+	
+</project>

@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//J2EE Spider//DTD Template Files 1.0//EN" "http://www.j2eespider.org/dtds/template_files_1_1.dtd">
+
+<map>
+
+	<entry type="CONFIG">
+		<templateFile>
+			<pathTemplateFile>template/pom.xml.vm</pathTemplateFile>
+			<skipIfExists>true</skipIfExists>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ear/pom.xml.vm</pathTemplateFile>
+			<skipIfExists>true</skipIfExists>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/pom.xml.vm</pathTemplateFile>
+			<skipIfExists>true</skipIfExists>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-web/pom.xml.vm</pathTemplateFile>
+			<skipIfExists>true</skipIfExists>
+		</templateFile>
+	</entry>
+
+	<entry type="CONFIG.MAVEN">
+		<!-- TODO -->
+	</entry>
+
+	<entry type="CONFIG.EJB">
+		<!-- Resources -->
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/resources/META-INF/app-orm.xml.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/resources/META-INF/${data.config.ArtifactId}-orm.xml</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/resources/app-ds.xml.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/resources/${data.config.ArtifactId}-ds.xml</pathGenerationFile>
+		</templateFile>
+	</entry>
+
+	<entry type="CONFIG.VIEW">
+
+		<!-- web.xml, faces.config, etc..... -->
+
+	</entry>
+
+	<!-- Templates de classes -->
+
+	<entry type="FOR.PROJECT"> <!-- Classes q sao uma por projeto -->
+		<!--
+			<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/config/appConfig.properties.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/config/${data.config.ArtefactId}.properties</pathGenerationFile>
+			</templateFile>
+		-->
+		<!-- Business -->
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/business/error/application/ApplicationErrorCode.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/business/error/application/ApplicationErrorCode.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/business/error/application/ApplicationErrorCode.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/business/error/application/SecurityInternalErrorCode.java</pathGenerationFile>
+		</templateFile>
+
+		<!-- Configurations -->
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/configuration/AppConfigurations.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/configuration/AppConfigurations.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/configuration/LocationsCDU.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/configuration/LocationsCDU.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/configuration/LocationsJndi.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/configuration/LocationsJndi.java</pathGenerationFile>
+		</templateFile>
+
+		<!-- Dto -->
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/application/AlterarSenhaDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/application/AlterarSenhaDto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/application/LoggedUserDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/application/LoggedUserDto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/business/dto/application/SessionInformationsDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/application/SessionInformationsDto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/buscas/BuscasDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/buscas/BuscasDto.java</pathGenerationFile>
+		</templateFile>
+
+		<!-- Facade -->
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/facade/PrototypeFacadeBean.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/facade/${data.config.ArtifactId}FacadeBean.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/facade/PrototypeFacadeLocal.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/facade/${data.config.ArtifactId}FacadeLocal.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/facade/PrototypeFacadeRemote.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/facade/${data.config.ArtifactId}FacadeRemote.java</pathGenerationFile>
+		</templateFile>
+
+		<!-- Seam -->
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/seam/factory/ApplicationFactorySeam.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/seam/factory/ApplicationFactorySeam.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/seam/factory/ConversationFactorySeam.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/seam/factory/ConversationFactorySeam.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/seam/factory/SessionFactotySeam.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/seam/factory/SessionFactotySeam.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/seam/seguranca/Autenticator.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/seam/seguranca/Autenticator.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/seam/MyAbstractSeam.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/seam/MyAbstractSeam.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/service/MyAbstractServico.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/service/MyAbstractServico.java</pathGenerationFile>
+		</templateFile>
+
+		<!-- Util -->
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/util/messages/SeamMessagesUtil.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/util/messages/SeamMessagesUtil.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/util/negocio/TipoOperacao.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/util/negocio/TipoOperacao.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/util/query/StrQuery.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/util/query/StrQuery.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/util/ui/converters/CEPConverter.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/util/ui/converters/CEPConverter.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/util/ui/converters/CNPJConverter.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/util/ui/converters/CNPJConverter.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/util/ui/converters/CPFConverter.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/util/ui/converters/CPFConverter.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/util/ui/validators/DataFormatoValidator.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/util/ui/validators/DataFormatoValidator.java</pathGenerationFile>
+		</templateFile>
+	</entry>
+
+	<entry type="CRUD">
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/EstadoDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+	</entry>
+	
+	<entry type="CRUD.TABULAR">
+	
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/ModelTabularDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		
+	</entry>
+	
+	<entry type="CRUD.MESTRE.DETALHE">
+	
+		<templateFile>
+			<pathTemplateFile>template/${data.config.ArtifactId}-ejb/src/main/java/dto/ModelMestreDetalheDto.java.vm</pathTemplateFile>
+			<pathGenerationFile>${data.config.ArtifactId}/${data.config.ArtifactId}-ejb/src/main/java/${data.config.mainPackageDir}/dto/${data.crud.name}Dto.java</pathGenerationFile>
+		</templateFile>
+		
+	</entry>
+
+	<!--
+		<entry key="CRUD"> <templateFile>
+		<pathTemplateFile>project/tech/base/.classpath.vm</pathTemplateFile>
+		<pathGenerationFile>/.classpath</pathGenerationFile> </templateFile>
+		<templateFile>
+		<pathGenerationFile>/WebContent/upload</pathGenerationFile>
+		</templateFile> </entry> <entry key="CRUD.GENERIC.HIBERNATE">
+		<templateFile>
+		<pathTemplateFile>project/tech/spring/JavaSource/to.properties</pathTemplateFile>
+		<pathGenerationFile>/${data.config.sourceFolder}/to.properties</pathGenerationFile>
+		</templateFile> </entry> <entry key="CRUD.DEFAULT.JSF"> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/META-INF/persistence.xml.vm</pathTemplateFile>
+		<pathGenerationFile>/src/META-INF/persistence.xml</pathGenerationFile>
+		<skipIfExists>true</skipIfExists> </templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/META-INF/persistence.xml.vm</pathTemplateFile>
+		<pathGenerationFile>/src/META-INF/persistence.xml</pathGenerationFile>
+		<increment
+		path="/tech/jsf/JavaSource/META-INF/fragment/persistence-class.vm">
+		&lt;class&gt;(.*?)&lt;/class&gt; <firstIncrementAfter>
+		&lt;persistence-unit name=.*?&gt; </firstIncrementAfter> </increment>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/util/LayoutMenuBean.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.util')}/MenuBean.java</pathGenerationFile>
+		<increment
+		path="/tech/jsf/JavaSource/base/view/util/fragment/menu.vm"> public
+		String .*?//(.*?) \(don't change this comment\).*?//Menu.add\(\);
+		<firstIncrementAfter>Menu.add\(\);</firstIncrementAfter> </increment>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/WebContent/layout/sesace/menu.jspx.vm</pathTemplateFile>
+		<pathGenerationFile>/WebContent/layout/sesace/menu.jspx</pathGenerationFile>
+		<increment
+		path="/tech/jsf/WebContent/layout/sesace/fragment/itemmenu.jspx.vm">
+		&lt;rich\:menuItem
+		value="#\{msg\[\'menu.create.(.*?)\'\]\}.*?action="#\{menuBean.(.*?)\}"
+		submitMode="ajax" /&gt; <firstIncrementAfter>
+		&lt;f\:facet.*?value="#\{msg\[\'menu.create\'\]\}".*?&lt;/f\:facet&gt;
+		</firstIncrementAfter> </increment> </templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/TemplateBean.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.crud.moduleName}/${data.bundle.get('package.mvc.view')}/${data.crud.name}Bean.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/business/TemplateBusiness.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.crud.moduleName}/${data.bundle.get('package.mvc.business')}/${data.crud.name}Business.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/model/dao/TemplateDAO.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.crud.moduleName}/${data.bundle.get('package.mvc.model')}/${data.bundle.get('package.mvc.model.dao')}/${data.crud.name}DAO.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathGenerationFile>/WebContent/WEB-INF/faces-config.xml</pathGenerationFile>
+		<increment
+		path="/tech/jsf/WebContent/WEB-INF/fragment/managed-bean.vm">
+		&lt;managed-bean&gt;[\p{Space}]*&lt;managed-bean-name&gt;(\w*?)Bean&lt;/managed-bean-name&gt;[\p{Space}]*&lt;managed-bean-class&gt;([\p{L}\p{Punct}\d]+?)Bean&lt;/managed-bean-class&gt;[\p{Space}]*?&lt;managed-bean-scope&gt;(\w*?)&lt;/managed-bean-scope&gt;.*?&lt;/managed-bean&gt;
+		<firstIncrementAfter> &lt;/managed-bean&gt; </firstIncrementAfter>
+		</increment> </templateFile> <templateFile>
+		<pathGenerationFile>/WebContent/WEB-INF/faces-config.xml</pathGenerationFile>
+		<increment
+		path="/tech/jsf/WebContent/WEB-INF/fragment/navigation-rule.vm">
+		&lt;navigation-rule&gt;.*?&lt;navigation-case&gt;.*?&lt;from-outcome&gt;(.*?)&lt;/from-outcome&gt;.*?&lt;to-view-id&gt;(.*?)&lt;/to-view-id&gt;.*?&lt;/navigation-case&gt;.*?&lt;/navigation-rule&gt;
+		<firstIncrementAfter> &lt;/navigation-rule&gt; </firstIncrementAfter>
+		</increment> </templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/WebContent/pages/crud.jspx.vm</pathTemplateFile>
+		<pathGenerationFile>/WebContent/pages/${stringUtils.unCapitalizeFirstLetter(${data.crud.name})}.jspx</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/i18n/resources_pt.properties.vm</pathTemplateFile>
+		<pathGenerationFile>/src/i18n/${data.config.appName}_pt.properties</pathGenerationFile>
+		<increment
+		path="/tech/jsf/JavaSource/i18n/fragment/propertiesCommon_pt.vm">
+		([\w\d\.]+)=[\p{L}\p{Blank}\p{Punct}\d]+ </increment> </templateFile>
+
+		<templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/i18n/resources_pt.properties.vm</pathTemplateFile>
+		<pathGenerationFile>/src/i18n/${data.config.appName}_pt.properties</pathGenerationFile>
+		<increment
+		path="/tech/jsf/JavaSource/i18n/fragment/propertiesFields.vm">
+		([\w\d\.]+)=[\p{L}\p{Blank}\p{Punct}\d]+ </increment> </templateFile>
+
+		<templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/i18n/resources_pt.properties.vm</pathTemplateFile>
+		<pathGenerationFile>/src/i18n/${data.config.appName}_pt.properties</pathGenerationFile>
+		<increment
+		path="/tech/jsf/JavaSource/i18n/fragment/propertiesMenu.vm">
+		(menu.create.[\w\d\.]+)=[\p{L}\p{Blank}\p{Punct}\d]+
+		<firstIncrementAfter> menu.create.open=[\p{L}\p{Blank}\p{Punct}\d]+
+		</firstIncrementAfter> </increment> </templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/i18n/resources_en.properties.vm</pathTemplateFile>
+		<pathGenerationFile>/src/i18n/${data.config.appName}_en.properties</pathGenerationFile>
+		<increment
+		path="/tech/jsf/JavaSource/i18n/fragment/propertiesCommon_pt.vm">
+		([\w\d\.]+)=[\p{L}\p{Blank}\p{Punct}\d]+ </increment> </templateFile>
+
+		<templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/i18n/resources_en.properties.vm</pathTemplateFile>
+		<pathGenerationFile>/src/i18n/${data.config.appName}_en.properties</pathGenerationFile>
+		<increment
+		path="/tech/jsf/JavaSource/i18n/fragment/propertiesFields.vm">
+		([\w\d\.]+)=[\p{L}\p{Blank}\p{Punct}\d]+ </increment> </templateFile>
+
+		<templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/i18n/resources_en.properties.vm</pathTemplateFile>
+		<pathGenerationFile>/src/i18n/${data.config.appName}_en.properties</pathGenerationFile>
+		<increment
+		path="/tech/jsf/JavaSource/i18n/fragment/propertiesMenu.vm">
+		(menu.create.[\w\d\.]+)=[\p{L}\p{Blank}\p{Punct}\d]+
+		<firstIncrementAfter> menu.create.open=[\p{L}\p{Blank}\p{Punct}\d]+
+		</firstIncrementAfter> </increment> </templateFile> </entry> TODO Usar
+		depois <entry key="CONFIG.LAYOUT"> <templateFile>
+		<pathGenerationFile>/${data.config.sourceFolder}</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathGenerationFile>/build</pathGenerationFile>
+		<excludeForce>true</excludeForce> </templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/WebContent/index.jsp</pathTemplateFile>
+		<pathGenerationFile>/WebContent/index.jsp</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/WebContent/pages</pathTemplateFile>
+		<pathGenerationFile>/WebContent/pages</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/WebContent/pages/login.jspx.vm</pathTemplateFile>
+		<pathGenerationFile>/WebContent/pages/login.jspx</pathGenerationFile>
+		</templateFile> </entry> <entry key="TECH.MVC.JSF"> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/i18n/MsgUtil.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/i18n/MsgUtil.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/model/exceptions/ProjectException.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.model')}/${data.bundle.get('package.mvc.model.exceptions')}/${stringUtils.normalizeClassName(${data.config.appName})}Exception.java</pathGenerationFile>
+		</templateFile> Primeira versão do faces-config.xml ainda sem
+		managed-beans e sem navigation-rules <templateFile>
+		<pathTemplateFile>/tech/jsf/WebContent/WEB-INF/faces-config.xml.vm</pathTemplateFile>
+		<pathGenerationFile>/WebContent/WEB-INF/faces-config.xml</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/util/LayoutMenuBean.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.util')}/MenuBean.java</pathGenerationFile>
+		<skipIfExists>true</skipIfExists> </templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/business/generico/GenericBusiness.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.business')}/${data.bundle.get('package.mvc.business.generico')}/GenericBusiness.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/validator/CNPJValidator.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.validator')}/CNPJValidator.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/validator/CPFValidator.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.validator')}/CPFValidator.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/validator/EmailValidator.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.validator')}/EmailValidator.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/util/FormState.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.util')}/FormState.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/util/IBean.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.util')}/IBean.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/util/ValidationHelper.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.util')}/ValidationHelper.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/converter/generico/GenericConverter.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.converter')}/${data.bundle.get('package.mvc.view.converter.generico')}/GenericConverter.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/converter/StringToNullConverter.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.converter')}/StringToNullConverter.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/converter/CEPConverter.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.converter')}/CEPConverter.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/converter/SPUConverter.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.converter')}/SPUConverter.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/converter/TelefoneConverter.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.converter')}/TelefoneConverter.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/converter/CNPJConverter.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.converter')}/CNPJConverter.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/converter/CPFConverter.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.converter')}/CPFConverter.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/model/dao/generico/GenericDAO.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.model')}/${data.bundle.get('package.mvc.model.dao')}/${data.bundle.get('package.mvc.model.dao.generico')}/GenericDAO.java</pathGenerationFile>
+		</templateFile> </entry> <entry key="TECH.IOC.SPRING"> <templateFile>
+		<pathTemplateFile>/tech/jsf/WebContent/WEB-INF/spring-config.xml.vm</pathTemplateFile>
+		<pathGenerationFile>/WebContent/WEB-INF/spring-config.xml</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/WebContent/WEB-INF/spring-security-config.xml.vm</pathTemplateFile>
+		<pathGenerationFile>/WebContent/WEB-INF/spring-security-config.xml</pathGenerationFile>
+		</templateFile> </entry> <entry key="TECH.DATABASE LAYER.HIBERNATE">
+		<templateFile>
+		<pathTemplateFile>projectproject/tech/hibernate/JavaSource/hibernate.cfg.xml.vm</pathTemplateFile>
+		<pathGenerationFile>/${data.config.sourceFolder}/hibernate.cfg.xml</pathGenerationFile>
+		</templateFile> </entry> <entry key="TECH.OTHERS.JASPER-REPORTS">
+		<templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/model/dao/generico/ReportGenericDAO.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.bundle.get('package.base')}/${data.bundle.get('package.mvc.model')}/${data.bundle.get('package.mvc.model.dao')}/${data.bundle.get('package.mvc.model.dao.generico')}/ReportGenericDAO.java</pathGenerationFile>
+		</templateFile> </entry> <entry key="CRUD.REPORT.JSF"> <templateFile>
+		<pathTemplateFile>/tech/jsf/WebContent/layout/sesace/menu.jspx.vm</pathTemplateFile>
+		<pathGenerationFile>/WebContent/layout/sesace/menu.jspx</pathGenerationFile>
+		<increment
+		path="/tech/jsf/WebContent/layout/sesace/fragment/itemmenuReport.jspx.vm">
+		&lt;rich\:menuItem
+		value="#\{msg\[\'menu.report.(.*?)\'\]\}.*?action="#\{menuBean.(.*?)\}"
+		submitMode="ajax" /&gt; <firstIncrementAfter>
+		&lt;f\:facet.*?value="#\{msg\[\'menu.report\'\]\}".*?&lt;/f\:facet&gt;
+		</firstIncrementAfter> </increment> </templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/i18n/resources_pt.properties.vm</pathTemplateFile>
+		<pathGenerationFile>/src/i18n/${data.config.appName}_pt.properties</pathGenerationFile>
+		<increment
+		path="/tech/jsf/JavaSource/i18n/fragment/propertiesCommon_pt.vm">
+		([\w\d\.]+)=[\p{L}\p{Blank}\p{Punct}\d]+ </increment> </templateFile>
+
+		<templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/i18n/resources_pt.properties.vm</pathTemplateFile>
+		<pathGenerationFile>/src/i18n/${data.config.appName}_pt.properties</pathGenerationFile>
+		<increment
+		path="/tech/jsf/JavaSource/i18n/fragment/propertiesFields.vm">
+		([\w\d\.]+)=[\p{L}\p{Blank}\p{Punct}\d]+ </increment> </templateFile>
+
+		<templateFile>
+		<pathTemplateFile>/tech/jsf/WebContent/reports/relTemplate.jspx.vm</pathTemplateFile>
+		<pathGenerationFile>/WebContent/reports/rel${data.crud.name}.jspx</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/view/RelTemplateBean.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.crud.moduleName}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.report')}/${data.crud.name}Bean.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/business/RelTemplateBusiness.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.crud.moduleName}/${data.bundle.get('package.mvc.business')}/${data.bundle.get('package.mvc.report')}/${data.crud.name}Business.java</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/base/model/dao/RelTemplateDAO.java.vm</pathTemplateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.crud.moduleName}/${data.bundle.get('package.mvc.model')}/${data.bundle.get('package.mvc.model.dao')}/${data.bundle.get('package.mvc.report')}/${data.crud.name}DAO.java</pathGenerationFile>
+		</templateFile> </entry> <entry key="CRUD.MODALFIND.JSF">
+		<templateFile>
+		<pathTemplateFile>/tech/jsf/WebContent/pages/modalFind.jspx.vm</pathTemplateFile>
+		<pathGenerationFile>/WebContent/pages/${data.crud.name}ModalFind.jspx</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/i18n/resources_pt.properties.vm</pathTemplateFile>
+		<pathGenerationFile>/src/i18n/${data.config.appName}_pt.properties</pathGenerationFile>
+		<increment
+		path="/tech/jsf/JavaSource/i18n/fragment/propertiesCommon_pt.vm">
+		([\w\d\.]+)=[\p{L}\p{Blank}\p{Punct}\d]+ </increment> </templateFile>
+
+		<templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/i18n/resources_pt.properties.vm</pathTemplateFile>
+		<pathGenerationFile>/src/i18n/${data.config.appName}_pt.properties</pathGenerationFile>
+		<increment
+		path="/tech/jsf/JavaSource/i18n/fragment/propertiesFields.vm">
+		([\w\d\.]+)=[\p{L}\p{Blank}\p{Punct}\d]+ </increment> </templateFile>
+		</entry> <entry key="CRUD.MODALCAD.JSF"> <templateFile>
+		<pathTemplateFile>/tech/jsf/WebContent/pages/modalCad.jspx.vm</pathTemplateFile>
+		<pathGenerationFile>/WebContent/pages/${data.crud.name}ModalCad.jspx</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/i18n/resources_pt.properties.vm</pathTemplateFile>
+		<pathGenerationFile>/src/i18n/${data.config.appName}_pt.properties</pathGenerationFile>
+		<increment
+		path="/tech/jsf/JavaSource/i18n/fragment/propertiesCommon_pt.vm">
+		([\w\d\.]+)=[\p{L}\p{Blank}\p{Punct}\d]+ </increment> </templateFile>
+
+		<templateFile>
+		<pathTemplateFile>/tech/jsf/JavaSource/i18n/resources_pt.properties.vm</pathTemplateFile>
+		<pathGenerationFile>/src/i18n/${data.config.appName}_pt.properties</pathGenerationFile>
+		<increment
+		path="/tech/jsf/JavaSource/i18n/fragment/propertiesFields.vm">
+		([\w\d\.]+)=[\p{L}\p{Blank}\p{Punct}\d]+ </increment> </templateFile>
+		</entry> <entry key="PACKAGE"> <templateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.config.modulesName}/${data.bundle.get('package.mvc.view')}</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.config.modulesName}/${data.bundle.get('package.mvc.view')}/${data.bundle.get('package.mvc.view.util')}</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.config.modulesName}/${data.bundle.get('package.mvc.model')}</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.config.modulesName}/${data.bundle.get('package.mvc.model')}/${data.bundle.get('package.mvc.model.dao')}</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.config.modulesName}/${data.bundle.get('package.mvc.model')}/${data.bundle.get('package.mvc.model.exceptions')}</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.config.modulesName}/${data.bundle.get('package.mvc.model')}/${data.bundle.get('package.mvc.model.entity')}</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.config.modulesName}/</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathGenerationFile>/src/${data.config.mainPackageDir}/${data.config.modulesName}/${data.bundle.get('package.mvc.business')}</pathGenerationFile>
+		</templateFile> </entry> <entry key="MAPPING"> <templateFile>
+		<pathTemplateFile>project/tech/hibernate/hibernateTools/hibernate.cfg.xml.vm</pathTemplateFile>
+		<pathGenerationFile>/mapping/hibernate.cfg.xml</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>project/tech/hibernate/hibernateTools/readme.txt.vm</pathTemplateFile>
+		<pathGenerationFile>/mapping/readme.txt</pathGenerationFile>
+		</templateFile> <templateFile>
+		<pathTemplateFile>project/tech/hibernate/hibernateTools/hibernateTools-build.xml.vm</pathTemplateFile>
+		<pathGenerationFile>/mapping/hibernateTools-build.xml</pathGenerationFile>
+		<run>true</run> </templateFile> </entry>
+	-->
+</map>

@@ -1,0 +1,66 @@
+#set ($basePackage = ${data.config.mainPackage})
+#set ($modelName = ${data.crud.name})
+#set ($lowercasedModelName = $stringUtils.unCapitalizeFirstLetter($modelName))
+#set ($uppercasedModelName = $modelName.toUpperCase())
+package ${basePackage}.business.implementation;
+
+import ${basePackage}.entity.${modelName};
+import ${basePackage}.dto.${modelName}Dto;
+
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
+
+import br.gov.pa.muiraquita.business.AbstractBusiness;
+import br.gov.pa.muiraquita.exception.BusinessException;
+import br.gov.pa.muiraquita.exception.SystemException;
+import br.gov.pa.muiraquita.exception.security.InvalidPassportException;
+import br.gov.pa.muiraquita.injection.annotation.Injection;
+
+import java.util.List;
+
+public class ${modelName}Business extends AbstractBusiness {
+  
+  @Injection
+  I${modelName}DAO ${lowercasedModelName}DAO; 
+
+  public void insert(${modelName} ${lowercasedModelName}) {
+    try{
+      ${lowercasedModelName}DAO.insert(${lowercasedModelName});
+      ContextLocator.getInstance().getMessageContext().addMessage(InfoMessage.${uppercasedModelName}_INSERTED_OK);
+    }catch(Exception e){
+      throw new ApplicationRuntimeException(ErrorMessage.${uppercasedModelName}_001, e);
+    }  
+  }
+  
+  public void remove(${modelName} ${lowercasedModelName}) {
+      ${lowercasedModelName}DAO.remove(${lowercasedModelName});
+  }
+  
+  public void update(${modelName} ${lowercasedModelName}) {
+      ${lowercasedModelName}DAO.update(${lowercasedModelName});
+  }
+  
+  public List<${modelName}> listAll() {
+    return  ${lowercasedModelName}DAO.listAll();
+  }
+  
+  public PagedResult<${modelName}> listAll(Page page) {
+    return  ${lowercasedModelName}DAO.listAll(page);
+  }
+  
+  public List<${modelName}> filter(${modelName} ${lowercasedModelName}) {
+    return ${lowercasedModelName}DAO.filter(${lowercasedModelName});
+  }
+  
+  public PagedResult<${modelName}> filter(String name, Page page) {
+    ${modelName} ${lowercasedModelName}Filter = new ${modelName}();
+    //${lowercasedModelName}Filter.setName(name);
+    return ${lowercasedModelName}DAO.filter(${lowercasedModelName}Filter, page);  
+  }
+  
+  public ${modelName} find(${modelName} ${lowercasedModelName}) {
+    return ${lowercasedModelName}DAO.find(${lowercasedModelName});
+  }
+}
+

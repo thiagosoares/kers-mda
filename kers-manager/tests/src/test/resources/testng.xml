@@ -1,0 +1,76 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="seleniumTestDANe" thread-count="1">
+    <!-- test name="IEFunctionalTests">
+      <parameter name="browser" value="*iexplore"/>
+    </test-->
+    <test name="FireFoxFunctionalTestsDANe1">
+        <parameter name="browser" value="*firefox"/>
+        <classes>
+            <class name="br.com.capanema.kers.testng.AddUseCasesTest"/>
+            <class name="br.com.capanema.kers.testng.DeleteUseCasesTest"/>
+            <class name="br.com.capanema.kers.testng.DnDUseCasesTest"/>
+            <class name="br.com.capanema.kers.testng.EditUseCasesTest"/>
+            <class name="br.com.capanema.kers.testng.ImageResizerTest"/>
+            <class name="br.com.capanema.kers.testng.LoginTest"/>
+            <class name="br.com.capanema.kers.testng.OpenAreasUseCasesTest"/>
+            <class name="br.com.capanema.kers.testng.ScrollerUseCasesTest"/>
+            <class name="br.com.capanema.kers.testng.SearchTest"/>
+        </classes>
+    </test>
+</suite>
+
+        <!--suite thread-count="1" verbose="0" name="seleniumTestDANe" annotations="JDK">
+       <test name="FireFoxFunctionalTestsDANe1" junit="false">
+         <parameter name="browser" value="*firefox"/>
+         <classes>
+           <class name="br.com.capanema.kers.testng.AddUseCasesTest"/>
+           <class name="br.com.capanema.kers.testng.DeleteUseCasesTest"/>
+           <class name="br.com.capanema.kers.testng.DnDUseCasesTest"/>
+           <class name="br.com.capanema.kers.testng.EditUseCasesTest"/>
+           <class name="br.com.capanema.kers.testng.ImageResizerTest"/>
+           <class name="br.com.capanema.kers.testng.LoginTest"/>
+           <class name="br.com.capanema.kers.testng.OpenAreasUseCasesTest"/>
+           <class name="br.com.capanema.kers.testng.ScrollerUseCasesTest"/>
+           <class name="br.com.capanema.kers.testng.SearchTest"/>
+         </classes>
+       </test>
+     </suite>
+
+     <!- -DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+     <suite name="seleniumTestDANe">
+         <test name="IEFunctionalTests">
+             <parameter name="browser" value="*iexplore"/>
+           </test>
+         <test name="FireFoxFunctionalTestsDANe1">
+             <parameter name="browser" value="*firefox"/>
+             <packages>
+                 <package name="br.com.capanema.kers.testng" />
+                     <include name="AddUseCasesTest" />
+                     <include name="DeleteUseCasesTest" />
+                     <include name="EditUseCasesTest" />
+                     <include name="ImageResizerTest" />
+                     <include name="LoginTest" />
+                     <include name="OpenAreasUseCasesTest" />
+                     <include name="SearchTest" />
+                     <include name="ScrollerUseCasesTest" />
+                     <include name="DnDUseCasesTest" />
+                 </package>
+             </packages>
+         </test>
+         <test name="FireFoxFunctionalTestsDANe2">
+             <parameter name="browser" value="*firefox"/>
+             <classes>
+                 <class name="br.com.capanema.kers.testng.DnDUseCasesTest"/>
+             </classes>
+         </test>
+         <test name="FireFoxFunctionalTestsDANe3">
+             <parameter name="browser" value="*firefox"/>
+             <packages>
+                 <package name="br.com.capanema.kers.testng">
+                     <exclude name="SearchTest"></exclude>
+                     <exclude name="DnDUseCasesTest"></exclude>
+                     <exclude name="ScrollerUseCasesTest"></exclude>
+                 </package>
+             </packages>
+         </test>
+     </suite>   -->

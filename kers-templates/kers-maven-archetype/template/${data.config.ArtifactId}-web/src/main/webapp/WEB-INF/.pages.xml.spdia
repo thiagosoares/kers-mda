@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram model-entity="SeamPagesDiagram">
+ <item ID="#seguranca#login#login.xhtml"
+  NAME="#xseguranca#xlogin#xlogin.xhtml"
+  PATH="/seguranca/login/login.xhtml" SHAPE="408,17,0,0" TYPE="page" model-entity="SeamPagesDiagramItem">
+  <output ID="/seguranca/principal/principal.xhtml" NAME="output"
+   PATH="/seguranca/principal/principal.xhtml"
+   TARGET="#xseguranca#xprincipal#xprincipal.xhtml" model-entity="SeamPagesDiagramItemOutput"/>
+ </item>
+ <item ID="#seguranca#login#altera_senha.xhtml"
+  NAME="#xseguranca#xlogin#xaltera_senha.xhtml"
+  PATH="/seguranca/login/altera_senha.xhtml" SHAPE="24,17,0,0"
+  TYPE="page" model-entity="SeamPagesDiagramItem">
+  <output ID="/seguranca/login/login.xhtml" NAME="output"
+   PATH="/seguranca/login/login.xhtml"
+   TARGET="#xseguranca#xlogin#xlogin.xhtml" model-entity="SeamPagesDiagramItemOutput"/>
+ </item>
+ <item ID="*" NAME="*" PATH="*" SHAPE="24,121,0,0" TYPE="page" model-entity="SeamPagesDiagramItem">
+  <output ID="/seguranca/login/login.xhtml" NAME="output"
+   PATH="/seguranca/login/login.xhtml"
+   TARGET="#xseguranca#xlogin#xlogin.xhtml" model-entity="SeamPagesDiagramItemOutput"/>
+  <output ID="/seguranca/erro/nopage.xhtml" NAME="output1"
+   PATH="/seguranca/erro/nopage.xhtml"
+   TARGET="#xseguranca#xerro#xnopage.xhtml" model-entity="SeamPagesDiagramItemOutput"/>
+ </item>
+ <item ID="org.hibernate.exception.GenericJDBCException"
+  NAME="exception:org.hibernate.exception.GenericJDBCException"
+  PATH="org.hibernate.exception.GenericJDBCException" SHAPE="24,353,0,0"
+  TYPE="exception" model-entity="SeamPagesDiagramItem">
+  <output ID="/seguranca/erro/erro.xhtml" NAME="output"
+   PATH="/seguranca/erro/erro.xhtml"
+   TARGET="#xseguranca#xerro#xerro.xhtml" model-entity="SeamPagesDiagramItemOutput"/>
+ </item>
+ <item ID="org.jboss.seam.security.NotLoggedInException"
+  NAME="exception:org.jboss.seam.security.NotLoggedInException"
+  PATH="org.jboss.seam.security.NotLoggedInException" SHAPE="24,457,0,0"
+  TYPE="exception" model-entity="SeamPagesDiagramItem">
+  <output ID="/seguranca/erro/erro.xhtml" NAME="output"
+   PATH="/seguranca/erro/erro.xhtml"
+   TARGET="#xseguranca#xerro#xerro.xhtml" model-entity="SeamPagesDiagramItemOutput"/>
+ </item>
+ <item ID="org.jboss.seam.security.AuthorizationException"
+  NAME="exception:org.jboss.seam.security.AuthorizationException"
+  PATH="org.jboss.seam.security.AuthorizationException"
+  SHAPE="408,249,0,0" TYPE="exception" model-entity="SeamPagesDiagramItem">
+  <output ID="/seguranca/principal/principal.xhtml" NAME="output"
+   PATH="/seguranca/principal/principal.xhtml"
+   TARGET="#xseguranca#xprincipal#xprincipal.xhtml" model-entity="SeamPagesDiagramItemOutput"/>
+ </item>
+ <item ID="javax.faces.application.ViewExpiredException"
+  NAME="exception:javax.faces.application.ViewExpiredException"
+  PATH="javax.faces.application.ViewExpiredException" SHAPE="24,249,0,0"
+  TYPE="exception" model-entity="SeamPagesDiagramItem">
+  <output ID="/seguranca/login/login.xhtml" NAME="output"
+   PATH="/seguranca/login/login.xhtml"
+   TARGET="#xseguranca#xlogin#xlogin.xhtml" model-entity="SeamPagesDiagramItemOutput"/>
+ </item>
+ <item ID="java.lang.Exception" NAME="exception:java.lang.Exception"
+  PATH="java.lang.Exception" SHAPE="24,561,0,0" TYPE="exception" model-entity="SeamPagesDiagramItem">
+  <output ID="/seguranca/erro/erro.xhtml" NAME="output"
+   PATH="/seguranca/erro/erro.xhtml"
+   TARGET="#xseguranca#xerro#xerro.xhtml" model-entity="SeamPagesDiagramItemOutput"/>
+ </item>
+ <item NAME="#xseguranca#xprincipal#xprincipal.xhtml"
+  PATH="/seguranca/principal/principal.xhtml" SHAPE="760,17,0,0"
+  TYPE="page" model-entity="SeamPagesDiagramItem"/>
+ <item NAME="#xseguranca#xerro#xerro.xhtml"
+  PATH="/seguranca/erro/erro.xhtml" SHAPE="408,353,0,0" TYPE="page" model-entity="SeamPagesDiagramItem"/>
+ <item NAME="#xseguranca#xerro#xnopage.xhtml"
+  PATH="/seguranca/erro/nopage.xhtml" SHAPE="408,121,0,0" TYPE="page" model-entity="SeamPagesDiagramItem"/>
+</diagram>

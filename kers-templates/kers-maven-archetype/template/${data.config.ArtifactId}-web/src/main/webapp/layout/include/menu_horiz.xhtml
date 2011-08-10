@@ -1,0 +1,87 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UFT-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- Menu na horizontal -->
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:rich="http://richfaces.org/rich">
+
+<div id="menu1">
+    
+    <h:form>
+    
+    <div class="caminho_naveg" id="menu_h_1">
+    
+		<rich:toolBar itemSeparator="line" style="background: url(../images/bg_naveg.jpg) repeat-x; border: none;">
+		
+		<rich:toolBarGroup location="left">
+            <rich:dropDownMenu value="Sistema" 
+            				   direction="bottom-left" 
+            				   jointPoint="tr" 
+            				   horizontalOffset="105" 
+            				   verticalOffset="21">
+
+                <rich:menuItem submitMode="server" action="/seguranca/erro/unfinished_page.xhtml" rendered="false">
+	                <f:facet name="icon">
+	                    <h:graphicImage value="../../images/ico_pendencias_menu.png" width="20" height="20"/>
+	                </f:facet>
+	                <h:outputText value="Ver Pendências" />
+	            </rich:menuItem>
+
+                
+                <rich:menuGroup value="Ir Para...">
+                    <rich:menuItem submitMode="ajax"  onclick="document.location.href='http://www.prodepa.pa.gov.br/'">
+		                <f:facet name="icon">
+		                    <h:graphicImage value="../../images/logo_prodepa.jpg" width="20" height="20"/>
+		                </f:facet>
+		                <h:outputText value="Portal da Prodepa" />
+		            </rich:menuItem>
+		            
+                    <rich:menuItem submitMode="ajax"  onclick="document.location.href='http://www.portaldoservidor.pa.gov.br/'">
+		                <f:facet name="icon">
+		                    <h:graphicImage value="../../images/logo_governo.gif" width="20" height="20"/>
+		                </f:facet>
+		                <h:outputText value="Portal do Servidor" />
+		            </rich:menuItem>
+                </rich:menuGroup>
+
+                <rich:menuSeparator id="menuSeparator11"/>
+
+                <rich:menuItem  submitMode="ajax" value="Sair do Sistema"  action="#{autenticador.logout}"/>
+
+            </rich:dropDownMenu>
+			
+			<rich:dropDownMenu value="Usuário" 
+            				   direction="bottom-left" 
+            				   jointPoint="tr" 
+            				   horizontalOffset="98" 
+            				   verticalOffset="21">
+            				   
+          		<rich:menuItem action="/seguranca/login/altera_senha.xhtml" rendered="true" >
+          				<f:facet name="icon">
+		                    <h:graphicImage value="../../images/ico_trocar_senha_menu.png" width="20" height="20"/>
+		                </f:facet>
+		                <h:outputText value="Trocar Senha"/>
+          		</rich:menuItem>
+			
+            </rich:dropDownMenu>
+            
+        </rich:toolBarGroup>
+    </rich:toolBar>
+    </div>    
+    <div class="caminho_naveg" id="menu_h_2">
+    	<a href="javascript:tamFonte(2, 'cont1,cont2')"><h:graphicImage value="../../images/botao_size01.gif" alt="Tamanho normal" title="Tamanho normal" width="21" height="20" style="border:0px" /></a>
+		<a href="javascript:tamFonte(1, 'cont1,cont2')"><h:graphicImage value="../../images/botao_size02.gif" alt="Tamanho menor" title="Tamanho menor" width="21" height="20" style="border:0px" /></a> 
+		<a href="javascript:tamFonte(3, 'cont1,cont2')"><h:graphicImage value="../../images/botao_size03.gif" alt="Tamanho maior" title="Tamanho maior" width="21" height="20" style="border:0px" /></a>
+	</div> 
+  </h:form>  
+</div>
+</ui:composition>

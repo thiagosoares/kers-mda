@@ -1,0 +1,12 @@
+<configSpider>
+  <language>en</language>
+  <appName>iCalango-velocity</appName>
+  <mainPackage>org.j2eespider</mainPackage>
+  <modulesName>
+    <string>m1</string>
+    <string>m2</string>
+  </modulesName>
+  <dbPort>-1</dbPort>
+  <cruds/>
+  <databaseMapping/>
+</configSpider>

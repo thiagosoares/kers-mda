@@ -1,0 +1,16 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.configuration;
+
+public final class LocationsCDU {
+
+  public static final String CDU_GENERICO = "0001000100000";
+  public static final String CDU_APLICACAO = "0001000100000";
+  public static final String CDU_SEGURANCA = "0001000100000";
+
+  /** Estado **/
+  public static final String CDU_MANTER_ESTADO = "0001000100000";
+  public static final String CDU_MANTER_ESTADO_CADASTRO = "0001000100000";
+  public static final String CDU_MANTER_ESTADO_ALTERACAO = "0001000100000";
+  public static final String CDU_MANTER_ESTADO_EXCLUSAO = "0001000100000";
+
+}

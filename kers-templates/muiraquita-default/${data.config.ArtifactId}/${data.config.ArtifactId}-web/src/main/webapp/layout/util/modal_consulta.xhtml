@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<h:form id="clearConv">
+		<rich:modalPanel id="mp_default" height="240" width="470" zindex="2000"  overlapEmbedObjects="true">
+		
+			<f:facet name="header">
+				<ui:insert name="header"/>
+			</f:facet>
+		
+			<f:facet name="controls">
+				<ui:insert name="closeButton"/>			
+			</f:facet>
+			
+			<h:panelGrid id="consulta" columns="1" width="100%">
+	
+				<ui:insert name="body"/>
+				
+				<ui:insert name="button"/>
+	
+			</h:panelGrid>
+	
+		</rich:modalPanel>
+	</h:form>
+</ui:composition>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repository>
+	<name>muiraquita</name>
+	<!-- TODO
+	<web-repositorys>
+		<web-repository>http://kers.org/template/repository</web-repository>
+		<web-repository>ftp://kers.org/template/repository</web-repository>
+	</web-repositorys>
+	 -->
+	<sumaries>
+
+		<templateSumary>
+			<name>Muiraquita JEE</name>
+			<folder>muiraquita-default</folder>
+			<description>This template was created by Gleyve thiago.soares
+			</description>
+			<version>01012011</version>
+			<internalOnly>false</internalOnly>
+			<techGroup>JEE</techGroup>
+			<isDefault>true</isDefault>
+			<compatibilityDate>20091025111528</compatibilityDate>
+		</templateSumary>
+		
+		<templateSumary>
+			<name>Muiraquita JEE 2</name>
+			<folder>muiraquita-default2</folder>
+			<description>This template was created by thiago.soares
+			</description>
+			<version>01012011</version>
+			<internalOnly>false</internalOnly>
+			<techGroup>JEE</techGroup>
+			<isDefault>true</isDefault>
+			<compatibilityDate>20091025111528</compatibilityDate>
+		</templateSumary>
+		
+		<templateSumary>
+			<name>kers-maven-archetype</name>
+			<folder>kers-maven-archetype</folder>
+			<description>This template was created by thiago.soares
+			</description>
+			<version>01012011</version>
+			<internalOnly>false</internalOnly>
+			<techGroup>JEE</techGroup>
+			<isDefault>true</isDefault>
+			<compatibilityDate>20091025111528</compatibilityDate>
+		</templateSumary>
+		
+		<templateSumary>
+			<name>Muiraquita JEE Speed</name>
+			<folder>muiraquita-jee-speed</folder>
+			<description>This template was created by thiago.soares
+			</description>
+			<version>01012011</version>
+			<internalOnly>false</internalOnly>
+			<techGroup>JEE</techGroup>
+			<isDefault>false</isDefault>
+			<compatibilityDate>20091025111528</compatibilityDate>
+		</templateSumary>
+		<templateSumary>
+			<name>Muiraquita JEE titaniun</name>
+			<folder>muiraquita-jee-titaniun</folder>
+			<description>This template was created by thiago.soares
+			</description>
+			<version>01012011</version>
+			<internalOnly>false</internalOnly>
+			<techGroup>JEE</techGroup>
+			<isDefault>false</isDefault>
+			<compatibilityDate>20091025111528</compatibilityDate>
+		</templateSumary>
+
+	</sumaries>
+</repository>

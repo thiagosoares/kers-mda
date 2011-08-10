@@ -1,0 +1,67 @@
+/* ===== Body ===== */
+html, body{
+	background: #f2f2f2;
+	text-align: center;
+}
+
+html,* {
+	margin: 0;
+	padding: 0;
+}
+
+/* ======== Estrutura ======== */
+
+#login {
+	width: 100%;
+	height: 260px;
+	margin-top: 100px;
+}
+
+.login_mess {
+	/*width: 432px;*/
+	/*padding-top: 55px;*/
+	margin: 0 auto;
+}
+
+#login_box {
+	width: 432px;
+	height: 205px;
+	padding-top: 55px;
+	background: url(../images/bg_login.gif) no-repeat;
+	margin: 0 auto;
+}
+
+#login_desc {
+	width: 310px;
+	height: 30px;
+	margin-left: 70px;
+	clear: both;
+	text-align: left;
+}
+
+#campos { text-align: left;}
+
+#login_campo1 {
+	width: 220px;
+	margin-top: 22px;
+	margin-left: 40px;
+	text-align: right;
+	clear: both;
+}
+
+#login_campo2 {
+	width: 220px;
+	margin-top: 5px;
+	margin-left: 40px;
+	text-align: right;
+	clear: both;
+}
+
+#login_botao {
+	float:left;
+	width: 220px;
+	margin-top: 7px;
+	margin-left: 40px;
+
+	text-align: center;
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:a4j="http://richfaces.org/a4j" xmlns:rich="http://richfaces.org/rich" xmlns:s="http://jboss.com/products/seam/taglib">
+
+	<!-- Menu na vertical -->
+
+	<style>
+	.cols {
+	    width:90%;
+		vertical-align:top;
+		padding: 5px 0px 5px 0px;
+		border: 0;
+		font-family: Tahoma, Verdana, Arial;
+		font-size: 11px;
+	}
+	.painel {
+		border: 0px;
+	}
+	</style>
+
+	<h:form id="menu_vert">
+	<h:panelGrid columns="2" columnClasses="cols" width="100%">
+
+		<rich:panelMenu id="menu1" 
+						mode="ajax" 
+						event="onclick" 
+						expandSingle="true" 
+						iconExpandedGroup="disc" 
+						iconCollapsedGroup="disc" 
+						iconGroupTopPosition="left" 
+						iconExpandedTopGroup="chevronUp" 
+						iconCollapsedTopPosition="right" 
+						iconCollapsedTopGroup="chevronDown" 
+						iconGroupPosition="left"
+						width="170px" 
+						style="width: 98%;"	>
+
+			<rich:panelMenuGroup label="Tabelas gerenciais" iconCollapsed="../../images/bot_ver_dados.gif" iconExpanded="chevronDown" >
+
+				<rich:panelMenuItem label="Moeda" action="#{moedaAction.startConversation}" styleClass="box_sub_opcoes" icon="../../images/bot_ver_dados.gif" /> 
+
+                <rich:panelMenuItem focus="menu1" label="Contas do Ativo Patrimonial a Grupo/Classe" action="#{grupoAction.reenicio}" styleClass="box_sub_opcoes" icon="../../images/bot_ver_dados.gif" />
+
+                <rich:panelMenuItem label="Taxa de Depreciação de Bens Moveis" action="#{classeAction.startConversation}" styleClass="box_sub_opcoes" icon="../../images/bot_ver_dados.gif" />
+
+				<rich:panelMenuItem label="Motivo Baixa" action="#{motivoBaixaAction.reenicio}" styleClass="box_sub_opcoes" icon="../../images/bot_ver_dados.gif" rendered="false" />
+
+				<rich:panelMenuItem label="Doc. Doação Externa" action="#{tipoDocumentoDoacaoExternaAction.reenicio}" styleClass="box_sub_opcoes" icon="../../images/bot_ver_dados.gif" rendered="false"/>
+                
+			</rich:panelMenuGroup>
+
+		</rich:panelMenu>
+	
+	</h:panelGrid>
+	</h:form>
+
+</ui:composition>

@@ -1,0 +1,71 @@
+/* CSS Document */
+
+.caminho_naveg * {
+	font-family: Verdana, Tahoma, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #000000;
+}
+
+.caminho_naveg a {
+	color: #000000;
+	text-decoration: none;
+}
+
+.caminho_naveg a:hover {
+	color: #CC0000;
+	text-decoration: underline;
+}
+
+.caminho_naveg span a:hover {
+	color: #000;
+	text-decoration: none;
+	
+}
+
+.usuario {
+	font-family: Verdana, Tahoma, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #fff;
+}
+
+.usuario a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.usuario a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.botao {
+	font-family: Verdana, Tahoma, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000;
+	font-weight: bold;
+}
+
+.combo_sublinks {
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #333333;
+	background: #FFFFFF;
+	margin: 1px;
+	width: 130px;
+}
+
+.box_opcoes {
+	margin-right: 7px;
+}
+
+#grd_doc_abas1.aba_select,#grd_doc_abas2.aba_select {
+	font-weight: bold;
+	background: #D7E8CE;
+	color: #000000;
+	text-decoration: none;
+}
+
+#grd_doc_abas1.aba_select a:hover,#grd_doc_abas2.aba_select a:hover {
+	color: #CC0000;
+	text-decoration: underline;
+}

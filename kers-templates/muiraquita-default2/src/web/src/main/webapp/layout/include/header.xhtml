@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- Nome e logo do sistema -->
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:rich="http://richfaces.org/rich">
+	
+	<div id="topo">
+		<div id="logo">
+			<a href="/bookmarks/seguranca/principal/principal.seam" title="Página inicial">
+				<h:graphicImage value="../../images/logo_muiraquita_01.png" width="50" height="40" style="border: 0px; margin-top: 7px;"/>
+			</a>
+		</div>
+
+		<div class="caminho_naveg" id="usuario">
+			
+			<a4j:region id="pollRegiao" selfRendered="true" renderRegionOnly="true" >
+			    <strong>
+	              <h:outputText value="Olá #{sessionInformations.userName}" />
+	            </strong>
+	            | <s:link value=" sair" action="#{autenticador.logout}" style="COLOR: #FFFFFF;"/>
+			</a4j:region>
+            
+            <a4j:status onstart="Richfaces.showModalPanel('ajaxLoadingModalBox',{width:100, top:200})"  
+            			onstop="Richfaces.hideModalPanel('ajaxLoadingModalBox')" />
+            <rich:modalPanel id="ajaxLoadingModalBox" height="95" width="95" 
+            				 zindex="2000" style="text-align: center;" 
+            				 resizeable="false" headerClass="header_processando_panel">
+                    <h:outputText value="Processando..." style="width:100%; float:left;" />
+                	<h:graphicImage value="../../images/loadinfo_clock.gif" 
+                					border="0" height="50" width="50"  style="text-align: center;" />
+            </rich:modalPanel>
+            
+		</div>
+
+	</div>
+	
+</ui:composition>

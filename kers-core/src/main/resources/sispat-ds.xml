@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+   <xa-datasource>
+     <jndi-name>__projeto__DS</jndi-name>
+     <xa-datasource-class>org.postgresql.xa.PGXADataSource</xa-datasource-class>
+     <xa-datasource-property name="ServerName">localhost</xa-datasource-property>
+     <xa-datasource-property name="PortNumber">5432</xa-datasource-property>
+     <xa-datasource-property name="DatabaseName">banco</xa-datasource-property>
+     <xa-datasource-property name="User">usuario</xa-datasource-property>
+     <xa-datasource-property name="Password">senha</xa-datasource-property>
+     <track-connection-by-tx/>
+   </xa-datasource>
+</datasources>
+
+
+
+

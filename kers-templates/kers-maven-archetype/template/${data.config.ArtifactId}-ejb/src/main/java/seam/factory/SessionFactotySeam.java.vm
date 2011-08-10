@@ -1,0 +1,17 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.seam.factory;
+
+import org.jboss.seam.ScopeType;
+import org.jboss.seam.annotations.Name;
+import org.jboss.seam.annotations.Scope;
+
+import br.gov.pa.muiraquita.seam.AbstractSeam;
+
+@Name("sessionFactorySeam")
+@Scope(ScopeType.SESSION)
+public class SessionFactotySeam extends AbstractSeam {
+
+  /*
+   * Factorys de Enums
+   */
+}

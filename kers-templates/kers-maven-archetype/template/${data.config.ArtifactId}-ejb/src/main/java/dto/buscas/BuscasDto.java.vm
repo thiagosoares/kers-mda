@@ -1,0 +1,83 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.dto.buscas;
+
+import org.jboss.seam.ScopeType;
+import org.jboss.seam.annotations.Name;
+import org.jboss.seam.annotations.Scope;
+
+import ${package}.entity.Estado;
+
+
+
+import br.gov.pa.muiraquita.dto.AbstractDto;
+import br.gov.pa.muiraquita.persistence.sql.TipoConsulta;
+import br.gov.pa.muiraquita.types.TipoBoleano;
+
+@Name("buscasDto")
+@Scope(ScopeType.PAGE)
+public class BuscasDto extends AbstractDto {
+
+  private static final long serialVersionUID = 1L;
+
+  private Integer id;
+  
+  private String descricao;
+  private TipoConsulta tipoConsultaDescricao;
+  
+  private String sigla;
+  private TipoConsulta tipoConsultaSigla;
+  
+  private TipoBoleano ativo;
+  
+  public BuscasDto() {
+    super();
+  }
+  
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public String getDescricao() {
+    return descricao;
+  }
+
+  public void setDescricao(String descricao) {
+    this.descricao = descricao;
+  }
+
+  public TipoConsulta getTipoConsultaDescricao() {
+    return tipoConsultaDescricao;
+  }
+
+  public void setTipoConsultaDescricao(TipoConsulta tipoConsultaDescricao) {
+    this.tipoConsultaDescricao = tipoConsultaDescricao;
+  }
+
+  public TipoBoleano getAtivo() {
+    return ativo;
+  }
+
+  public void setAtivo(TipoBoleano ativo) {
+    this.ativo = ativo;
+  }
+
+  public String getSigla() {
+    return sigla;
+  }
+
+  public void setSigla(String sigla) {
+    this.sigla = sigla;
+  }
+
+  public TipoConsulta getTipoConsultaSigla() {
+    return tipoConsultaSigla;
+  }
+
+  public void setTipoConsultaSigla(TipoConsulta tipoConsultaSigla) {
+    this.tipoConsultaSigla = tipoConsultaSigla;
+  }
+}

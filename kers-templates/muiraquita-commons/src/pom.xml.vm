@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<modelVersion>4.0.0</modelVersion>
+  
+  <!-- Parent -->
+  <parent>
+    <groupId>br.gov.pa</groupId>
+    <artifactId>projetobase</artifactId>
+    <version>1.8</version>
+  </parent>
+
+  <!-- Entrada base -->
+  <groupId>${data.config.groupId}</groupId>
+  <artifactId>${data.config.artifactId}</artifactId>
+  <version>${data.config.version}</version>
+  <packaging>pom</packaging>
+
+  <!-- Modulos -->
+  <modules>
+    <module>${data.config.artifactId}-ejb/</module>
+    <module>${data.config.artifactId}-web/</module>
+    <module>${data.config.artifactId}-ear/</module>
+  </modules>
+
+  <!-- Informacoes de Projeto -->
+  <name>${data.config.name}</name>
+  <description>
+	${data.config.description}
+  </description>
+  
+  <url>http://www.prodepa.pa.gov.br/muiraquita</url>
+  <inceptionYear>2011</inceptionYear>
+  <developers>
+    <developer>
+      <id>thiago</id>
+      <name>Thiago Fernandes Soares</name>
+      <email>thiago.soares@prodepa.pa.gov.br</email>
+      <organization>PRoDEPA</organization>
+      <timezone>-3</timezone>
+      <roles>
+      	<role>Architect</role>
+      	<role>Analyst</role>
+        <role>Developer</role>
+      </roles>
+    </developer>
+  </developers>
+
+  <!-- Configura��es de ambiente -->
+  <issueManagement>
+    <system>Bugzilla</system>
+    <url>http://www.prodepa.pa.gov.br/${data.config.groupId}/${data.config.artifactId}</url>
+  </issueManagement>
+  <scm>
+    <developerConnection>scm:svn:http://cachorrinho.unfuddle.com/${data.config.groupId}/${data.config.artifactId}/codigo_fonte/trunk</developerConnection>
+    <connection>scm:svn:http://cachorrinho.unfuddle.com/${data.config.groupId}/${data.config.artifactId}/codigo_fonte/trunk</connection>
+    <url>scm:svn:http://cachorrinho.unfuddle.com/${data.config.groupId}/${data.config.artifactId}/codigo_fonte/trunk</url>
+  </scm>
+  <distributionManagement>
+    <site>
+      <id>cachorrinho.MuiraquitaRh</id>
+      <name>WebSite do projeto</name>
+      <url>scp:http://cachorrinho.unfuddle.com/${data.config.groupId}/${data.config.artifactId}</url>
+    </site>
+  </distributionManagement>
+
+</project>

@@ -1,0 +1,84 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.facade;
+
+import java.util.List;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+
+import ${package}.dto.EstadoDto;
+import ${package}.dto.application.AlterarSenhaDto;
+import ${package}.dto.application.LoggedUserDto;
+import ${package}.dto.buscas.BuscasDto;
+import ${package}.service.EstadoServicoLocal;
+import ${package}.service.seguranca.AutenticacaoServicoLocal;
+
+
+
+import br.gov.pa.muiraquita.exception.BusinessException;
+import br.gov.pa.muiraquita.exception.SystemException;
+import br.gov.pa.muiraquita.exception.security.InvalidPassportException;
+import br.gov.pa.muiraquita.facade.AbstractFacade;
+
+@Stateless
+public class PrototypeFacadeBean extends AbstractFacade implements PrototypeFacadeLocal, PrototypeFacadeRemote {
+
+  @EJB
+  private AutenticacaoServicoLocal autenticacaoServicoLocal;
+
+  @EJB
+  private EstadoServicoLocal estadoServico;
+
+  /**
+   * 
+   * =========== Rotinas ===========
+   * 
+   */
+
+  /*
+   * Rotinas de Login
+   */
+
+  public LoggedUserDto login(String user, String password) throws BusinessException {
+    return autenticacaoServicoLocal.login(user, password);
+  }
+
+  public void logout(String passaport) {
+    autenticacaoServicoLocal.logout(passaport);
+  }
+
+  public void alterarSenha(AlterarSenhaDto alterarSenhaDto) throws BusinessException {
+     autenticacaoServicoLocal.alterarSenha(alterarSenhaDto);
+  }
+
+
+  /*
+   * Rotinas de Estado
+   */
+  
+  public EstadoDto cadastrarEstado(EstadoDto estadoDto) throws SystemException, BusinessException, InvalidPassportException {
+    return estadoServico.cadastrar(estadoDto);
+  }
+
+  public EstadoDto alterarEstado(EstadoDto estadoDto) throws SystemException, BusinessException, InvalidPassportException {
+    return estadoServico.alterar(estadoDto);
+  }
+
+  public List<EstadoDto> buscarEstados(BuscasDto buscasDto) throws SystemException, BusinessException, InvalidPassportException {
+    return estadoServico.buscar(buscasDto);
+  }
+
+  public void excluirEstado(EstadoDto estadoDto) throws SystemException, BusinessException, InvalidPassportException {
+    estadoServico.excluir(estadoDto);
+  }
+
+
+  /*
+   * Tests
+   */
+  
+  public String select() {
+    return "OK!!!!!!!!!!!!!!";
+  }
+
+}

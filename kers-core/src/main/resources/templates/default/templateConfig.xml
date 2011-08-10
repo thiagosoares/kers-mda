@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templateConfig>
+  <name>iCalango</name>
+  <nomeSistema>iCalango</nomeSistema>
+  <nomeFachada>calango</nomeFachada>
+  <localDestinoProjeto>E:\Desenvolvimento\TMP_TEST\icalango</localDestinoProjeto>
+  <localSourceXmi>E:\Desenvolvimento\TMP_TEST\icalango\icalango.xml</localSourceXmi>
+  <packageRoot>br.calango</packageRoot>
+  <diagramaIteracao>domain</diagramaIteracao>
+  <schemaAplicacao>calango</schemaAplicacao>
+  <archetype>MAVEN_JAVA_WEB_SEAM_2_0</archetype>
+  <tipoFonteProjeto>XMI</tipoFonteProjeto>
+  <tipoArquitetura>MUIRAQUITA_FULL</tipoArquitetura>
+  <tipoFormularioWeb>PRODEPA_PATTERN</tipoFormularioWeb>
+  <somenteEntidades>false</somenteEntidades>
+</templateConfig>

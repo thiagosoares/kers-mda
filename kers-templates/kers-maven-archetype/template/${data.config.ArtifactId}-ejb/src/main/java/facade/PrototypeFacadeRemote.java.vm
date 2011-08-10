@@ -1,0 +1,11 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.facade;
+
+import javax.ejb.Remote;
+
+@Remote
+public interface PrototypeFacadeRemote {
+
+  public String select();
+
+}

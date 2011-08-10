@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Parent -->
+	<parent>
+		<groupId>${data.config.groupId}</groupId>
+		<artifactId>${data.config.artifactId}</artifactId>
+		<version>${data.config.version}</version>
+	</parent>
+
+	<!-- Entrada base -->
+	<artifactId>${data.config.artifactId}-ear</artifactId>
+	<packaging>ear</packaging>
+	
+	<name>${data.config.name} :: Enterprise Archive</name>
+	<description>describe me</description>
+
+	<!-- Dependecia -->
+	<dependencies>
+		<dependency>
+			<groupId>${data.config.groupId}</groupId>
+			<artifactId>${data.config.artifactId}-ejb</artifactId>
+			<version>${data.config.version}</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>${data.config.groupId}</groupId>
+			<artifactId>${data.config.artifactId}-web</artifactId>
+			<version>${data.config.version}</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.seam</groupId>
+			<artifactId>jboss-seam</artifactId>
+			<version>2.1.2</version>
+			<type>ejb</type>
+			<exclusions>
+				<exclusion>
+					<artifactId>javassist</artifactId>
+					<groupId>javassist</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>dom4j</artifactId>
+					<groupId>dom4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>el-api</artifactId>
+					<groupId>javax.el</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${data.config.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.zeroturnaround</groupId>
+				<artifactId>javarebel-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-rebel-xml</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<displayName>${data.config.artifactId}</displayName>
+					<description>O sistema foi desenvolvido em plataforma WEB ......</description>
+					<encoding>ISO-8859-1</encoding>
+					<version>1.4</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<jboss>
+						<version>4</version>
+					</jboss>
+					<modules>
+						<ejbModule>
+							<groupId>org.jboss.seam</groupId>
+							<artifactId>jboss-seam</artifactId>
+						</ejbModule>
+						<ejbModule>
+							<groupId>${data.config.groupId}</groupId>
+							<artifactId>${data.config.artifactId}-ejb</artifactId>
+						</ejbModule>
+						<!-- controleAcesso 
+						<ejbClientModule>
+							<groupId>br.gov.pa.muiraquita</groupId>
+							<artifactId>controleacesso-ejb</artifactId>
+						</ejbClientModule>
+						-->
+						<webModule>
+							<groupId>${data.config.groupId}</groupId>
+							<artifactId>${data.config.artifactId}-web</artifactId>
+							<contextRoot>/${data.config.artifactId}</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+	
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jboss-maven-plugin</artifactId>
+				<version>1.3.1</version>
+				<configuration>
+					<jbossHome>/opt/as/jboss</jbossHome>
+					<serverName>homologacao</serverName>
+				</configuration>
+				<executions>
+					<execution>
+						<id>jboss-deploy</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>harddeploy</goal>
+						</goals>
+						<configuration>
+							<fileName>${basedir}/target/${data.config.artifactId}.ear</fileName>
+						</configuration>
+					</execution>
+					<execution>
+						<id>jboss-undeploy</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>undeploy</goal>
+						</goals>
+						<configuration>
+							<fileName>${basedir}/target/${data.config.artifactId}.ear</fileName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+	
+		</plugins>
+	</build>
+	
+	<!-- 
+	<scm>
+		<connection>scm:svn:http://fenix.prodepa.gov.br/private/MuiraquitaRh/codigo_fonte/trunk/MuiraquitaRh-ear</connection>
+		<developerConnection>scm:svn:http://fenix.prodepa.gov.br/private/MuiraquitaRh/codigo_fonte/trunk/MuiraquitaRh-ear</developerConnection>
+	</scm>
+ 	-->
+	
+	
+</project>

@@ -1,0 +1,40 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UFT-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+Panel utilizado para paineis com quatro regioes de form/lista e mais uma de botoes como rodape.
+-->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+
+	<script src="../../js/jquerymaskMoney.js" language="javascript" type="text/javascript"></script>
+
+	<rich:panel bodyClass="grd_cadastro" headerClass="grd_desc" columns="5" columnClasses="cl10, cl30, cl10, cl10, cl30">  
+		<f:facet name="header">
+			<ui:insert name="headerForm"/>
+		</f:facet>
+  		<ui:insert name="area_2"/>
+	</rich:panel>
+	
+	<rich:panel bodyClass="grd_cadastro" headerClass="grd_desc">
+  		<ui:insert name="area_3"/>
+	</rich:panel>
+
+	<br />
+	
+	<rich:panel bodyClass="grd_cadastro" headerClass="grd_desc" columns="4" columnClasses="cl10, cl30">
+  		<ui:insert name="area_4"/>
+	</rich:panel>
+	
+	<rich:panel bodyClass="grd_cadastro" headerClass="grd_desc">
+  		<ui:insert name="area_5"/>
+	</rich:panel>
+	
+</ui:composition>

@@ -1,0 +1,64 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.dto.application;
+
+import java.util.List;
+
+import org.jboss.seam.ScopeType;
+import org.jboss.seam.annotations.Name;
+import org.jboss.seam.annotations.Scope;
+
+import br.gov.pa.muiraquita.converter.annotations.PropertyMap;
+import br.gov.pa.muiraquita.dto.AbstractDto;
+
+@Name("alterarSenhaDto")
+@Scope(ScopeType.CONVERSATION)
+public class AlterarSenhaDto extends AbstractDto {
+
+  private static final long serialVersionUID = 1L;
+
+  private String login;
+  private String senha;
+  private String novaSenha;
+  private String confirmacaoSenha;
+
+  public AlterarSenhaDto() {
+    super();
+  }
+
+  public AlterarSenhaDto(String login) {
+    super();
+    this.login = login;
+  }
+
+  public String getLogin() {
+    return login;
+  }
+
+  public void setLogin(String login) {
+    this.login = login;
+  }
+
+  public String getSenha() {
+    return senha;
+  }
+
+  public void setSenha(String senha) {
+    this.senha = senha;
+  }
+
+  public String getNovaSenha() {
+    return novaSenha;
+  }
+
+  public void setNovaSenha(String novaSenha) {
+    this.novaSenha = novaSenha;
+  }
+
+  public String getConfirmacaoSenha() {
+    return confirmacaoSenha;
+  }
+
+  public void setConfirmacaoSenha(String confirmacaoSenha) {
+    this.confirmacaoSenha = confirmacaoSenha;
+  }
+}

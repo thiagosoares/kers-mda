@@ -1,0 +1,48 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.facade;
+
+import java.util.List;
+
+import javax.ejb.Local;
+
+import ${package}.dto.EstadoDto;
+import ${package}.dto.application.AlterarSenhaDto;
+import ${package}.dto.application.LoggedUserDto;
+import ${package}.dto.buscas.BuscasDto;
+
+
+
+import br.gov.pa.muiraquita.exception.BusinessException;
+import br.gov.pa.muiraquita.exception.SystemException;
+import br.gov.pa.muiraquita.exception.security.InvalidPassportException;
+
+@Local
+public interface PrototypeFacadeLocal {
+
+  /*
+   * Assinaturas de Seguranca
+   */
+  public LoggedUserDto login(String user, String password) throws BusinessException;
+
+  public void logout(String passaport);
+
+  public void alterarSenha(AlterarSenhaDto alterarSenhaDto) throws BusinessException;
+
+
+  /*
+   * Assinaturas de Estado
+   */
+  public EstadoDto cadastrarEstado(EstadoDto estadoDto) throws SystemException, BusinessException, InvalidPassportException;
+
+  public EstadoDto alterarEstado(EstadoDto estadoDto) throws SystemException, BusinessException, InvalidPassportException;
+
+  public List<EstadoDto> buscarEstados(BuscasDto buscasDto) throws SystemException, BusinessException, InvalidPassportException;
+
+  public void excluirEstado(EstadoDto estadoDto) throws SystemException, BusinessException, InvalidPassportException;
+
+  /*
+   *  Testes
+   */
+  public String select();
+  
+}

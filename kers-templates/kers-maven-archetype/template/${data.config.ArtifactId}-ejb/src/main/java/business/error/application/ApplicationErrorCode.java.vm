@@ -1,0 +1,47 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.business.error.application;
+ 
+import ${package}.configuration.LocationsCDU;
+
+import br.gov.pa.muiraquita.exception.retorno.retenum.ErrorCode;
+
+ 
+public enum ApplicationErrorCode implements ErrorCode {
+ 
+  UNCHECKED_FAIL(0, "Erro não checado"),
+  FATAL_UNCHECKED_FAIL(0, "Erro fatal não checado"),
+ 	CONFIGURATION_READ_FAIL(1, "Não foi possí­vel configurar a aplicação."),
+ 	SEARCH_TYPE_NULL(1, "O tipo de consulta está nulo."),
+ 	LOOKUP_FAIL(2, "Falha de comunicação com um serviço remoto"),
+ 	
+ 	//Report
+ 	NO_DATA(0, "Não há dados para a geração do relatório"),
+  REPORT_FILE_NOT_FOUNF(1, "O relatório requisitado não foi encontrado."),
+  
+  //Searchs
+  PARAMETROS_EMPTY(4, "Informe parâmetros de pesquisa."),
+  PARAMETROS_INVALID(5, "Informe somente parâmetros de pesquisa válidos."),
+  PARAM_INVALID_STATE(5, "Os parâmetroes estam em um estado inválido"),
+  SYSTEM_INVALID_STATE(5, "O sistema está em um estado inválido");
+ 	
+  private String errorMensage; 
+	private int codigo;  
+ 
+ 	private ApplicationErrorCode(int codigo, String errorMensage) {
+ 		this.codigo = codigo; 
+ 		this.errorMensage = errorMensage; 
+ 	} 
+ 
+	public String getErrorMessage() { 
+ 		return errorMensage; 
+ 	} 
+	
+  public int getCode() { 
+ 		return codigo; 
+ 	} 
+ 
+	public String locateCode() { 
+ 		return LocationsCDU.CDU_APLICACAO; 
+ 	}
+ 
+}

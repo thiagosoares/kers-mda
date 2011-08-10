@@ -1,0 +1,20 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.seam.factory;
+
+import javax.persistence.EntityManager;
+
+import org.jboss.seam.ScopeType;
+import org.jboss.seam.annotations.In;
+import org.jboss.seam.annotations.Name;
+import org.jboss.seam.annotations.Scope;
+
+import ${package}.dto.application.SessionInformationsDto;
+
+import br.gov.pa.muiraquita.seam.AbstractSeam;
+
+@Name("conversationFactory")
+@Scope(ScopeType.CONVERSATION)
+public class ConversationFactorySeam extends AbstractSeam {
+
+  
+}

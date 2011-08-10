@@ -1,0 +1,27 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UFT-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml" 
+ 	 xmlns:ui="http://java.sun.com/jsf/facelets" 
+ 	 xmlns:h="http://java.sun.com/jsf/html" 
+	 xmlns:f="http://java.sun.com/jsf/core" 
+	 xmlns:rich="http://richfaces.org/rich"  
+	 template="../../layout/t_default_1.xhtml">
+	  
+	<ui:define name="titulo">Estado</ui:define> 
+	<ui:define name="caminho">Estado - Buscas</ui:define> 
+	<ui:define name="pesquisa"> 
+		<h:form id="estado_form_pesq"> 
+			<ui:include src="include/estado_search.xhtml" /> 
+		</h:form> 
+	</ui:define> 
+	<ui:define name="conteudo1"> 
+		<h:form id="estado_form_list"> 
+			<ui:include src="include/estado_list.xhtml" /> 
+			<ui:include src="include/estado_delete.xhtml" /> 
+			<ui:include src="include/estado_view.xhtml" /> 
+		</h:form> 
+	</ui:define>
+</ui:composition> 

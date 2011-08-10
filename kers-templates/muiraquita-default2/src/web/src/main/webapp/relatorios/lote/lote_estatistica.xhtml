@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+ 	 xmlns:ui="http://java.sun.com/jsf/facelets" 
+ 	 xmlns:h="http://java.sun.com/jsf/html" 
+	 xmlns:f="http://java.sun.com/jsf/core" 
+	 xmlns:s="http://jboss.com/products/seam/taglib"
+	 xmlns:a4j="http://richfaces.org/a4j" 
+	 xmlns:rich="http://richfaces.org/rich" 
+	 template="../../layout/t_default_1.xhtml"> 
+	
+	<ui:define name="titulo">Lote</ui:define> 
+	<ui:define name="caminho">Relatórios</ui:define> 
+	<ui:define name="caminho">Estatistícas de Lotes</ui:define>
+	
+	<ui:define name="conteudo1"> 
+		<h:form id="loteForm"> 
+		
+		<fieldset>
+		<legend>Intervalo de Lotes</legend>
+		
+		<h:panelGrid columns="4" columnClasses="cl12Label, cl80_view" width="100%" >
+			<h:outputText value="Início" />
+			<h:panelGrid columns="3" columnClasses="cl20, cl20_sub, cl35_sub" width="100%" >
+				<h:inputText id="numeroInicial" value="#{loteDto.numeroLoteInicial}"  
+							 size="10" maxlength="10" styleClass="compon_cadastro_sub">
+					<rich:jQuery selector="#numeroInicial" query="keyfilter(/[0-9]/i);" timing="onload"/>
+				</h:inputText>
+				
+				<h:outputText value="Final" />
+				<h:inputText id="numeroFinal" value="#{loteDto.numeroLoteFinal}" size="10" maxlength="10" styleClass="compon_cadastro" >
+					<rich:jQuery selector="#numeroFinal" query="keyfilter(/[0-9]/i);" timing="onload"/>
+				</h:inputText>  
+			</h:panelGrid>
+		</h:panelGrid>
+		
+		</fieldset>
+			<br/>
+			<h:panelGrid columns="2" style="width:100%"> 
+				<h:panelGrid columns="2">
+					<h:commandButton value="Imprimir" styleClass="botao" action="#{loteAction.imprimirRelatorioEstatistica}" />
+				</h:panelGrid>
+			</h:panelGrid>
+			
+		</h:form>  
+			 
+	</ui:define> 
+</ui:composition> 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:rich="http://richfaces.org/rich"> 
+
+	<div class="linha_horizontal" />
+
+	<div id="barra_naveg">
+		
+		<div id="caminho_naveg" style="font-weight: bold; width:60%">
+			<strong>Estou em</strong>:
+			<span>
+				<s:link action="/seguranca/principal/principal.seam"> <h:graphicImage value="../../images/ico_inicio.gif" style="border:0" /> </s:link>
+				<h:outputText value=">"/> 
+				<ui:insert name="caminho"/>
+			</span>
+		</div>
+
+		<div id="barra_acess">
+		<!--
+			<a href="javascript:tamFonte(2, 'cont1,cont2')">
+				<img src="../images/botao_size01.gif" alt="Tamanho normal" title="Tamanho normal" width="21" height="20" border="0" />
+			</a>
+			<a href="javascript:tamFonte(1, 'cont1,cont2')">
+				<img src="../images/botao_size02.gif" alt="Tamanho menor" title="Tamanho menor" width="21" height="20" border="0" />
+			</a>
+			<a href="javascript:tamFonte(3, 'cont1,cont2')">
+				<img src="../images/botao_size03.gif" alt="Tamanho maior" title="Tamanho maior" width="21" height="20" border="0" />
+			</a>
+		-->
+		</div>
+	</div>
+	<div class="linha_horizontal" ></div>
+</ui:composition>

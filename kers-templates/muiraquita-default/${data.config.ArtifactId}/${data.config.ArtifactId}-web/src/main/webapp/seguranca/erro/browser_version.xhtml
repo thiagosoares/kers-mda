@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich" 
+	template="/layout/t_default_1.xhtml">
+	
+	<ui:define name="titulo">InterPass</ui:define>
+	<ui:define name="topo">
+		<rich:panel>
+			<f:facet name="header">InterPass - Browser Version</f:facet>
+		</rich:panel>
+	</ui:define>
+	<ui:define name="conteudo1">
+		<br/>
+		<br/>
+	    <div id="apres">
+			<div id="apres_texto">
+			  <p style="font-weight: bold; font-family: Verdana, Tahoma, Helvetica, sans-serif;color: #FF0000; background-color: #fdfcdc; border: 1px solid #ffcc00; padding:5px 8px; margin-right:16px; text-align: center;">
+			  	Atenção: Seu navegador está desatualizado
+			  </p>
+			  <br />
+			  <br />
+
+			  <br />
+			  
+			  <p>
+			  	O sistema de patrimônio foi contruído segundo os mais atuais recursos da web 2.0. 
+			  	Por esse motivo exige que o seu navegador esteja atualizado. 
+			  </p>
+			  <p>
+			  	Sugerimos que seja utilizado o Firefox 3.6 ou superior. Ele pode ser obtido utilizando o botão abaixo. 
+			  </p>
+
+  			  <br />
+  			  <br />
+  			  
+			  <a href="http://br.mozdev.org/" target="_blank">
+			  	<img src="http://sfx-images.mozilla.org/firefox/3.6/200x32_all_green.png" alt="Firefox" width="200" height="32" style="border-style:none;" title="Mozilla Firefox" />
+			  </a>
+				
+			  
+			</div>
+						
+		</div>
+		<div id="apres_cap">
+			<strong>PRODEPA</strong><br />
+			CAP - Central de Atendimento ao Cliente	<br />
+		    (91) 3344-5222 - 
+		    <a href="mailto:cap@prodepa.gov.br" target="_blank">cap@prodepa.gov.br</a>
+		</div>
+	</ui:define>
+</ui:composition>

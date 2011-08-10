@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity>
+  <classDeclaration>public class ${classe} extends AbstractEntity </classDeclaration>
+  <idAnnotations>
+    <string>@table</string>
+    <string>@id</string>
+  </idAnnotations>
+  <!-- 
+  <classAnnotations>
+    <string>@table</string>
+    <string>@id</string>
+  </classAnnotations>
+   -->
+</entity>

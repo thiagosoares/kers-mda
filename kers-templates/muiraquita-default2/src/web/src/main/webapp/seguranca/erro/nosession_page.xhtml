@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich" 
+	template="../../layout/t_default_1.xhtml">
+	
+	<ui:define name="titulo">InterPass</ui:define>
+	<ui:define name="caminho">InterPass</ui:define>
+	<ui:define name="topo">
+		<rich:panel>
+			<f:facet name="header">InterPass</f:facet>
+		</rich:panel>
+	</ui:define>
+	<ui:define name="conteudo1">
+		<style type="text/css">
+				.erro {
+					text-align: center;
+					font-family: Verdana, Tahoma, Helvetica, sans-serif;
+					font-size: 19px;
+					color: #FF0000;
+				}
+				
+				.fatal {
+					text-align: center;
+					font-family: Verdana, Tahoma, Helvetica, sans-serif;
+					font-weight: bold;
+					font-size: 19px;
+					color: #FF0000;
+				}
+				
+				.warn {
+					text-align: center;
+					font-family: Verdana, Tahoma, Helvetica, sans-serif;
+					font-size: 19px;
+					color: #B8860B;
+				}
+				
+				.info {
+					text-align: center;
+					font-family: Verdana, Tahoma, Helvetica, sans-serif;
+					font-size: 19px;
+					color: #000080;
+				}
+				
+				.rich-messages-marker img {
+					padding-right: 1px;
+				}
+			</style>
+		
+		<div id="sucesso_box">
+			
+
+			<!-- Mensagens de erro -->
+			<rich:messages layout="table" tooltip="true" showDetail="true" showSummary="false"
+				passedLabel="Erro!" errorClass="erro"
+				fatalClass="fatal" warnClass="warn" infoClass="info" var="messages"
+				ajaxRendered="true">
+
+				<f:facet name="header">
+					<h:outputText value="Mensagens:" />
+				</f:facet>
+	
+				<f:facet name="passedMarker">
+					<h:graphicImage value="../images/passed.gif" />
+				</f:facet>
+	
+				<f:facet name="errorMarker">
+					<h:graphicImage value="../images/error.gif" />
+				</f:facet>
+	
+				<f:facet name="infoMarker">
+					<h:graphicImage value="../images/info.gif" />
+				</f:facet>
+	
+				<f:facet name="warnMarker">
+					<h:graphicImage value="../images/warn.gif" />
+				</f:facet>
+	
+				<f:facet name="fatalMarker">
+					<h:graphicImage value="../images/fatal.gif" />
+				</f:facet>
+			</rich:messages>
+
+		</div>
+
+		<div id="sucesso_bt">
+						
+			<a href="../../seguranca/principal/principal.seam" id="link1">
+				<h:graphicImage value="../../images/btn_pagina_principal.gif" style="border:0px;" rendered="#{identity.username != null}"/>
+			</a>
+		</div>
+
+	</ui:define>
+</ui:composition>

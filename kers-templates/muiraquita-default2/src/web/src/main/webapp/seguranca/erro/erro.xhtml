@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich" 
+	template="../../layout/t_default_1.xhtml">
+	
+	<ui:define name="titulo">InterPass</ui:define>
+	<ui:define name="caminho">InterPass - Falha de sistema</ui:define>
+	<ui:define name="topo">
+		<rich:panel>
+			<f:facet name="header">InterPass - Falha de sistema</f:facet>
+		</rich:panel>
+	</ui:define>
+	<ui:define name="conteudo1">
+		<br/>
+		<br/>
+	    <div id="apres">
+			<div id="apres_texto">
+			  <strong>InterPass </strong>
+			  <br />
+			  <br />
+			  <p>Isso é realmente constrangedor. Mas ocorreu uma falha durante o processo que não 
+			  		pode ser contornada. Está falha foi registrada e logo estaremos trabalhando 
+			  		para corrigí-la. Contudo você pode contribuir conosco informando a CAP sobre 
+			  		como a falha foi encontrada.
+			  </p>
+			</div>			
+		</div>
+		<div id="apres_cap">
+			<strong>PRODEPA</strong><br />
+			CAP - Central de Atendimento ao Cliente	<br />
+		    (91) 3344-5222 - 
+		    <a href="mailto:cap@prodepa.gov.br" target="_blank">cap@prodepa.gov.br</a>
+		</div>
+	</ui:define>
+</ui:composition>

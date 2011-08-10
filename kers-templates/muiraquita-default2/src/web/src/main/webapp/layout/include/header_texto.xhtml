@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- Alteracao do tamanho do texto -->
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+	
+	<div id="barra_naveg">
+		<div class="caminho_naveg" id="caminho_naveg">
+			<strong>Estou em</strong>: 
+			<a href="/interpass/seguranca/principal/principal.seam" title="Página inicial">Principal </a>  
+			<span>
+				<a href="#"><ui:insert name="caminho"/></a>
+			</span>
+		</div>
+		<div id="barra_acess">
+			<a href="javascript:tamFonte(2, 'cont1,cont2')"><h:graphicImage value="../../images/botao_size01.gif" alt="Tamanho normal" title="Tamanho normal" width="21" height="20" border="0" /></a>
+			<a href="javascript:tamFonte(1, 'cont1,cont2')"><h:graphicImage value="../../images/botao_size02.gif" alt="Tamanho menor" title="Tamanho menor" width="21" height="20" border="0" /></a> 
+			<a href="javascript:tamFonte(3, 'cont1,cont2')"><h:graphicImage value="../../images/botao_size03.gif" alt="Tamanho maior" title="Tamanho maior" width="21" height="20" border="0" /></a>
+		</div>
+	</div>	
+	
+</ui:composition>

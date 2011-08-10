@@ -1,0 +1,51 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.util.messages;
+
+import java.util.List;
+
+public class SeamMessagesUtil {
+
+  public static String getMessageForReturnList(List<?> lista) {
+    return getMessageForReturnList(lista, null);
+  }
+  
+  public static String getMessageForReturnList(List<?> lista, Integer limite) {
+    
+    if(lista == null) {
+      return "A busca não retornou resultados.";
+    } else {
+      if(lista.size() == 0) {
+        return "A busca não retornou resultados.";
+      } 
+      if(limite != null) {
+        if(lista.size() > limite){ //Limite padrao
+          return "Alguns resultados não foram exibidos. Para obtê-los, use filtros mais especí­ficos.";
+        } else {
+          if(lista.size() == 1) {
+            return "A pesquisa retornou 1 registro.";
+          } else {
+            return "A pesquisa retornou " +lista.size()+ " registros.";
+          }
+        }
+      } else {
+        if(lista.size() > 99){ //Limite padrao
+          return "Alguns resultados não foram exibidos. Para obtê-los, use filtros mais especí­ficos.";
+        } else {
+          if(lista.size() == 1) {
+            return "A pesquisa retornou 1 registro.";
+          } else {
+            return "A pesquisa retornou " +lista.size()+ " registros.";
+          }
+        }
+      }
+    }
+  }
+  
+  public static String getMessageForReturn(int count) {
+    if(count == 0) {
+      return "A busca não retornou resultados.";
+    }  else {
+      return "A pesquisa retornou " + count + " registros.";
+    }
+  }
+}

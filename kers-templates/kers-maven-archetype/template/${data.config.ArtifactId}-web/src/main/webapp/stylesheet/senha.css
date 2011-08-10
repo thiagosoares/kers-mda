@@ -1,0 +1,98 @@
+/* ===== Body ===== */
+html, body{
+	background: #E9F9FF;
+	text-align: center;
+}
+
+html,* {
+	margin: 0;
+	padding: 0;
+}
+
+/* ======== Estrutura ======== */
+
+#login {
+	width: 100%;
+	height: 260px;
+	margin-top: 100px;
+}
+
+#login_box {
+	width: 430px;
+	height: 205px;
+	padding-top: 55px;
+	background: url(../images/bg_login_ca.gif) no-repeat;
+	margin: 0 auto;
+}
+
+#login_desc {
+	width: 340px;
+	height: 30px;
+	margin-left: 70px;
+	clear: both;
+	text-align: left;
+}
+
+#campos { 
+	text-align: left;
+	width: 370px;
+	margin: 15px 0 0 30px;
+}
+
+.login_label {
+	width: 105px;
+	margin-top: 5px;
+	margin-left: 5px;
+	text-align: left;
+	float: left;
+}
+
+.login_campo {
+	width: 170px;
+	margin-top: 5px;
+	margin-left: 5px;
+	text-align: left;
+	float: left;
+}
+
+#login_campo1 {
+	width: 340px;
+	margin-top: 22px;
+	margin-left: 40px;
+	text-align: left;
+	clear: both;
+	
+}
+
+#login_campo2 {
+
+	width: 340px;
+	margin-top: 0px;
+	margin-left: 40px;
+	text-align: right;
+	clear: both;
+}
+
+#login_campo3 {
+	width: 340px;
+	margin-top: 5px;
+	margin-left: 40px;
+	text-align: right;
+	clear: both;
+}
+
+#login_campo4 {
+	width: 340px;
+	margin-top: 5px;
+	margin-left: 40px;
+	text-align: right;
+	clear: both;
+}
+
+#login_botao {
+	width: 220px;
+	margin-top: 7px;
+	margin-left: 48px;
+	text-align: center;
+	float: left;
+}

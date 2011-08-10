@@ -1,0 +1,224 @@
+package ${data.config.mainPackage}.${data.crud.moduleName}.${data.bundle.get('package.mvc.view')};
+#set ($varCrudName = $stringUtils.unCapitalizeFirstLetter(${data.crud.name}))
+#set ($typeCrudName = ${data.crud.name})
+
+#set ($varClassName = $stringUtils.unCapitalizeFirstLetter(${data.crud.crudClass.name}))
+#set ($typeClassName = ${data.crud.crudClass.name})
+
+import java.util.List;
+import java.util.ResourceBundle;
+
+import ${data.crud.crudClass.fullName};
+import ${data.config.mainPackage}.${data.bundle.get('package.base')}.${data.bundle.get('package.mvc.model')}.exceptions.${stringUtils.normalizeClassName(${data.config.name})}Exception;
+import ${data.config.mainPackage}.${data.bundle.get('package.base')}.${data.bundle.get('package.mvc.view')}.${data.bundle.get('package.mvc.view.util')}.FormState;
+import ${data.config.mainPackage}.${data.bundle.get('package.base')}.${data.bundle.get('package.mvc.view')}.${data.bundle.get('package.mvc.view.util')}.IBean;
+import ${data.config.mainPackage}.${data.crud.moduleName}.${data.bundle.get('package.mvc.business')}.${typeCrudName}Business;
+
+/**
+ *
+ * @author ${data.bundle.get('generator.name')}
+ */
+public class ${typeCrudName}Bean extends FormState implements IBean {
+
+	private ${typeClassName} ${varClassName};
+	private ${typeCrudName}Business ${varCrudName}Business;
+	private List<${typeClassName}> ${varCrudName}Lista;
+#foreach( $field in $data.crud.crudClass.fieldsInOrder )
+#set ($varFieldName = $stringUtils.capitalizeFirstLetter(${field.name}))
+#if(($field.getHtmlType().getType() == "html.type.combo") && ($field.getClassDataType() != "char") && ($field.getClassDataType() != "java.lang.Character"))
+	private List<javax.faces.model.SelectItem> combo${varFieldName};
+#end
+#end
+	ResourceBundle rb = ResourceBundle.getBundle("i18n.${data.config.appName}_pt");
+
+	public ${typeCrudName}Bean() {
+
+		if (this.${varClassName} == null) {
+			this.${varClassName} = new ${typeClassName}();
+		}
+	}
+
+	/** [In�cio] Getters and Setters **/
+	public ${typeClassName} get${typeClassName}() {
+		return ${varClassName};
+	}
+
+	public void set${typeClassName}(${typeClassName} ${varClassName}) {
+		this.${varClassName} = ${varClassName};
+	}
+
+	public ${typeCrudName}Business get${typeCrudName}Business() {
+		return ${varCrudName}Business;
+	}
+
+	public void set${typeCrudName}Business(${typeCrudName}Business ${varCrudName}Business) {
+		this.${varCrudName}Business = ${varCrudName}Business;
+	}
+
+	public List<${typeClassName}> get${typeCrudName}Lista() {
+		return ${varCrudName}Lista;
+	}
+
+	public void set${typeCrudName}Lista(List<${typeClassName}> ${varCrudName}Lista) {
+		this.${varCrudName}Lista = ${varCrudName}Lista;
+	}
+
+	/** [Fim] Getters and Setters **/
+
+	@Override
+	public String ${data.bundle.get('crud.method.buttonAdd')}() {
+		setCurrentState(STATE_ADD);
+		this.${data.bundle.get('crud.method.clearForm')}();
+		return null;
+	}
+	
+	@Override
+	public String ${data.bundle.get('crud.method.buttonSearch')}() {
+		setCurrentState(STATE_SEARCH);
+		this.${data.bundle.get('crud.method.clearForm')}();
+		return null;
+	}
+
+	public String ${data.bundle.get('crud.method.search')}() {
+
+		try {
+
+			this.${varCrudName}Lista = ${varCrudName}Business.${data.bundle.get('crud.method.search')}(${varClassName});
+
+			if(${varCrudName}Lista.isEmpty()){
+				MsgUtil.addWarnMessage(rb.getString("label.warn.searchNoResults"));
+				setCurrentState(STATE_SEARCH);
+			}else{
+				setCurrentState(STATE_SEARCH_RESULT);	
+			}
+
+		} catch (${stringUtils.normalizeClassName(${data.config.name})}Exception e) {
+			MsgUtil.addMessage(e);
+		}
+
+		return null;
+	}
+
+	public String ${data.bundle.get('crud.method.delete')}() {
+
+		try {
+
+			this.${varCrudName}Business.${data.bundle.get('crud.method.delete')}(${varClassName});
+			this.${data.bundle.get('crud.method.updateList')}${typeCrudName}();
+			MsgUtil.addGlobalMessage(rb.getString("label.global.deleteOk"));
+
+		} catch (${stringUtils.normalizeClassName(${data.config.name})}Exception e) {
+			MsgUtil.addMessage(e);
+		}
+
+		this.clearForm(); //to search for all items
+		
+		return search();
+	}
+
+	public String ${data.bundle.get('crud.method.save')}() {
+
+		try {
+
+#foreach( $field in $data.crud.crudClass.fieldsInOrder )
+#set ($varFieldName = $stringUtils.capitalizeFirstLetter(${field.name}))
+#if($field.getName() == "usuarioFk")
+			javax.faces.context.FacesContext context = javax.faces.context.FacesContext.getCurrentInstance();
+			UsuarioBean usuarioBean = UsuarioBean.getUsuarioBean(context);
+			this.${varClassName}.setUsuarioFk(usuarioBean.getUsuarioVO().getIdUsuarioBanco());
+#end
+#end
+			this.${varCrudName}Business.${data.bundle.get('crud.method.save')}(${varClassName});
+			MsgUtil.addGlobalMessage(rb.getString("label.global.saveOk"));
+		} 
+		catch (${stringUtils.normalizeClassName(${data.config.name})}Exception e) {
+			MsgUtil.addErrorMessage(rb.getString("label.error.saveError"));
+		}
+
+		this.clearForm(); //to search for all items
+		
+		return search();
+	}
+
+	public void ${data.bundle.get('crud.method.clearForm')}() {
+		this.${varClassName} = new ${typeClassName}();
+	}
+
+	public String ${data.bundle.get('crud.method.updateList')}${typeCrudName}() {
+
+		try {
+
+			this.${varCrudName}Lista = ${varCrudName}Business.${data.bundle.get('crud.method.search')}(${varClassName});
+			setCurrentState(STATE_SEARCH);
+
+		} catch (${stringUtils.normalizeClassName(${data.config.name})}Exception e) {
+			setCurrentState(STATE_SEARCH);
+			MsgUtil.addMessage(e);
+		}
+
+		return null;
+	}
+
+#foreach( $field in $data.crud.crudClass.fieldsInOrder )
+#set ($varFieldName = $stringUtils.capitalizeFirstLetter(${field.name}))
+#if(($field.getHtmlType().getType() == "html.type.combo") && (($field.getClassDataType() != "char") && ($field.getClassDataType() != "java.lang.Character")))
+
+	public List<javax.faces.model.SelectItem> getCombo${varFieldName}() {
+		if(combo${varFieldName} == null){
+			combo${varFieldName} = ${varCrudName}Business.popularCombo${varFieldName}();
+		}
+		return combo${varFieldName};
+	}
+
+	public void setCombo${varFieldName}(List<javax.faces.model.SelectItem> combo${varFieldName}) {
+		this.combo${varFieldName} = combo${varFieldName};
+	}
+#elseif(($field.getHtmlType().getType() == "html.type.combo") && (($field.getClassDataType() == "char") || ($field.getClassDataType() == "java.lang.Character")))
+
+	private static List<javax.faces.model.SelectItem> combo${varFieldName};
+
+	static {
+		combo${varFieldName} = new java.util.ArrayList<javax.faces.model.SelectItem>(3);
+		combo${varFieldName}.add(new javax.faces.model.SelectItem("L", "Laguna"));
+		combo${varFieldName}.add(new javax.faces.model.SelectItem("B", "BlueSky"));
+	}
+
+	public List<javax.faces.model.SelectItem> getCombo${varFieldName}() {
+		return combo${varFieldName};
+	}
+
+	public void setCombo${varFieldName}(List<javax.faces.model.SelectItem> combo${varFieldName}) {
+		this.combo${varFieldName} = combo${varFieldName};
+	}
+#elseif(($field.getHtmlType().getType() == "html.type.radio") && (($field.getClassDataType() != "char") && ($field.getClassDataType() != "java.lang.Character")))
+	public List<javax.faces.model.SelectItem> getradio${varFieldName}() {
+		if(radio${varFieldName} == null){
+			radio${varFieldName} = ${varCrudName}Business.popularRadio${varFieldName}();
+		}
+		return radio${varFieldName};
+	}
+
+	public void setRadio${varFieldName}(List<javax.faces.model.SelectItem> radio${varFieldName}) {
+		this.radio${varFieldName} = radio${varFieldName};
+	}
+#elseif(($field.getHtmlType().getType() == "html.type.radio") && (($field.getClassDataType() == "char") || ($field.getClassDataType() == "java.lang.Character")))
+
+	private static List<javax.faces.model.SelectItem> radio${varFieldName};
+
+	static {
+		radio${varFieldName} = new java.util.ArrayList<javax.faces.model.SelectItem>(3);
+		radio${varFieldName}.add(new javax.faces.model.SelectItem("A", "Laguna"));
+		radio${varFieldName}.add(new javax.faces.model.SelectItem("B", "BlueSky"));
+	}
+
+	public List<javax.faces.model.SelectItem> getRadio${varFieldName}() {
+		return radio${varFieldName};
+	}
+
+	public void setRadio${varFieldName}(List<javax.faces.model.SelectItem> radio${varFieldName}) {
+		this.radio${varFieldName} = radio${varFieldName};
+	}
+#end
+#end
+
+}

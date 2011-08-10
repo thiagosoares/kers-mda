@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:s="http://jboss.com/products/seam/taglib" 
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="../../layout/t_login.xhtml">
+	<ui:define name="titulo">Login</ui:define>
+		<ui:define name="login">
+			<h:form id="interpassloginForm">
+
+			<rich:messages 
+			        layout="table" 
+			        tooltip="true" 
+			        showDetail="true" 
+			        showSummary="false" 
+			        passedLabel="Transação efetuada com sucesso!" 
+			        errorClass="erro" 
+			        fatalClass="fatal" 
+			        warnClass="warn" 
+			        infoClass="info" 
+			        var="messages"
+			        style="margin: 0 auto;"
+			        ajaxRendered="true">
+
+				      <f:facet name="header">
+				        <h:outputText value="Mensagens:" />
+				      </f:facet>
+				
+				      <f:facet name="passedMarker">
+				        <h:graphicImage value="../../images/passed.gif" />
+				      </f:facet>
+				
+				      <f:facet name="errorMarker">
+				        <h:graphicImage value="../../images/error.gif" />
+				      </f:facet>
+				
+				      <f:facet name="infoMarker">
+				        <h:graphicImage value="../../images/info.gif" />
+				      </f:facet>
+				
+				      <f:facet name="warnMarker">
+				        <h:graphicImage value="../../images/warn.gif" />
+				      </f:facet>
+				
+				      <f:facet name="fatalMarker">
+				        <h:graphicImage value="../../images/fatal.gif" />
+				      </f:facet>
+
+    		</rich:messages>
+			<div id="login_box" style="display: none" >
+				<div id="login_desc">
+					<strong>Bookmark</strong> 
+					<br />
+					Informe o usuário e a senha
+				</div>
+				<div id="campos">
+					<div id="login_campo1">
+						<strong>Usuário</strong>: 
+						<h:inputText value="#{identity.username}" class="txt_conteudo" id="user" size="20" maxlength="30" required="true" requiredMessage="Informe o usuário." />
+					</div>
+
+					<div id="login_campo2">
+						<strong>Senha</strong>: 
+						<h:inputSecret redisplay="false" value="#{identity.password}" class="txt_conteudo" id="senha" size="20" maxlength="30" required="true" requiredMessage="Informe a senha." />
+					</div>
+
+					<div id="login_botao">
+						<h:commandButton value="Entrar" action="#{identity.login}" style="ft2" />
+					</div>
+
+				</div>
+			</div>
+	</h:form>
+
+	</ui:define>
+</ui:composition>
+
+</ui:composition>

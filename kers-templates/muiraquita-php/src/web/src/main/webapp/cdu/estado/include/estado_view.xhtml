@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+ 	 xmlns:ui="http://java.sun.com/jsf/facelets" 
+ 	 xmlns:h="http://java.sun.com/jsf/html" 
+	 xmlns:f="http://java.sun.com/jsf/core" 
+	 xmlns:s="http://jboss.com/products/seam/taglib" 
+	 xmlns:a4j="http://richfaces.org/a4j" 
+	 xmlns:rich="http://richfaces.org/rich" 
+	 > 
+	
+	<rich:modalPanel id="mp_consulta" headerClass="headerConsulta" height="140" width="470" zindex="2000" > 
+		<f:facet name="header"> 
+			 <h:outputText value=" ExcluirEstado "/> 
+		</f:facet> 
+		<f:facet name="controls"> 
+			<a4j:commandLink action="#{estadoAction.backToSearch}" oncomplete="Richfaces.hideModalPanel('mp_consulta')" >
+				<h:graphicImage value="../../images/ico_fecharjanela.gif" style="cursor:pointer" />
+			</a4j:commandLink> 
+		</f:facet>
+	<h:panelGrid id="consulta" columns="2" columnClasses="cl30_consulta, cl70_consulta" > 
+
+		<h:outputText value=" Id:" style="componente_label_view" /> 
+		<h:outputText value="#{estadoDto.id}" style="componente_label_view" /> 
+		
+		<h:outputText value=" Descricao:" style="componente_label_view" /> 
+		<h:outputText value="#{estadoDto.descricao}" style="componente_label_view" /> 
+		
+		<h:outputText value=" Sigla:" style="componente_label_view" /> 
+		<h:outputText value="#{estadoDto.sigla}" style="componente_label_view" /> 
+				</h:panelGrid>
+	</rich:modalPanel> 
+ </ui:composition> 
+ 

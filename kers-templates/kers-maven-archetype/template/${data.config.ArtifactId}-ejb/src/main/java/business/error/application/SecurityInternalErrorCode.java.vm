@@ -1,0 +1,55 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.business.error.application;
+
+import ${package}.configuration.LocationsCDU;
+
+import br.gov.pa.muiraquita.exception.retorno.retenum.ErrorCode;
+
+public enum SecurityInternalErrorCode implements ErrorCode {
+ 
+  GENERAL_SECURITY_FAIL(1, "Validação de segurança."),
+  NO_HAS_PERMISION(5, "Usuário sem permissão para executar a ação."),
+  PASSAPORT_INVALID(9, "O passaporte não foi informado"),
+  PASSAPORT_NOT_INFORMED(9, "O passaporte não foi informado"),
+  PASSAPORT_NOT_INFORMED_AUTORIZATION(10, "O passaporte não foi informado para a autorização"),
+  SCENERY_NOT_INFORMED_AUTORIZATION(11, "O cenário não foi informado para a autorização"),
+
+  CREDENTIALS_NOT_INFORMED(30, "As credenciais não foram informadas"),
+  CREDENTIALS_INVALID(27, "As credeniais não foram informadas corretamente"),
+  
+  USER_NOT_FOUND(20, "O usuário não foi localizado"),
+  
+  PASSWORD_NULL(13, "Informe a senha atual."),
+  NEW_PASSWORD_NULL(14, "Informe a nova senha."),
+  CHECK_PASSWORD_NULL(15, "Informe a senha de confirmação."),
+  NEW_PASSW_EQUALS_CURRENT_PASSW(16, "A nova senha deve ser diferente da atual."),
+  PASSWS_NOT_EQUALS(17, "As senhas não conferem."),
+  
+  LOGIN_NULL(18, "O login do usuário não foi encontrado"),
+  
+  FAIL_LOGIN(26, "Falha no login"),
+  FAIL_LOGOUT(26, "Falha no logout"),
+  USER_NULL(28, "O usuário não foi identificado para a validação"),
+  ;
+  
+  private String errorMensage;
+  private int codigo;
+
+  private SecurityInternalErrorCode(int codigo, String errorMensage) {
+    this.errorMensage = errorMensage;
+    this.codigo = codigo;
+  }
+
+  public String getErrorMessage() { 
+    return errorMensage; 
+  } 
+  
+  public int getCode() { 
+    return codigo; 
+  } 
+ 
+  public String locateCode() { 
+    return LocationsCDU.CDU_SEGURANCA;
+  }
+
+}

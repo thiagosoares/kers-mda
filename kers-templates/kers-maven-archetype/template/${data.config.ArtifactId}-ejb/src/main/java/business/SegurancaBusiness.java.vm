@@ -1,0 +1,68 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.business;
+
+import static ${package}.business.error.application.SecurityInternalErrorCode.CHECK_PASSWORD_NULL;
+import static ${package}.business.error.application.SecurityInternalErrorCode.NEW_PASSWORD_NULL;
+import static ${package}.business.error.application.SecurityInternalErrorCode.NEW_PASSW_EQUALS_CURRENT_PASSW;
+import static ${package}.business.error.application.SecurityInternalErrorCode.PASSWORD_NULL;
+import static ${package}.business.error.application.SecurityInternalErrorCode.PASSWS_NOT_EQUALS;
+import static ${package}.business.error.application.SecurityInternalErrorCode.USER_NOT_FOUND;
+
+import org.apache.commons.lang.StringUtils;
+
+import ${package}.dto.application.AlterarSenhaDto;
+import ${package}.dto.application.LoggedUserDto;
+import br.gov.pa.muiraquita.business.AbstractBusiness;
+import br.gov.pa.muiraquita.exception.BusinessException;
+import br.gov.pa.muiraquita.exception.InternalException;
+import br.gov.pa.muiraquita.exception.SystemException;
+
+public class SegurancaBusiness extends AbstractBusiness {
+
+  private LoggedUserDto loggedUserDto;
+  private AlterarSenhaDto alterarSenhaDto;
+
+  public SegurancaBusiness(LoggedUserDto usuarioDto) {
+    this.loggedUserDto = usuarioDto;
+  }
+
+  public void validarLogin() throws BusinessException, SystemException, InternalException {
+    verificarLoggedUser();
+    handler.throwBusinessErrors();
+  }
+
+  public void validarAlteracaoSenha() throws BusinessException, SystemException, InternalException {
+    verificarCamposAlterarSenha();
+    handler.throwBusinessErrors();
+  }
+
+  /******** Verificacoes *********/
+
+  private void verificarLoggedUser() throws BusinessException, SystemException {
+    if (loggedUserDto == null) {
+      handler.SECURITY_ERROR(USER_NOT_FOUND);
+    }
+  }
+
+  private void verificarCamposAlterarSenha() {
+    if (StringUtils.isEmpty(this.alterarSenhaDto.getSenha())) {
+      handler.SECURITY_ERROR(PASSWORD_NULL);
+    }
+    if (StringUtils.isEmpty(this.alterarSenhaDto.getNovaSenha())) {
+      handler.SECURITY_ERROR(NEW_PASSWORD_NULL);
+    }
+    if (!StringUtils.isEmpty(this.alterarSenhaDto.getNovaSenha()) && !StringUtils.isEmpty(this.alterarSenhaDto.getSenha())) {
+      if (this.alterarSenhaDto.getNovaSenha().equals(this.alterarSenhaDto.getSenha())) {
+        handler.SECURITY_ERROR(NEW_PASSW_EQUALS_CURRENT_PASSW);
+      }
+    }
+    if (StringUtils.isEmpty(this.alterarSenhaDto.getConfirmacaoSenha())) {
+      handler.SECURITY_ERROR(CHECK_PASSWORD_NULL);
+    }
+    if (!StringUtils.isEmpty(this.alterarSenhaDto.getNovaSenha()) && !StringUtils.isEmpty(this.alterarSenhaDto.getConfirmacaoSenha())) {
+      if (!this.alterarSenhaDto.getNovaSenha().equals(this.alterarSenhaDto.getConfirmacaoSenha())) {
+        handler.SECURITY_ERROR(PASSWS_NOT_EQUALS);
+      }
+    }
+  }
+}

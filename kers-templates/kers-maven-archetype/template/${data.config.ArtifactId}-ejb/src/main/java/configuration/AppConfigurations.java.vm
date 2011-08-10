@@ -1,0 +1,120 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.configuration;
+
+import java.io.IOException;
+
+import ${package}.business.error.application.ApplicationErrorCode;
+
+
+
+import br.gov.pa.muiraquita.configuration.client.ServerConfiguration;
+import br.gov.pa.muiraquita.exception.SystemException;
+import br.gov.pa.muiraquita.exception.ThrowMachine;
+
+public final class AppConfigurations {
+
+  private static AppConfigurations instance;
+
+  /** Configuracoes **/
+  public static final String unidadePersistencia = "${data.config.artifactId}";
+  
+  private boolean debugMensagens;
+
+  /** Versoes de browsers **/
+  private Double firefox_minimal_version_suported;
+  private Double ie_minimal_version_suported;
+  private Double opera_minimal_version_suported;
+  private Double chrome_minimal_version_suported;
+  private Double safari_minimal_version_suported;
+
+  private AppConfigurations() {
+    
+  }
+  
+  public static AppConfigurations getInstance() {
+    if (instance == null) {
+      try {
+        getNewAppConfigurations();
+      } catch (Throwable e) {
+        throw ThrowMachine.throwInternalError(ApplicationErrorCode.CONFIGURATION_READ_FAIL, "", e);
+      }
+    }
+    return instance;
+  }
+
+  private static void getNewAppConfigurations() throws IOException, SystemException {
+    ServerConfiguration client = new ServerConfiguration("homologa-apl02", "rh");
+
+    instance = new AppConfigurations();
+
+    String debugMensagens = client.getStringValue("DEBUG_MENSAGENS");
+    if (debugMensagens != null) {
+      instance.debugMensagens = debugMensagens.equals("true") ? true : false;
+    } else {
+      instance.debugMensagens = false;
+    }
+
+    instance.firefox_minimal_version_suported = new Double(client.getStringValue("FIREFOX_MINIMAL_VERSION_SUPORTED"));
+    instance.ie_minimal_version_suported = new Double(client.getStringValue("IE_MINIMAL_VERSION_SUPORTED"));
+    instance.opera_minimal_version_suported = new Double(client.getStringValue("OPERA_MINIMAL_VERSION_SUPORTED"));
+    instance.chrome_minimal_version_suported = new Double(client.getStringValue("CHROME_MINIMAL_VERSION_SUPORTED"));
+    instance.safari_minimal_version_suported = new Double(client.getStringValue("SAFARI_MINIMAL_VERSION_SUPORTED"));
+  }
+
+  public Double getFirefox_minimal_version_suported() {
+    return firefox_minimal_version_suported;
+  }
+
+  public void setFirefox_minimal_version_suported(Double firefox_minimal_version_suported) {
+    this.firefox_minimal_version_suported = firefox_minimal_version_suported;
+  }
+
+  public Double getIe_minimal_version_suported() {
+    return ie_minimal_version_suported;
+  }
+
+  public void setIe_minimal_version_suported(Double ie_minimal_version_suported) {
+    this.ie_minimal_version_suported = ie_minimal_version_suported;
+  }
+
+  public Double getOpera_minimal_version_suported() {
+    return opera_minimal_version_suported;
+  }
+
+  public void setOpera_minimal_version_suported(Double opera_minimal_version_suported) {
+    this.opera_minimal_version_suported = opera_minimal_version_suported;
+  }
+
+  public Double getChrome_minimal_version_suported() {
+    return chrome_minimal_version_suported;
+  }
+
+  public void setChrome_minimal_version_suported(Double chrome_minimal_version_suported) {
+    this.chrome_minimal_version_suported = chrome_minimal_version_suported;
+  }
+
+  public Double getSafari_minimal_version_suported() {
+    return safari_minimal_version_suported;
+  }
+
+  public void setSafari_minimal_version_suported(Double safari_minimal_version_suported) {
+    this.safari_minimal_version_suported = safari_minimal_version_suported;
+  }
+
+  public boolean isDebugMensagens() {
+    return debugMensagens;
+  }
+
+  public void setDebugMensagens(boolean debugMensagens) {
+    this.debugMensagens = debugMensagens;
+  }
+
+  public String getUnidadePersistencia() {
+    return unidadePersistencia;
+  }
+
+  public static String getUnidadepersistencia() {
+    return unidadePersistencia;
+  }
+
+}

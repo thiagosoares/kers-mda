@@ -1,0 +1,48 @@
+#set ($package = ${data.config.mainPackage})
+#set ($modelName = ${data.crud.name})
+#set ($lowercasedModelName = $stringUtils.unCapitalizeFirstLetter($modelName))
+#set ($uppercasedModelName = $modelName.toUpperCase())
+package ${package}.dto;
+
+import org.jboss.seam.ScopeType;
+import org.jboss.seam.annotations.Name;
+import org.jboss.seam.annotations.Scope;
+
+import ${package}.entity.Estado;
+
+
+
+import br.gov.pa.muiraquita.converter.annotations.DtoMapping;
+import br.gov.pa.muiraquita.dto.AbstractDto;
+
+@Name("${modelName}Dto")
+@Scope(ScopeType.CONVERSATION)
+@DtoMapping(entityClass = ${modelName}.class)
+public class ${modelName}Dto extends AbstractDto {
+
+  private static final long serialVersionUID = 1L;
+
+#foreach( $field in $data.crud.crudClass.fieldsInOrder )
+  #set ($attrName = ${field.name})
+    private ${field.dataType} ${field.name};
+#end
+  
+  public ${modelName}Dto() {
+    super();
+  }
+
+  
+#foreach( $field in $data.crud.crudClass.fieldsInOrder )
+ #set ($attrName = ${field.name})
+ # String attrType = it.split(/:/)[1]; # FALTA O ATTRTYPE
+
+    public ${attrType} get${attrName} ${it.toUpperCase()}() {
+      return ${attrName};
+    }
+
+    public void set${attrName} ${attrName.toUpperCase()}(${attrType} ${attrName}) {
+      this.${attrName} = ${attrName};
+    }
+#end
+  
+}

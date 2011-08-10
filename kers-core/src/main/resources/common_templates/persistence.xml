@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
+
+  <persistence-unit name="ramal">
+    <jta-data-source>java:/RamalDS</jta-data-source>
+    <mapping-file>META-INF/ramal-orm.xml</mapping-file>
+    <!-- Propriedades -->
+    <properties>
+      <!-- Hibernate General Configurations -->
+      <property name="hibernate.hbm2ddl.auto" value="none" />
+      <property name="hibernate.dialect" value="br.gov.prodepa.hibernate.dialect.PostgreSQLDialect" />
+      <!-- Hibernate Cache -->
+      <property name="hibernate.cache.use_query_cache" value="true" />
+      <!-- Jboss Configurations -->
+      <property name="jboss.entity.manager.factory.jndi.name" value="java:/EntityManagerFactories/ramalFactory" />
+      <property name="jboss.entity.manager.jndi.name" value="java:/EntityManagers/ramal" />
+    </properties>
+  </persistence-unit>
+
+</persistence>

@@ -1,0 +1,55 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UFT-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich">
+	
+<style type="text/css">
+.div_body_exclusao_modal {
+	width: 96%;
+	height: #{(modal_height == null ? 150 : modal_height) - 95}px;
+	padding: 3px 5px;
+	background: #DCF0FC;
+}
+
+.div_botoes_exclusao_modal {
+	text-align: center;
+	vertical-align: bottom;
+	margin-top: 5px;	
+}
+</style>
+	
+	<rich:modalPanel id="mpexcluir" 
+					 width="#{modal_width == null ? 450 : modal_width}" 
+					 height="#{modal_height == null ? 150 : modal_height}" 
+					 resizeable="true" zindex="2000" >
+					 
+		<f:facet name="header">
+			<h:outputText value="#{modal_header}"/>
+		</f:facet>
+	
+		<f:facet name="controls">
+			<h:graphicImage value="../../images/ico_fecharjanela.gif" style="cursor:pointer" onclick="Richfaces.hideModalPanel('mpexcluir')" />
+		</f:facet>
+		<fieldset>
+			<legend><h:outputText value="#{modal_title}" style="font-weight: bold;" /></legend>
+			<div class="div_body_exclusao_modal" >
+				<h:panelGrid id="exclusao" columns="2" columnClasses="cl20_consulta, cl80_consulta" >
+					<ui:insert name="modal_body" />	
+				</h:panelGrid>
+			</div>										
+		</fieldset>
+		<div class="div_botoes_exclusao_modal">	
+			<ui:insert name="modal_actions" />
+		</div>
+	</rich:modalPanel>
+
+</ui:composition>

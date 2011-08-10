@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template_config>
+
+	<name>Muiraquita JEE</name>
+	<description>This template was created by Gleyve Barros. It generates
+		JEE code using JSF and Facelets. Create your templates too!</description>
+	<version>01012011</version>	
+	<techGroup>JEE</techGroup>
+	<rootFolder>${data.config.ArtifactId}</rootFolder>
+
+	<compatibilityDate>20091025111528</compatibilityDate>
+
+
+
+</template_config>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+ 	 xmlns:ui="http://java.sun.com/jsf/facelets" 
+ 	 xmlns:h="http://java.sun.com/jsf/html" 
+	 xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:s="http://jboss.com/products/seam/taglib" 
+	 xmlns:a4j="http://richfaces.org/a4j" 
+	 xmlns:rich="http://richfaces.org/rich" 
+	template="/layout/util/panel_2.xhtml"> 
+	
+	<ui:define name="body"> 
+		<h:panelGrid columns="5" styleClass="grd_consult_campo"> 
+			<h:outputText value="Nome: " /> 
+			<h:inputText value="#{estadoDto.descricao}" styleClass="compon_cadastro" /> 
+			 
+		</h:panelGrid> 
+ 	</ui:define> 
+ 
+ 	<ui:define name="pesquisar"> 
+		<a4j:commandButton action="#{estadoAction.buscar}" type="submit" reRender="resultados" value="Pesquisar" styleClass="botao" /> 
+ 		<h:outputText value=" - " /> 
+ 		<s:link action="#{estadoAction.formConversation}" view="/rh/estado/estado_form.xhtml" title="Novo Estado"> 
+ 			<h:graphicImage value="../../images/btn_novo.gif" style="vertical-align: middle;" /> 
+ 		</s:link> 
+ 	</ui:define> 
+ </ui:composition> 
+ 

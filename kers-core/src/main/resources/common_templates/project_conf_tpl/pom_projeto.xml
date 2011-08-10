@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <!-- Parent -->
+  <parent>
+    <groupId>br.gov.pa</groupId>
+    <artifactId>projetobase</artifactId>
+    <version>1.5</version>
+  </parent>
+
+  <!-- Entrada base -->
+  <groupId>br.gov.pa</groupId>
+  <artifactId>__projeto__</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <!-- Modulos -->
+  <modules>
+    <module>__projeto__-ejb/</module>
+    <module>__projeto__-web/</module>
+    <module>__projeto__-ear/</module>
+  </modules>
+
+  <!-- Informacoes de Projeto -->
+  <name>__projeto__</name>
+  <description>O sistema foi desenvolvido em plataforma WEB ............</description>
+  <url>http://fenix.prodepa.gov.br/sites/__projeto__</url>
+  <inceptionYear>2009</inceptionYear>
+  <developers>
+    <developer>
+      <id>login_svn</id>
+      <name>desenvolvedor</name>
+      <email>desenvolvedor@prodepa.pa.gov.br</email>
+      <organization>PRODEPA</organization>
+      <timezone>-3</timezone>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+  </developers>
+
+  <!-- Configurações de ambiente -->
+  <issueManagement>
+    <system>Bugzilla</system>
+    <url>http://fenix.prodepa.gov.br/bugzilla</url>
+  </issueManagement>
+  <scm>
+    <developerConnection>scm:svn:http://fenix.prodepa.gov.br/private/__projeto__/codigo_fonte/trunk</developerConnection>
+    <connection>scm:svn:http://fenix.prodepa.gov.br/private/__projeto__/codigo_fonte/trunk</connection>
+    <url>scm:svn:http://fenix.prodepa.gov.br/private/__projeto__/codigo_fonte/trunk</url>
+  </scm>
+  <distributionManagement>
+    <site>
+      <id>prodepa.projectsite</id>
+      <name>WebSite do projeto</name>
+      <url>scp://fenix.prodepa.gov.br/usr/local/apache2/htdocs/sites/${project.artifactId}</url>
+    </site>
+  </distributionManagement>
+</project>

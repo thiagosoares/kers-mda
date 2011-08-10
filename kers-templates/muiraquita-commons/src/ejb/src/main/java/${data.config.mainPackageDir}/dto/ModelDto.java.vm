@@ -1,0 +1,48 @@
+#set ($basePackage = ${data.config.mainPackage})
+#set ($modelName = ${data.crud.name})
+#set ($lowercasedModelName = $stringUtils.unCapitalizeFirstLetter(${data.crud.name}))
+package ${basePackage}.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import br.gov.pa.muiraquita.dto.AbstractDto;
+
+@Entity
+@Table(name="${lowercasedModelName}")
+public class ${modelName} extends AbstractDto {
+	
+	private Long id;
+	
+#foreach( $field in $data.crud.crudClass.fieldsInOrder )
+#set ($attrName = ${field.name})
+  	@Column(name="${attrName}")
+	private ${field.dataType} ${field.name};
+#end
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+#foreach( $field in $data.crud.crudClass.fieldsInOrder )
+#set ($attrName = ${field.name})
+#	String attrType = it.split(/:/)[1]; # FALTA O ATTRTYPE
+
+	public ${attrType} get${attrName} ${it.toUpperCase()}() {
+		return ${attrName};
+	}
+
+	public void set${attrName} ${attrName.toUpperCase()}(${attrType} ${attrName}) {
+		this.${attrName} = ${attrName};
+	}
+#end
+
+
+}

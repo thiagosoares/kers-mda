@@ -1,0 +1,104 @@
+@CHARSET "ISO-8859-1";
+
+
+/***** rich:dataTable *****/
+
+
+.rich-table {	/* Defines styles for a table */
+	/*background-color: ;	/* tableBackgroundColor */
+}
+
+.rich-table-cell {	/* Defines styles for a table cell */
+	/*font-size: ;	/* generalSizeFont */
+	/*color: ;	/* generalTextColor */
+	/*font-family: ;	/* generalFamilyFont */
+}
+
+.rich-table-header {	/* Defines styles for a table header row */
+	/*background-color: ;	/* headerBackgroundColor */
+}
+
+.rich-table-header-continue {	/* Defines styles for all header lines after the first */
+	/*background-color: ;	/* headerBackgroundColor */
+}
+
+.rich-table-headercell {	/* Defines styles for a header cell */
+	/*border-right: ;
+	border-bottom: ;	/* tableBorderWidth, tableBorderColor */
+	/*color: ;	/* headerTextColor */
+	/*font-weight: ;	/* headerWeightFont */
+	/*font-size: ;	/* generalSizeFont */	
+	/*font-family: ;	/* generalFamilyFont */	
+}
+
+.rich-table-subheader {	/* Defines styles for a column header */
+	/*background-color: ;	/* additionalBackgroundColor */
+}
+
+.rich-table-thead {
+	/*border-bottom: ;	/* tableBorderWidth, tableBorderColor */	
+}
+
+.rich-table-subheadercell {	/* Defines styles for a column header cell */
+	/*border-right: ;	/* tableBorderWidth, tableBorderColor */	
+	/*color: ;	/* generalTextColor */
+	/*font-size: ;	/* generalSizeFont */	
+	/*font-family: ;	/* generalFamilyFont*/	
+}
+
+.rich-table-footer {	/* Defines styles for a footer row */
+	/*background-color: ;	/* tableFooterBackgroundColor */
+}
+
+.rich-table-footer-continue {	/* Defines styles for all footer lines after the first */
+	/*background-color: ;	/* tableFooterBackgroundColor */
+}
+
+.rich-table-footercell {	/* Defines styles for a footer cell */
+	/*border-right;: ;
+	border-bottom: ;	/* tableBorderWidth, tableBorderColor */
+	/*color: ;	/* generalTextColor*/
+	/*font-weight: ;	/* headerWeightFont */
+	/*font-size: ;	/* generalSizeFont*/
+	/*font-family: ;	/* generalFamilyFont */
+}
+
+.rich-table-subfooter {	/* Defines styles for a column footer */
+	/*background-color: ;	/* tableSubfooterBackgroundColor */
+}
+
+.rich-table-subfootercell {	/* Defines styles for a column footer cell */
+	/*border-right: ;
+	border-bottom: ;	/* tableBorderWidth, tableBorderColor */
+	/*color: ;	/* generalTextColor */
+	/*font-size: ;	/* generalSizeFont */
+	/*font-family: ;	/* generalFamilyFont */
+}
+
+
+.rich-table-caption {	/* Defines styles for a "caption" facet element */
+	
+}
+
+.rich-table-row	{	/* Defines styles for a table row */
+	
+}
+
+.rich-table-row:nth-child(2n) {	/* linhas pares */
+	background-color: #F2F2F2;
+}
+
+.rich-table-row:hover {	/* linha apontada */
+	background-color: #FFFF99;
+}
+
+.rich-table-firstrow {	/* Defines styles for a table's first row */
+	
+}
+
+/***** rich:messages *****/
+
+
+.rich-messages-marker img {
+	padding-right: 7px;
+}

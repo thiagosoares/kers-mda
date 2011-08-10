@@ -1,0 +1,14 @@
+
+<?xml version="1.0"?>
+<toolbox>
+	<tool>
+		<key>list</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.generic.ListTool</class>
+	</tool>
+	<tool>
+		<key>stringUtils</key>
+		<scope>application</scope>
+		<class>org.j2eespider.util.VelocityStringUtil</class>
+	</tool>
+</toolbox>

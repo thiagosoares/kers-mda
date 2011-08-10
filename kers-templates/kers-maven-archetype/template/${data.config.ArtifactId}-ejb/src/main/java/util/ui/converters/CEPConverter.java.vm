@@ -1,0 +1,45 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.util.ui.converters; 
+
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.ConverterException;
+
+import org.jboss.seam.annotations.Name;
+import org.jboss.seam.annotations.faces.Converter;
+import org.jboss.seam.annotations.intercept.BypassInterceptors;
+
+@Converter
+@Name("CEPConverter")
+@BypassInterceptors
+public class CEPConverter implements javax.faces.convert.Converter {
+
+	
+	public Object getAsObject(FacesContext context, UIComponent component, String value) throws ConverterException {
+		if (value != null && !value.equals("")) {
+			String cep = value.replaceAll("\\.", "").replaceAll("\\-", "");
+
+			try {
+				// Testa se somente existem numeros.
+				Long.valueOf(cep);
+				return cep;
+			} catch (NumberFormatException e) {
+				FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro de conversão","Não foi possível converter o valor para um CEP");
+				throw new ConverterException(message);
+			}
+		}
+
+		return value;
+	}
+
+	public String getAsString(FacesContext context, UIComponent component, Object value) throws ConverterException {
+		String cep = (value == null ? null : value.toString());
+
+		if (cep != null && !cep.equals("")) {
+			cep = cep.substring(0, 5) + "-" + cep.substring(5);
+		}
+
+		return cep;
+	}
+}

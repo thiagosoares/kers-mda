@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Parent -->
+	<parent>
+		<groupId>br.gov.pa</groupId>
+		<artifactId>__projeto__</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+
+	<!-- Entrada base -->
+	<artifactId>__projeto__-ear</artifactId>
+	<name>__projeto__ :: Enterprise ARchive</name>
+	<packaging>ear</packaging>
+	<description>__projeto__ - EAR</description>
+
+	<!-- Dependecia -->
+	<dependencies>
+		<dependency>
+			<groupId>br.gov.pa</groupId>
+			<artifactId>__projeto__-ejb</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>br.gov.pa</groupId>
+			<artifactId>__projeto__-web</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.seam</groupId>
+			<artifactId>jboss-seam</artifactId>
+			<version>2.0.0.GA</version>
+			<type>ejb</type>
+			<exclusions>
+				<exclusion>
+					<artifactId>javassist</artifactId>
+					<groupId>javassist</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>dom4j</artifactId>
+					<groupId>dom4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>el-api</artifactId>
+					<groupId>javax.el</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!--
+		<dependency>
+	      <groupId>org.jbpm</groupId>
+	      <artifactId>jbpm-jpdl</artifactId>
+	      <version>3.2.3</version>
+	    </dependency>
+	    -->
+	</dependencies>
+
+	<scm>
+		<connection>scm:svn:http://fenix.prodepa.gov.br/private/__projeto__/codigo_fonte/trunk/__projeto__-ear</connection>
+		<developerConnection>scm:svn:http://fenix.prodepa.gov.br/private/__projeto__/codigo_fonte/trunk/__projeto__-ear</developerConnection>
+	</scm>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<displayName>__projeto__</displayName>
+					<description>O sistema foi desenvolvido em plataforma WEB ......</description>
+					<encoding>ISO-8859-1</encoding>
+					<version>1.4</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<jboss>
+						<version>4</version>
+					</jboss>
+					<modules>
+						<ejbModule>
+							<groupId>org.jboss.seam</groupId>
+							<artifactId>jboss-seam</artifactId>
+						</ejbModule>
+						<ejbModule>
+							<groupId>br.gov.pa</groupId>
+							<artifactId>__projeto__-ejb</artifactId>
+						</ejbModule>
+						<!-- Clente NuceoPA -->
+						<ejbClientModule>
+							<groupId>br.gov.pa</groupId>
+							<artifactId>nucleopa-ejb</artifactId>
+						</ejbClientModule>
+						<!-- controleAcesso -->
+						<ejbClientModule>
+							<groupId>br.gov.pa</groupId>
+							<artifactId>controleacesso-ejb</artifactId>
+						</ejbClientModule>
+						<webModule>
+							<groupId>br.gov.pa</groupId>
+							<artifactId>__projeto__-web</artifactId>
+							<contextRoot>/__projeto__</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jboss-maven-plugin</artifactId>
+				<version>1.3.1</version>
+				<configuration>
+					<jbossHome>/opt/as/jboss-4.2.1.GA</jbossHome>
+					<serverName>homologacao</serverName>
+				</configuration>
+				<executions>
+					<execution>
+						<id>jboss-deploy</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>harddeploy</goal>
+						</goals>
+						<configuration>
+							<fileName>${basedir}/target/__projeto__-ear-${project.version}.ear</fileName>
+						</configuration>
+					</execution>
+					<execution>
+						<id>jboss-undeploy</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>undeploy</goal>
+						</goals>
+						<configuration>
+							<fileName>${basedir}/target/__projeto__-ear-${project.version}.ear</fileName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+	
+</project>

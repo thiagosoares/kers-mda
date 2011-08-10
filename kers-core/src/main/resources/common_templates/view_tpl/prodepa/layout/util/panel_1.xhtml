@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+Não Utilizado
+Panel que pode ser usado para conteúdo na página principal 
+-->
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+      
+
+
+<rich:panel style="border: 0;">
+	<div id="apres">
+		<!-- user cont -->
+		<div id="apres_texto">
+			<ui:insert name="body"/>
+		</div>	
+	</div>
+	
+	<div id="apres_cap">
+		<ui:insert name="footer"/>		
+	</div>
+</rich:panel>
+
+</ui:composition>

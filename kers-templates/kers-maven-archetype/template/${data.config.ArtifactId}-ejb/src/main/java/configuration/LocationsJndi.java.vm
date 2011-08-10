@@ -1,0 +1,15 @@
+#set ($package = ${data.config.mainPackage})
+#set ($normalizedArtefactId = $stringUtils.normalizeClassName(${data.config.artifactId}))
+package ${package}.configuration;
+
+public final class LocationsJndi {
+
+  private static final String ear_name = "${data.config.artifactId}";
+
+  public static final String ${parentArtifactId}RemoteFacade = "jnp://localhost:1099/" + ear_name + "/${normalizedArtefactId}FacadeBean/remote";
+
+  public static final String ${parentArtifactId}LocalFacade = ear_name + "/${normalizedArtefactId}FacadeBean/local";
+
+  public static final String controleAcessoRemoteFacade = "jnp://controleacesso-srv:1099/controleacesso/ControleAcessoFacadeBean/remote";
+
+}

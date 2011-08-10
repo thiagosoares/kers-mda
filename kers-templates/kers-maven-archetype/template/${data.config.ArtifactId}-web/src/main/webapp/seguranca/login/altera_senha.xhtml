@@ -1,0 +1,78 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UFT-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:ui="http://java.sun.com/jsf/facelets" 
+    xmlns:h="http://java.sun.com/jsf/html" 
+    xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:a4j="http://richfaces.org/a4j" 
+    xmlns:rich="http://richfaces.org/rich">
+
+<style>
+.body3 {
+    text-align: left;
+}
+</style>
+
+  <ui:composition template="../../layout/t_altera_senha.xhtml">
+    <ui:define name="titulo">Trocar senha</ui:define>
+
+    <ui:define name="login">
+      
+      <h:form id="loginForm">
+
+        <div id="login_mess">
+          <rich:panel rendered="#{not empty facesMessages.currentMessages}">
+            <f:facet name="header">
+              <h:outputText value="Erros" />
+            </f:facet>
+            <h:messages />
+          </rich:panel>
+          <br/>
+        </div>  
+
+		<div id="logo">
+			<img src="../../images/logo_ca.png" width="174" height="59" style="margin-bottom: 15px;" />
+		</div>
+        <div id="login_box" style="display: none">
+
+	        <div id="login_desc">
+	        	<strong>Altera��o de senha</strong> 
+	          	<br />
+	          	<strong>Usu�rio : </strong> <strong style="font-size: 14px; font-weight: bold; ">#{alterarSenhaDto.login}</strong>
+	        </div>
+	        <div id="campos">
+	        
+	        	<div class="login_label">
+		          <strong>Senha Atual*</strong>: 
+	        	</div>
+		        <div class="login_campo">
+		          <h:inputSecret redisplay="false" value="#{alterarSenhaDto.senha}" class="txt_conteudo" size="25" maxlength="50" />
+		        </div>
+				<div class="login_label">
+		          <strong>Nova Senha*</strong>: 
+				</div>
+		        <div class="login_campo">
+		          <h:inputSecret redisplay="false" value="#{alterarSenhaDto.novaSenha}" class="txt_conteudo" size="25" maxlength="50" required="true" requiredMessage="Informe a senha." />
+		        </div>
+	
+				<div class="login_label">
+		          <strong>Confirma��o*</strong>: 
+				</div>	        
+		        <div class="login_campo">
+		          <h:inputSecret redisplay="false" value="#{alterarSenhaDto.confirmacaoSenha}" class="txt_conteudo" size="25" maxlength="50" />
+		        </div>
+		
+				<br />	        
+		
+		        <div id="login_botao">
+		          	<h:commandButton value="Alterar" action="#{autenticador.alterarSenha}"/> 
+					<h:commandButton value="Sair" actionListener="#{autenticador.logout}" immediate="true"/>
+		        </div>
+       		 </div>
+        </div>
+      </h:form>
+    </ui:define>
+  </ui:composition>
+</ui:composition>

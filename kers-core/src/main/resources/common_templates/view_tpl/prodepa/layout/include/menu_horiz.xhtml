@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- Menu na horizontal -->
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+
+
+<div id="menu1">
+    
+    <h:form>
+    
+    <div class="caminho_naveg" id="menu_h_1">
+    
+		<rich:toolBar itemSeparator="line">
+		
+		<rich:toolBarGroup location="left">
+            <rich:dropDownMenu value="Arquivo" 
+            				   direction="bottom-left" 
+            				   jointPoint="tr" 
+            				   horizontalOffset="100" 
+            				   verticalOffset="21">
+
+                <rich:menuItem submitMode="ajax" value="Ver Pendências" action="#{ddmenu.doNew}">
+                </rich:menuItem>
+
+                <rich:menuItem submitMode="none" onclick="document.location.href='http://www.prodepa.psi.br'">
+	                <f:facet name="icon">
+	                    <h:graphicImage value="../../images/ico_ferramentas.gif"/>
+	                </f:facet>
+	
+	                <h:outputLink value="http://www.prodepa.psi.br">
+	                    <h:outputText value="Configurar"></h:outputText>
+	                </h:outputLink>
+	            </rich:menuItem>    
+                
+                <rich:menuGroup value="Ir Para...">
+                    <rich:menuItem   submitMode="ajax" value="Delegacia Virtual"  onclick="document.location.href='http://www.delegaciavirtual.pa.gov.br'"/>
+                    <rich:menuItem   submitMode="ajax" value="Cadastro de Autoridades"  onclick="document.location.href='http://www.autoridades.pa.gov.br'"/>
+                </rich:menuGroup>
+
+                <rich:menuSeparator id="menuSeparator11"/>
+
+                <rich:menuItem  submitMode="ajax" value="Sair do Sistema"  action="#{seguranca.logout}"/>
+
+            </rich:dropDownMenu>
+
+            <rich:dropDownMenu direction="bottom-left" 
+            				   jointPoint="tr" 
+            				   horizontalOffset="100" 
+            				   verticalOffset="21">
+            	<f:facet name="label">
+
+                    <h:panelGrid cellpadding="0" cellspacing="0" columns="2" style="vertical-align:middle">
+
+                        <h:outputText value="Ajuda" />
+
+                    </h:panelGrid>
+
+                </f:facet>
+
+                <rich:menuItem submitMode="none" onclick="document.location.href='http://labs.jboss.com/jbossrichfaces/'">
+
+                    <f:facet name="icon">
+                        <h:graphicImage value="../../images/setaGif.gif" width="16" height="16"/>
+                    </f:facet>
+
+                    <h:outputLink value="http://www.prodepa.psi.br">
+                        <h:outputText value="Prodepa"></h:outputText>
+                    </h:outputLink>
+
+                </rich:menuItem>
+                
+                <rich:menuGroup value="Ações">
+                    <rich:menuItem submitMode="ajax">
+                    	 <h:outputLink value="#"  target="_blank">
+                        	<h:outputText value="Criar Documento"></h:outputText>
+                    	</h:outputLink>
+                    </rich:menuItem>	
+                </rich:menuGroup>
+
+                <rich:menuItem submitMode="none" onclick="document.location.href='http://jboss.com/index.html?module=bb&amp;op=viewforum&amp;f=261'">
+
+                    <f:facet name="icon">
+                        <h:graphicImage value="../../images/setaGif.gif" width="16" height="16" />
+                    </f:facet>
+
+                    <h:outputLink value="http://www.prodepa.pa.gov.br">
+                        <h:outputText value="Sobre o Sistema"></h:outputText>
+                    </h:outputLink>
+
+                </rich:menuItem>
+
+            </rich:dropDownMenu>
+        </rich:toolBarGroup>
+    </rich:toolBar>
+    </div>    
+    <div class="caminho_naveg" id="menu_h_2">
+		<a href="#">
+			<h:outputText value="Fale conosco" style="FONT-WEIGHT: bold;"></h:outputText>
+		</a> 
+	</div> 
+    </h:form>  
+</div>
+</ui:composition>

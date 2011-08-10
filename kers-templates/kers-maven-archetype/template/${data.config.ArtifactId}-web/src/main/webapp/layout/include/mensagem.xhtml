@@ -1,0 +1,99 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UFT-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- Lista de mensagens -->
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:rich="http://richfaces.org/rich" xmlns:a4j="http://richfaces.org/a4j">
+
+<style type="text/css">
+.erro {
+  border: 1px solid #ffcc00;
+  /*padding: 5px;*/
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #fdfcdc;
+  font-family: Verdana, Tahoma, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #FF0000;
+}
+.fatal {
+  border: 1px solid #ffcc00;
+  /*padding: 5px;*/
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #fdfcdc;
+  font-family: Verdana, Tahoma, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: #FF0000;
+}
+.warn {
+  border: 1px solid #ffcc00;
+  /*padding: 5px;*/
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #fdfcdc;
+  font-family: Verdana, Tahoma, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #B8860B;
+}
+.info {
+  border: 1px solid #ffcc00;
+  /*padding: 5px;*/
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #fdfcdc;
+  font-family: Verdana, Tahoma, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #000080;
+}
+.rich-messages-marker img {
+  padding-right: 7px;
+}
+</style>
+
+  <!-- Mensagens de erro -->
+<div style="max-height:115px; overflow: auto; width: 590px;">
+    <rich:messages 
+        layout="table" 
+        tooltip="true" 
+        showDetail="true" 
+        showSummary="false" 
+        passedLabel="Transação efetuada com sucesso!" 
+        errorClass="erro" 
+        fatalClass="fatal" 
+        warnClass="warn" 
+        infoClass="info" 
+        var="messages" style="width:100%; *width:96%;"
+        ajaxRendered="true">
+
+      <f:facet name="header">
+        <h:outputText value="Mensagens:" />
+      </f:facet>
+
+      <f:facet name="passedMarker">
+        <h:graphicImage value="../../images/passed.gif" />
+      </f:facet>
+
+      <f:facet name="errorMarker">
+        <h:graphicImage value="../../images/error.gif" />
+      </f:facet>
+
+      <f:facet name="infoMarker">
+        <h:graphicImage value="../../images/info.gif" />
+      </f:facet>
+
+      <f:facet name="warnMarker">
+        <h:graphicImage value="../../images/warn.gif" />
+      </f:facet>
+
+      <f:facet name="fatalMarker">
+        <h:graphicImage value="../../images/fatal.gif" />
+      </f:facet>
+
+    </rich:messages>
+</div>
+</ui:composition>

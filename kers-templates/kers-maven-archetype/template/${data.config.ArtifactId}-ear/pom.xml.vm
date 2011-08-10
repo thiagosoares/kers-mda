@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	 <!-- Project Parent -->
+	<parent>
+		<groupId>${data.config.groupId}</groupId>
+  		<artifactId>${data.config.artifactId}</artifactId>
+  		<version>${data.config.version}</version>
+	</parent>
+
+	<!-- Project Identification-->
+	<artifactId>${data.config.artifactId}-ear</artifactId>
+	<version>${data.config.version}</version>
+	<packaging>ear</packaging>
+	
+	<!-- Project Description -->
+	<name>${projectName} :: EAR Module</name>
+	<description>${projectName} EAR Module description</description>
+
+	<!-- Dependecias -->
+	<dependencies>
+		<!-- Modules dependencies -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>${project.parent.artifactId}-ejb</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>${project.parent.artifactId}-web</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+		
+		<!-- External dependencies -->
+		<dependency>
+			<groupId>org.jboss.seam</groupId>
+			<artifactId>jboss-seam</artifactId>
+			<version>2.1.2</version>
+			<type>ejb</type>
+			<exclusions>
+				<exclusion>
+					<artifactId>javassist</artifactId>
+					<groupId>javassist</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>dom4j</artifactId>
+					<groupId>dom4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>el-api</artifactId>
+					<groupId>javax.el</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.parent.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.zeroturnaround</groupId>
+				<artifactId>javarebel-maven-plugin</artifactId>
+				<version>1.0.5</version>
+				<executions>
+					<execution>
+						<id>generate-rebel-xml</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.4.2</version>
+				<configuration>
+					<displayName>${projectName}</displayName>
+					<description>O sistema foi desenvolvido em plataforma WEB ......</description>
+					<encoding>ISO-8859-1</encoding>
+					<version>1.4</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<jboss>
+						<version>4</version>
+					</jboss>
+					<modules>
+						<ejbModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>${project.parent.artifactId}-ejb</artifactId>
+						</ejbModule>
+						<ejbModule>
+							<groupId>org.jboss.seam</groupId>
+							<artifactId>jboss-seam</artifactId>
+						</ejbModule>
+						<!-- Controle de Acesso -->
+						<ejbClientModule>
+							<groupId>br.gov.pa.muiraquita</groupId>
+							<artifactId>controleacesso-ejb</artifactId>
+						</ejbClientModule>
+						<!-- Web Modules -->
+						<webModule>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>${project.parent.artifactId}-web</artifactId>
+							<contextRoot>/${appWebRoot}</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+	
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jboss-maven-plugin</artifactId>
+				<version>1.3.1</version>
+				<configuration>
+					<jbossHome>${environment.jbossHome}</jbossHome>
+					<serverName>${environment.jbossServerName}</serverName>
+				</configuration>
+				<executions>
+					<execution>
+						<id>jboss-deploy</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>harddeploy</goal>
+						</goals>
+						<configuration>
+							<fileName>${basedir}/target/${project.parent.artifactId}.ear</fileName>
+						</configuration>
+					</execution>
+					<execution>
+						<id>jboss-undeploy</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>undeploy</goal>
+						</goals>
+						<configuration>
+							<fileName>${basedir}/target/${project.parent.artifactId}.ear</fileName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+	
+		</plugins>
+	</build>
+	
+	<scm>
+		<connection>scm:svn:http://svn.dds.prodepa.gov.br/private/${project.groupId}/${project.artifactId}/codigo_fonte/trunk</connection>
+    	<developerConnection>scm:svn:http://svn.dds.prodepa.gov.br/private/${project.groupId}/${project.artifactId}/codigo_fonte/trunk</developerConnection>
+	</scm>
+	
+</project>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	 xmlns:ui="http://java.sun.com/jsf/facelets"
+	 xmlns:h="http://java.sun.com/jsf/html"
+	 xmlns:f="http://java.sun.com/jsf/core"
+	 xmlns:s="http://jboss.com/products/seam/taglib"
+	 xmlns:a4j="http://richfaces.org/a4j"
+	 xmlns:rich="http://richfaces.org/rich" > 
+	
+<script>
+	function getRightTop(ref) {
+		var position = new Object();
+		position.top = 0; //ref.offsetTop;
+		position.left =0; // ref.offsetLeft+ref.clientWidth+6;
+		return position;
+	}
+</script>
+
+
+	<a4j:outputPanel id="resultados"> 
+		<h:panelGroup rendered="#{estadoDtoLista.rowCount == 0}"> 
+			Nenhum Estado foi encontrado. 
+		</h:panelGroup>
+		
+		<rich:dataTable value="#{estadoDtoLista}" 
+ 			var="estado" 
+ 			id="estadoTable" rows ="10" 
+ 			onRowMouseOver="this.style.backgroundColor='#FFFF99'" 
+			onRowMouseOut="this.style.backgroundColor='#{a4jSkin.tableBackgroundColor}'" 
+			cellpadding="0"  cellspacing="0"  
+			width="100%"   border="0" 
+			rendered="#{estadoDtoLista.rowCount > 0}"> 
+
+			<rich:column sortBy="#{estado.id}"> 
+				<f:facet name="header"> 
+					<h:outputText value="Id"/> 
+				</f:facet> 
+				<h:outputText value="#{estado.id}"/> 
+			</rich:column> 
+			
+			<rich:column sortBy="#{estado.descricao}"> 
+				<f:facet name="header"> 
+					<h:outputText value="Nome"/> 
+				</f:facet> 
+				<h:outputText value="#{estado.descricao}"/> 
+			</rich:column> 
+			
+			<rich:column sortBy="#{estado.sigla}"> 
+				<f:facet name="header"> 
+					<h:outputText value="Sigla"/> 
+				</f:facet> 
+				<h:outputText value="#{estado.sigla}"/> 
+			</rich:column> 
+			 
+			<h:column headerClass="col_button"> 
+				<f:facet name="header"> 
+					<h:outputText value=""/> 
+				</f:facet> 
+				<a4j:commandLink id="showItem" action="#{estadoAction.selecionar}" reRender="consulta" onclick="javascript:Richfaces.showModalPanel('mp_consulta');" title="Visualizar Estado"> 
+					<h:graphicImage value="../../images/ico_lupa.gif" style="border:0px" /> 
+				</a4j:commandLink> 
+			</h:column> 
+				 
+			<h:column headerClass="col_button"> 
+				<f:facet name="header"> 
+					<h:outputText value=""/> 
+				</f:facet> 
+				<s:link action="#{estadoAction.selecionar}"  view="/rh/estado/estado_update.xhtml" title="Alterar Estado"> 
+					<h:graphicImage value="../../images/pencil.png" style="border:0px" /> 
+				</s:link> 
+			</h:column> 
+				 
+			<h:column headerClass="col_button"> 
+				<f:facet name="header"> 
+					<h:outputText value=""/> 
+				</f:facet> 
+				<a4j:commandLink id="deleteItem" reRender="exclusao" action="#{estadoAction.selecionar}" onclick="javascript:Richfaces.showModalPanel('mp_excluir');"  title="Excluir Estado"> 
+					<h:graphicImage value="../../images/btexcluir.gif" style="border:0px" />	 
+				</a4j:commandLink> 
+			</h:column> 
+				 
+		</rich:dataTable> 
+			 
+		<br/> 
+		<rich:datascroller id="paginador" for="estadoTable" maxPages="5" rendered="#{estadoDtoLista.rowCount > 10}" /> 
+		 
+	</a4j:outputPanel>
+ </ui:composition> 
+ 

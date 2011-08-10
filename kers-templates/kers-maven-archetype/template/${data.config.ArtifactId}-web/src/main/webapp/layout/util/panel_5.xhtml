@@ -1,0 +1,35 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UFT-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- 
+Panel utilizado para o painel de pesquisa com togglePanel.
+Bordas reduzidas
+
+ -->
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+
+	<rich:panel bodyClass="grd_pesquisa_togglePanel" style="border:0px">
+		<div id="grd_pesquisa_campo_togglePanel">
+			<h:panelGrid columns="2" columnClasses="p2_left, p2_right" cellpadding="0" cellspacing="0" width="100%">
+				  
+                  <h:outputText>
+				  	<ui:insert name="body"/>
+				  </h:outputText>
+				  
+				  <h:outputText>
+				  	<ui:insert name="pesquisar"/>
+				  </h:outputText>			
+			</h:panelGrid>
+		</div>
+	</rich:panel>
+
+</ui:composition>

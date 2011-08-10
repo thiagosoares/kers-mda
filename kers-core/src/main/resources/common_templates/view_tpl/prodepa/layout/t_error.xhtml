@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+Template principal com menu na horizontal, vertical e corpo.
+-->
+
+<f:view contentType="text/html"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:a4j="http://richfaces.org/a4j"
+        xmlns:s="http://jboss.com/products/seam/taglib"
+        xmlns:rich="http://richfaces.org/rich"
+        >
+<html xml:lang="pt_BR" lang="pt_BR" > 
+      
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="keywords" content="XHTML,Acessibilidade,CSS,CSS Menu,Estilo,Folhas Estilo,Layout CSS,Layout Sites,Menu CSS,Paginas Web,Web Design,Web Standards,Webdesign,Tableless" />
+		<meta name="author" content="PRODEPA" />
+		<meta name="copyright" content="Copyright 2007 - PRODEPA" />
+		
+		<!-- CSS -->
+		<link href = "../../stylesheet/geral.css" rel="stylesheet" type="text/css" />
+		<link href = "../../stylesheet/fonts.css" rel="stylesheet" type="text/css" />
+		<link href = "../../stylesheet/fontsize_print.css" rel="stylesheet" type="text/css" />
+		
+		<!-- JS -->
+		<script src="../../js/textsize.js" language="javascript" type="text/javascript"></script>
+      	<!-- Provoca conflito mesmo. Usar caso evite-se realmente o conflito -->
+        <script src="../../js/jquerymaskedinput.js" type="text/javascript"></script>  
+		<title>
+			<h:outputText value="__projeto__"/> | <h:outputText value=" "/> <ui:insert name="titulo"/>
+		</title>
+		
+	<!-- Ropdapé dinâmico -->
+	<style media="screen" type="text/css">
+	
+	#content {
+		width: 100%;
+		padding-bottom: 27px; /* Diferença para o rodapé não cobrir uma parte do conteúdo, é o mesmo valor da altura do rodapé */
+	}
+	
+	#wrap {
+		height: auto !important; /* Necessário para alguns browsers modernos */
+		height: 100%; /* Para o Internet Explorer */
+		min-height: 100%; /* Necessário para alguns browsers modernos */
+		position: relative;
+	}
+	</style>
+		
+		<f:loadBundle basename="messages" var="msg" />
+	</head>
+
+<body>
+
+<div id="wrap">
+
+<div id="content">
+
+	<!-- Nome e logo do sistema -->
+	<ui:insert name="header">
+		<ui:include src="include/header.xhtml"/>
+	</ui:insert>
+
+	<!-- Menu na horizontal -->
+	<!-- 
+	<ui:insert name="menu_horiz">
+		<ui:include src="include/menu_horiz.xhtml" />
+	</ui:insert>
+	 -->
+
+	<!-- Caminho e alteracao do tamanho do texto -->
+	<ui:insert name="header_texto">
+		<ui:include src="include/header_texto.xhtml"/>
+	</ui:insert>
+	
+	<h:panelGrid columns="4" cellpadding="0" cellspacing="0" columnClasses="c1, c2, c3, c4" width="100%">
+		<h:outputText>
+			<!-- Menu na vertical -->
+			<div id="cont1" class="ft2">
+			<ui:insert name="menu_vert">
+				<ui:include src="include/menu_vert.xhtml"/>
+			</ui:insert>	
+			</div>
+		</h:outputText>
+		
+		<h:outputText></h:outputText>
+		
+		<h:outputText>
+			<!-- Conteudo da Pagina -->
+			<div id="cont2" class="ft2">
+              <s:validateAll>
+				<ui:insert name="mensagem">
+					<ui:include src="include/mensagem.xhtml" rendered="#{not empty facesMessages.currentMessages}"/>
+				</ui:insert>	
+				<ui:insert name="pesquisa"/>
+				<ui:insert name="conteudo1"/>
+				<br />
+				<ui:insert name="conteudo2"/>
+				<br />
+				<ui:insert name="conteudo3"/>
+              </s:validateAll>
+			</div>
+		</h:outputText>
+		
+		<h:outputText></h:outputText>
+	</h:panelGrid>
+	
+</div><!-- /#content -->
+
+	<!-- Rodape -->
+	<ui:insert name="footer">
+		<ui:include src="include/footer.xhtml"/>
+	</ui:insert>	
+
+</div><!-- /#wrap -->
+
+</body>
+
+</html>
+</f:view>

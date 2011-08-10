@@ -1,0 +1,41 @@
+#set ($basePackage = ${data.config.mainPackage})
+#set ($modelName = ${data.crud.name})
+#set ($lowercasedModelName = $stringUtils.unCapitalizeFirstLetter(${data.crud.name}))
+package ${basePackage}.entity;
+
+import br.gov.pa.muiraquita.exception.retorno.retenum.ErrorCode;
+import br.gov.pa.muiraquita.sample.rh.configuration.LocationsCDU;
+
+public enum ${modelName}Error implements ErrorCode {
+	
+#foreach( $field in $data.crud.crudClass.fieldsInOrder )
+#set ($attrName = ${field.name})
+	${attrName}_NULL(2, "O campo ${field.name} não pode ser nulo"),
+#end
+
+#foreach( $field in $data.crud.crudClass.fieldsInOrder )
+#set ($attrName = ${field.name})
+  	@Column(name="${attrName}")
+	private ${field.dataType} ${field.name};
+#end
+
+	private String errorMessage; 
+ 	private int code;  
+ 
+ 	private EstadoError(int code, String errorMessage) {
+ 		this.code = code; 
+ 		this.errorMessage = errorMessage; 
+ 	} 
+ 
+    public String getErrorMessage() { 
+      return errorMessage; 
+    } 
+  
+    public int getCode() { 
+      return code; 
+    } 
+ 
+  	public String locateCode() { 
+   	 return LocationsCDU.CDU_MANTER_${modelName.toUpperCase()}; 
+  	}  
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE pages PUBLIC
+	"-//JBoss/Seam Pages Configuration DTD 1.2//EN"
+	"http://jboss.com/products/seam/pages-1.2.dtd">
+
+<pages no-conversation-view-id="/seguranca/login/login.xhtml"
+				login-view-id="/seguranca/login/login.xhtml">
+
+	<page view-id="/seguranca/login/login.xhtml">
+		<navigation>
+			<rule if="#{identity.loggedIn}">
+				<redirect view-id="/seguranca/login/principal.xhtml" />
+			</rule>
+		</navigation>
+	</page>
+	
+	<page view-id="/seguranca/login/principal.xhtml" login-required="true">
+      <navigation from-action="#{identity.logout}">
+        <redirect view-id="/seguranca/login/login.xhtml" />
+      </navigation>
+    </page>
+	
+	<page view-id="*">
+	    <navigation from-action="#{identity.logout}">
+	      <redirect view-id="/seguranca/login/login.xhtml"/>
+	    </navigation>
+	</page>
+	
+	<page view-id="/seguranca/login/login.seam" action="#{conversation.begin}"/>
+	
+ 
+	<exception class="org.hibernate.exception.GenericJDBCException">
+		<redirect view-id="/seguranca/fatal_error_page.xhtml">
+			<message severity="ERROR">
+				Acesso ao banco de dados falhou inesperadamente.
+			</message>
+		</redirect>
+	</exception>
+
+	<exception class="org.jboss.seam.security.NotLoggedInException">
+		<redirect view-id="/seguranca/fatal_error_page.xhtml">
+			<message severity="warn">
+				Voce deve estar logado para usar esta opção.
+			</message>
+		</redirect>
+	</exception>
+
+    <exception class="org.jboss.seam.security.AuthorizationException">
+        <end-conversation/>
+        <redirect view-id="/seguranca/login/login.xhtml">
+            <message severity="warn" >
+            Você não tem privilégios de segurança suficientes para executar esta operação. 
+            Favor contatar o administrador do sistema para mais informações
+            </message>
+        </redirect>
+    </exception>
+    
+	<exception>
+		<redirect view-id="/seguranca/fatal_error_page.xhtml">
+			<message severity="ERROR">
+				Ocorreu um erro nao esperado. Contate o suporte.
+			</message>
+		</redirect>
+	</exception>
+
+</pages>

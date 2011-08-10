@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<pages login-view-id="/seguranca/login/login.xhtml"
+ no-conversation-view-id="/seguranca/login/login.xhtml"
+ xmlns="http://jboss.com/products/seam/pages"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.0.xsd">
+ <!-- Redirecionamento apois o login -->
+ <page view-id="/seguranca/login/login.xhtml">
+  <navigation>
+   <rule if="#{identity.loggedIn}">
+    <redirect view-id="/seguranca/principal/principal.xhtml"/>
+   </rule>
+  </navigation>
+ </page>
+ <page view-id="/seguranca/login/login.xhtml">
+  <navigation>
+   <rule if="#{identity.loggedIn}">
+    <redirect view-id="/seguranca/principal/principal.xhtml"/>
+   </rule>
+  </navigation>
+ </page>
+ <page login-required="true" view-id="/seguranca/login/altera_senha.xhtml">
+  <navigation from-action="#{seguranca.logout}">
+   <redirect view-id="/seguranca/login/login.xhtml"/>
+  </navigation>
+ </page>
+ <!-- Redirecionamento apois logout -->
+ <page login-required="true" view-id="*">
+  <navigation from-action="#{identity.logout}">
+   <redirect view-id="/seguranca/login/login.xhtml"/>
+  </navigation>
+  <!-- <action execute="#{pageControler.verificarRequestPage}" />-->
+  <navigation>
+   <rule if-outcome="nogo">
+    <redirect view-id="/seguranca/erro/nopage.xhtml"/>
+   </rule>
+  </navigation>
+ </page>
+ <!-- regras para nevagacao entre paginas -->
+ <page view-id="/instituicao/credenciamento_instituicao/*">
+  <restrict>#{s:hasRole('dev')}</restrict>
+ </page>
+ <page view-id="/aluno/aluno/*">
+  <restrict>#{s:hasRole('dev')}</restrict>
+ </page>
+ <!-- regras para nevagacao entre paginas 
+ <page view-id="/instituicao/*">
+  <restrict>#{s:hasRole('Administrador')}</restrict>
+ </page>
+ <page view-id="alunolote/*">
+  <restrict>#{s:hasRole('Administrador')}</restrict>
+ </page>
+ <page view-id="alunoaluno/*">
+  <restrict>#{s:hasRole('Administrador')}</restrict>
+ </page>
+ <page view-id="alunoaluno_foto/*">
+  <restrict>#{s:hasRole('Administrador')}</restrict>
+ </page>
+ 
+ 
+        <page view-id="/admin/*" login-required="true">
+            <exception class="org.jboss.seam.security.NotLoggedInException">
+                <redirect view-id="login.xhtml">
+                   <message severity="warn">#{messages['org.jboss.seam.NotLoggedIn']}</message>
+                </redirect>
+            </exception>
+        </page>
+
+        <page view-id="/admin/*" login-required="true">
+           <exception class="org.jboss.seam.security.AuthorizationException">
+               <redirect view-id="login.xhtml">
+                  <message severity="warn">You do not have the Permission</message>
+               </redirect>
+           </exception>
+        </page>
+
+        <page view-id="/members/*" login-required="true">
+	          <exception class="org.jboss.seam.security.NotLoggedInException">
+	                  <redirect view-id="login.xhtml">
+	                          <message severity="warn">#{messages['org.jboss.seam.NotLoggedIn']}</message>
+	                  </redirect>
+	          </exception>
+        </page>
+
+        <page view-id="/admin/*">
+                <restrict>#{s:hasRole('admin')}</restrict>
+                <action execute="#{workaround.doSomething}" on-postback="false" />
+        </page>	
+	
+	
+	 -->
+ <exception class="org.hibernate.exception.GenericJDBCException">
+  <redirect view-id="/seguranca/erro/erro.xhtml">
+   <message severity="ERROR">Acesso ao banco falhou</message>
+  </redirect>
+ </exception>
+ <exception class="org.jboss.seam.security.NotLoggedInException">
+  <redirect view-id="/seguranca/erro/erro.xhtml">
+   <message severity="warn">Voce deve estar logado para usar esta
+				opção.</message>
+  </redirect>
+ </exception>
+ <exception class="org.jboss.seam.security.AuthorizationException">
+  <end-conversation/>
+  <redirect view-id="/seguranca/principal/principal.xhtml">
+   <message severity="warn">Você não tem privilégios de segurança
+				suficientes para esta operação.
+				Maiores informações com
+				administrador do sistema</message>
+  </redirect>
+ </exception>
+ <exception class="javax.faces.application.ViewExpiredException">
+  <redirect view-id="/seguranca/login/login.xhtml">
+   <message severity="WARN">Expirou o tempo de visualização desta
+				página (refaça a operação)</message>
+  </redirect>
+ </exception>
+ <exception class="java.lang.Exception">
+  <redirect view-id="/seguranca/erro/erro.xhtml">
+   <message severity="ERROR">Erro nao esperado. #{exception.message}</message>
+  </redirect>
+ </exception>
+</pages>

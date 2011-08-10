@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages login-view-id="/seguranca/login/login.xhtml"
+       no-conversation-view-id="/seguranca/login/login.xhtml"
+ 	   xmlns="http://jboss.com/products/seam/pages"
+ 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ 	   xsi:schemaLocation="http://jboss.com/products/seam/pages http://jboss.com/products/seam/pages-2.0.xsd">
+ 	   
+ <!-- Redirecionamento apois o login -->
+ <page view-id="/seguranca/login/login.xhtml">
+  <navigation>
+   <rule if="#{identity.loggedIn}">
+    <redirect view-id="/seguranca/principal/principal.xhtml"/>
+   </rule>
+  </navigation>
+ </page>
+ <page login-required="true" view-id="/seguranca/login/altera_senha.xhtml">
+  <navigation from-action="#{seguranca.logout}">
+   <redirect view-id="/seguranca/login/login.xhtml"/>
+  </navigation>
+ </page>
+ <!-- Redirecionamento apois logout -->
+ <page login-required="true" view-id="*">
+  <navigation from-action="#{identity.logout}">
+   <redirect view-id="/seguranca/login/login.xhtml"/>
+  </navigation>
+  <!-- <action execute="#{pageControler.verificarRequestPage}" />-->
+  <navigation>
+   <rule if-outcome="nogo">
+    <redirect view-id="/seguranca/erro/nopage.xhtml"/>
+   </rule>
+  </navigation>
+ </page>
+ 
+ <exception class="org.hibernate.exception.GenericJDBCException">
+  <redirect view-id="/seguranca/erro/erro.xhtml">
+   <message severity="ERROR">Acesso ao banco falhou</message>
+  </redirect>
+ </exception>
+ <exception class="org.jboss.seam.security.NotLoggedInException">
+  <redirect view-id="/seguranca/erro/erro.xhtml">
+   <message severity="warn">Voce deve estar logado para usar esta
+				opção.</message>
+  </redirect>
+ </exception>
+ <exception class="org.jboss.seam.security.AuthorizationException">
+  <end-conversation/>
+  <redirect view-id="/seguranca/principal/principal.xhtml">
+   <message severity="warn">
+    Usuário sem privilégios para realizar a operação
+   </message>
+  </redirect>
+ </exception>
+ <exception class="javax.faces.application.ViewExpiredException">
+  <redirect view-id="/seguranca/login/login.xhtml">
+   <message severity="WARN">
+   	Expirou o tempo de visualização desta
+	página (refaça a operação)
+   </message>
+  </redirect>
+ </exception>
+ <exception class="java.lang.Exception">
+  <redirect view-id="/seguranca/erro/erro.xhtml">
+   <message severity="ERROR">Erro nao esperado. #{exception.message}</message>
+  </redirect>
+ </exception>
+</pages>

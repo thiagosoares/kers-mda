@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<modelVersion>4.0.0</modelVersion>
+  
+  <!-- Project Parent -->
+  <parent>
+    <groupId>br.gov.pa</groupId>
+    <artifactId>projetobase</artifactId>
+    <version>1.5</version>
+  </parent>
+
+  <!-- Project Identification-->
+  <groupId>${data.config.groupId}</groupId>
+  <artifactId>${data.config.artifactId}</artifactId>
+  <version>${data.config.version}</version>
+  <packaging>pom</packaging>
+  
+  <!-- Project Modules -->
+  <modules>
+    <module>${data.config.artifactId}-ejb/</module>
+    <module>${data.config.artifactId}-web/</module>
+    <module>${data.config.artifactId}-ear/</module>
+  </modules>
+  
+  <properties>
+	<appName>${project.artifactId}</appName>
+	<appWebRoot>${project.parent.artifactId}</appWebRoot>
+	<projectName>${project.parent.artifactId}</projectName>
+	<seamVersion>2.1.1.GA</seamVersion>
+	<faceletsVersion>1.1.15.B1</faceletsVersion>
+	<jbosscontext>default</jbosscontext>
+	<environment.debug>true</environment.debug>
+	<environment.jbossHome>/opt/as/jboss</environment.jbossHome>
+	<environment.jbossServerName>homologacao</environment.jbossServerName>
+	<environment.properties>environment/dev</environment.properties>
+	<environment.facelets.REFRESH_PERIOD>2</environment.facelets.REFRESH_PERIOD>
+  </properties>
+  
+  <!-- ${project.version} -->
+
+  <!-- Project Informations -->
+  <name>${projectName}</name>
+  <description>Project description</description>
+  <url>http://www.prodepa.pa.gov.br/${projectName}/</url>
+  <inceptionYear>2011</inceptionYear>
+  <developers>
+    <developer>
+      <id>user.id</id>
+      <name>User Name</name>
+      <email>user.mail@prodepa.pa.gov.br</email>
+      <organization>PRODEPA</organization>
+      <timezone>-3</timezone>
+      <roles>
+      	<role>User Role</role>
+      </roles>
+    </developer>
+  </developers>
+
+  <!-- Enviroment configurations-->
+  <issueManagement>
+    <system>Bugzilla</system>
+    <url>http://www.dds.prodepa.gov.br/bugzilla/</url>
+  </issueManagement>
+  <scm>
+    <url>scm:svn:http://svn.dds.prodepa.gov.br/private/${project.groupId}/${project.artifactId}/codigo_fonte/trunk</url>
+    <connection>scm:svn:http://svn.dds.prodepa.gov.br/private/${project.groupId}/${project.artifactId}/codigo_fonte/trunk</connection>
+    <developerConnection>scm:svn:http://svn.dds.prodepa.gov.br/private/${project.groupId}/${project.artifactId}/codigo_fonte/trunk</developerConnection>
+  </scm>
+  <distributionManagement>
+    <site>
+      <id>${project.artifactId}</id>
+      <name>WebSite do projeto ${projectName}</name>
+      <url>scp://fenix.prodepa.gov.br/usr/local/apache2/htdocs/sites/${project.artifactId}</url>
+    </site>
+  </distributionManagement>
+
+</project>

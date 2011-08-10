@@ -1,0 +1,179 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.util.query;
+
+import org.apache.commons.lang.StringUtils;
+
+import ${package}.business.error.application.ApplicationErrorCode;
+
+
+
+import br.gov.pa.muiraquita.exception.BusinessException;
+import br.gov.pa.muiraquita.exception.ThrowMachine;
+import br.gov.pa.muiraquita.persistence.sql.TipoConsulta;
+import br.gov.pa.muiraquita.type.string.filter.RegexFilter;
+
+public final class StrQuery {
+
+  public static final int ALFA_E_NUMEROS = 0;
+  public static final int APENAS_ALFA = 1;
+  public static final int APENAS_ALFA_CAIXA_ALTA = 2;
+  public static final int APENAS_ALFA_CAIXA_BAIXA = 3;
+  public static final int APENAS_MAIUSCULAS = 4;
+  public static final int APENAS_MINUSCULAS = 5;
+  public static final int APENAS_NUMEROS = 6;
+
+  public static String filtra(String descricao, TipoConsulta tipoConsulta, int tipoFiltro) throws BusinessException {
+
+    if(tipoConsulta == null) {
+      tipoConsulta = TipoConsulta.CONTENDO;
+    }
+    
+    if (StringUtils.isNotEmpty(descricao) && tipoConsulta != null) {
+      descricao = descricao.trim();
+
+      switch (tipoFiltro) {
+      case 0: {
+        if (tipoConsulta == TipoConsulta.IGUAL) {
+          return igual(apenasAlfaNumeroEEspeciaisSeguros(descricao));
+        } else if (tipoConsulta == TipoConsulta.INICIANDO) {
+          return iniciando(apenasAlfaNumeroEEspeciaisSeguros(descricao));
+        } else if (tipoConsulta == TipoConsulta.TERMINANDO) {
+          return terminando(apenasAlfaNumeroEEspeciaisSeguros(descricao));
+        } else {
+          return contendo(apenasAlfaNumeroEEspeciaisSeguros(descricao));
+        }
+      }
+
+      case 1: {
+        if (tipoConsulta == TipoConsulta.IGUAL) {
+          return igual(apenasAlfa(descricao));
+        } else if (tipoConsulta == TipoConsulta.INICIANDO) {
+          return iniciando(apenasAlfa(descricao));
+        } else if (tipoConsulta == TipoConsulta.TERMINANDO) {
+          return terminando(apenasAlfa(descricao));
+        } else {
+          return contendo(apenasAlfa(descricao));
+        }
+      }
+
+      case 2: {
+
+        if (tipoConsulta == TipoConsulta.IGUAL) {
+          return igual(apenasAlfaCaixaAlta(descricao));
+        } else if (tipoConsulta == TipoConsulta.INICIANDO) {
+          return iniciando(apenasAlfaCaixaAlta(descricao));
+        } else if (tipoConsulta == TipoConsulta.TERMINANDO) {
+          return terminando(apenasAlfaCaixaAlta(descricao));
+        } else {
+          return contendo(apenasAlfaCaixaAlta(descricao));
+        }
+      }
+
+      case 3: {
+        if (tipoConsulta == TipoConsulta.IGUAL) {
+          return igual(apenasAlfaCaixaBaixa(descricao));
+        } else if (tipoConsulta == TipoConsulta.INICIANDO) {
+          return iniciando(apenasAlfaCaixaBaixa(descricao));
+        } else if (tipoConsulta == TipoConsulta.TERMINANDO) {
+          return terminando(apenasAlfaCaixaBaixa(descricao));
+        } else {
+          return contendo(apenasAlfaCaixaBaixa(descricao));
+        }
+      }
+
+      case 4: {
+        if (tipoConsulta == TipoConsulta.IGUAL) {
+          return igual(apenasAlfaMaiusculas(descricao));
+        } else if (tipoConsulta == TipoConsulta.INICIANDO) {
+          return iniciando(apenasAlfaMaiusculas(descricao));
+        } else if (tipoConsulta == TipoConsulta.TERMINANDO) {
+          return terminando(apenasAlfaMaiusculas(descricao));
+        } else {
+          return contendo(apenasAlfaMaiusculas(descricao));
+        }
+      }
+
+      case 5: {
+        if (tipoConsulta == TipoConsulta.IGUAL) {
+          return igual(apenasAlfaMinusculas(descricao));
+        } else if (tipoConsulta == TipoConsulta.INICIANDO) {
+          return iniciando(apenasAlfaMinusculas(descricao));
+        } else if (tipoConsulta == TipoConsulta.TERMINANDO) {
+          return terminando(apenasAlfaMinusculas(descricao));
+        } else {
+          return contendo(apenasAlfaMinusculas(descricao));
+        }
+      }
+
+      case 6: {
+        if (tipoConsulta == TipoConsulta.IGUAL) {
+          return igual(apenasNumeros(descricao));
+        } else if (tipoConsulta == TipoConsulta.INICIANDO) {
+          return iniciando(apenasNumeros(descricao));
+        } else if (tipoConsulta == TipoConsulta.TERMINANDO) {
+          return terminando(apenasNumeros(descricao));
+        } else {
+          return contendo(apenasNumeros(descricao));
+        }
+      }
+
+      default:
+        return apenasAlfaNumeroEEspeciaisSeguros(descricao) + "%";
+      }
+    } else {
+      if (StringUtils.isNotEmpty(descricao) && tipoConsulta != null) {
+        throw ThrowMachine.throwBusinessError(ApplicationErrorCode.SEARCH_TYPE_NULL);
+      } else {
+        return null;
+      }
+    }
+  }
+
+  public static String igual(String input) {
+    return input.toUpperCase();
+  }
+
+  public static String iniciando(String input) {
+    return input.toUpperCase() + "%";
+  }
+
+  public static String contendo(String input) {
+    input = input.replace(" ", "%");
+    return "%" + input.toUpperCase() + "%";
+  }
+
+  public static String terminando(String input) {
+    return "%" + input.toUpperCase();
+  }
+
+  
+  /** Filtros **/
+  public static String apenasAlfaNumeroEEspeciaisSeguros(String input) {
+    return RegexFilter.createIncludeFilter("[\\p{L} \\p{N} \\s \\' \\. \\- \\/]").filter(input);
+  }
+  
+  public static String apenasNumeros(String input) {
+    return RegexFilter.createIncludeFilter("[0-9]").filter(input);
+  }
+  
+  public static String apenasAlfa(String input) {
+    return RegexFilter.createIncludeFilter("[a-zA-Z\\s]").filter(input);
+  }
+  
+  public static String apenasAlfaCaixaAlta(String input) {
+    return RegexFilter.createIncludeFilter("[A-Z\\s]").filter(input.toUpperCase());
+  }
+  
+  public static String apenasAlfaCaixaBaixa(String input) {
+    return RegexFilter.createIncludeFilter("[a-z\\s]").filter(input.toLowerCase());
+  }
+  
+  public static String apenasAlfaMinusculas(String input) {
+    return RegexFilter.createIncludeFilter("[a-z\\s]").filter(input);
+  }
+  
+  public static String apenasAlfaMaiusculas(String input) {
+    return RegexFilter.createIncludeFilter("[A-Z\\s]").filter(input);
+  }
+  
+}

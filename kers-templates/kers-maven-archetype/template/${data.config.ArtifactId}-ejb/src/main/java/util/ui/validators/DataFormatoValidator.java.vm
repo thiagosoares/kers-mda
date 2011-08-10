@@ -1,0 +1,45 @@
+#set ($package = ${data.config.mainPackage})
+package ${package}.util.ui.validators;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
+
+import org.jboss.seam.annotations.Name;
+import org.jboss.seam.annotations.faces.Validator;
+import org.jboss.seam.annotations.intercept.BypassInterceptors;
+
+@Validator
+@BypassInterceptors
+@Name("dataFormatoValidator")
+public class DataFormatoValidator implements javax.faces.validator.Validator {
+
+  public void validate(FacesContext context, UIComponent cmp, Object value) throws ValidatorException {
+
+    boolean valid = true;
+    try {
+      if(value != null) {
+        String s = value.toString();
+        Integer anoFabricacao = new Integer(s);
+        
+        if(value.toString().length() != 4) {
+          valid = false;    
+        }
+        
+        if(anoFabricacao > java.util.Calendar.getInstance().get(java.util.Calendar.YEAR)) {
+          valid = false;
+        }
+      }
+    } catch (Exception e) {
+      valid = false;
+    }
+    
+    if (!valid) {
+      FacesMessage fm = new FacesMessage();
+      fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+      fm.setDetail("Formato de data " + value + " é inválido.");
+      throw new ValidatorException(fm);
+    }
+  }
+}

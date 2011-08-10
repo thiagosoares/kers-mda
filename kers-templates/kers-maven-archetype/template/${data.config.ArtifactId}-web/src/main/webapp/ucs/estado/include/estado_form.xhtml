@@ -1,0 +1,41 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/layout/util/panel.xhtml">
+
+	<ui:define name="header">Estado</ui:define>
+	<ui:define name="body">
+		<h:panelGrid columns="2" styleClass="grd_consult_campo">
+			<h:panelGroup>
+				<h:outputText value="Descrição" />
+				<h:outputText value="*" styleClass="asteristicoForm2" />
+			</h:panelGroup>  
+			<h:inputText id="descrição" 
+						 value="#{estadoDto.descricao}"
+						 required="true" 
+						 requiredMessage="Favor informe o Descricao"
+						 size="50" maxlength="100" 
+						 styleClass="compon_cadastro" />
+						 
+			<h:panelGroup>
+				<h:outputText value="Sigla" />
+				<h:outputText value="*" styleClass="asteristicoForm2" />
+			</h:panelGroup>  
+			<h:inputText id="sigla" 
+						 value="#{estadoDto.sigla}" 
+						 required="true"
+						 requiredMessage="Favor informe o Sigla" 
+						 size="50" maxlength="100"
+						 styleClass="compon_cadastro" />
+		</h:panelGrid>
+	</ui:define>
+</ui:composition>
