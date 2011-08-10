@@ -14,7 +14,7 @@ import br.com.capanema.kers.core.dao.XmlDiscovery;
 import br.com.capanema.kers.core.factory.projects.GeradorEstruturaProjeto;
 import br.com.capanema.kers.core.factory.resources.GeradorResouces;
 import br.com.capanema.kers.core.util.configuration.ConfigurationProject;
-import br.com.capanema.kers.uc.util.reflection.BeanDiscovery;
+import br.com.capanema.kers.core.util.reflection.BeanDiscovery;
 
 @Deprecated
 public abstract class AbstractEngine {

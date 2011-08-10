@@ -256,7 +256,7 @@ public class BuildManager {
 	/**
 	 * Build configuration of CRUD
 	 */
-	public void buildCRUDs() {
+	public void buildCRUDs(List<Crud> cruds) {
 		
 	  this.currentBuild = Constants.KEY_BUILD_FOR_CRUD;
 	  lastBuild.put(this.currentBuild, new Date().getTime());
@@ -264,7 +264,7 @@ public class BuildManager {
 		
 		try {
 			Map<Crud, List<TemplateFile>> crudTemplateFiles = new HashMap<Crud, List<TemplateFile>>();
-			for (Crud crud : projectConfig.getCruds()) {
+			for (Crud crud : cruds) {
 				crudRules(crud, crudTemplateFiles);
 			}
 			//monitorGenerateCrud(crudTemplateFiles); //build do crud

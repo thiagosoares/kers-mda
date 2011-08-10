@@ -7,6 +7,7 @@ import br.com.capanema.kers.common.util.string.StringUtil;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+@Deprecated //Eu acho q sim
 @XStreamAlias("projectConfig")
 public class EAProjectConfig {
 
@@ -38,6 +39,11 @@ public class EAProjectConfig {
 	private Boolean somenteEntidades;
 	
 
+	public EAProjectConfig() {
+	  
+	}
+	
+	@Deprecated
 	public EAProjectConfig(TemplateConfig parametros) {
 	  super();
 		this.nomeSistema = StringUtil.toClasseNameFormat(parametros.getNomeSistema());

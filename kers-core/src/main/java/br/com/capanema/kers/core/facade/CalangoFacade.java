@@ -16,7 +16,7 @@ import br.com.capanema.kers.core.engine.EngineMuiraquitaLigth;
 import br.com.capanema.kers.core.factory.projects.GeradorEstruturaProjeto;
 import br.com.capanema.kers.core.factory.resources.GeradorResouces;
 import br.com.capanema.kers.core.util.configuration.ConfigurationProject;
-import br.com.capanema.kers.uc.util.reflection.BeanDiscovery;
+import br.com.capanema.kers.core.util.reflection.BeanDiscovery;
 
 public class CalangoFacade implements ICalangoFacade {
 

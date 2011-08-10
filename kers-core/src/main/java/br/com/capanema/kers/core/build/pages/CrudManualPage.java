@@ -27,12 +27,12 @@ public class CrudManualPage implements Page {
 	
 	public void buildAllCRUDs() throws Exception {  
 	  BuildManager buildManager = new BuildManager(this.configSpider);
-    buildManager.buildCRUDs();
+    buildManager.buildCRUDs(this.configSpider.getCruds());
 	}
 	
 	public void buildCRUD(Crud crud) throws Exception {
 	  BuildManager buildManager = new BuildManager(this.configSpider);
-    buildManager.buildCRUDs();
+    buildManager.buildCRUDs(this.configSpider.getCruds());
 	}
 	
 	

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import br.com.capanema.kers.common.model.domain.Entity;
 import br.com.capanema.kers.common.model.template.Crud;
 import br.com.capanema.kers.common.model.template.DomainSourceType;
 import br.com.capanema.kers.common.model.template.SimpleSiteLayout;
@@ -80,6 +81,8 @@ public class ProjectConfig implements Cloneable {
 	private DomainSourceType domainSourceType; 
 	private String domainPath;
 	private List<Class<?>> domainScope;
+	
+	
 	
 	/**
 	 * List of CRUDs 
@@ -304,6 +307,4 @@ public class ProjectConfig implements Cloneable {
   }
 
 
-  
-	
 }

@@ -14,6 +14,7 @@ import br.com.capanema.kers.common.model.template.Crud;
 import br.com.capanema.kers.common.model.template.Template;
 import br.com.capanema.kers.common.model.template.TemplateSumary;
 import br.com.capanema.kers.core.build.BuildManager;
+import br.com.capanema.kers.core.uc.UCLoader;
 import br.com.capanema.kers.tempate.engine.xml.magager.TemplateRepositoryManager;
 import br.com.capanema.kers.tempate.engine.xml.magager.XmlManager;
 import br.com.capanema.kers.tempate.engine.xml.magager.XmlType;
@@ -112,8 +113,15 @@ public class Kers {
     
     builder.buildProjectClasses();
     
-    if(projectConfig.getCruds() != null && !projectConfig.getCruds().isEmpty()) { 
-    	//builder.buildCRUDs();
+    UCLoader loader = new UCLoader(projectConfig);
+    
+    if(projectConfig.getCruds() != null && !projectConfig.getCruds().isEmpty()) {
+      builder.buildCRUDs(projectConfig.getCruds());
+    } else {
+      List<Crud> cruds = loader.readDefaultCrud();
+      if(!cruds.isEmpty()) {
+        builder.buildCRUDs(cruds);
+      }
     }
   }
   
@@ -138,7 +146,7 @@ public class Kers {
   }
   
   public void buildCRUDs(ProjectConfig projectConfig) throws Exception {
-    new BuildManager(projectConfig).buildCRUDs();
+    new BuildManager(projectConfig).buildCRUDs(projectConfig.getCruds());
   }
   
   public void buildMapping(ProjectConfig projectConfig) throws Exception {

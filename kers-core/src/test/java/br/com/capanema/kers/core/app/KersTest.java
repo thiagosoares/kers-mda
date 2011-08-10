@@ -16,6 +16,7 @@ import br.com.capanema.kers.common.model.project.ProjectConfig;
 import br.com.capanema.kers.common.model.template.Crud;
 import br.com.capanema.kers.common.model.template.CrudClass;
 import br.com.capanema.kers.common.model.template.CrudField;
+import br.com.capanema.kers.common.model.template.DomainSourceType;
 import br.com.capanema.kers.core.app.Kers;
 import br.com.capanema.kers.core.app.Kers.KersConfigProp;
 
@@ -28,12 +29,15 @@ public class KersTest {
     Kers.stop();
   }
   
-  //@Test
+  @Test
   public void testBuildMuiraquitaJEE() throws Exception {
        
     Kers k = Kers.start(getProps());
     
     ProjectConfig config = getProjectConfig("Muiraquita JEE"); 
+    
+    config.setDomainSourceType(DomainSourceType.FROM_XMI);
+    config.setDomainPath(this.getClass().getResource("/") + "/xml/sispatweb.xml");
     
     config.getCruds().add(getCrudRamal());
     //config.getCruds().add(getCrudSetor());

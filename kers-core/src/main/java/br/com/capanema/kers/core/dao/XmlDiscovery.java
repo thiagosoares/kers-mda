@@ -642,7 +642,7 @@ public class XmlDiscovery {
       /** Descoberta das associacoes **/
       // Percorre a lista de elementos encontrados
       for (int i = 0; i < elementosLista.size(); i++) {
-        if (config.getProperty(TAG_ELEMENTOS_DIAGRAMAS + "(" + i + ").properties.[@name]").equals(diagramaIteracao)) {
+        if (diagramaIteracao == null || config.getProperty(TAG_ELEMENTOS_DIAGRAMAS + "(" + i + ").properties.[@name]").equals(diagramaIteracao)) {
 
           Diagram diag = new Diagram();
 

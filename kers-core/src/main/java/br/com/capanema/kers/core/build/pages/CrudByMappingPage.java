@@ -29,7 +29,7 @@ public class CrudByMappingPage implements Page {
 	
 	public void buildAllCRUDs() throws Exception {  
 	  BuildManager buildManager = new BuildManager(this.configSpider);
-    buildManager.buildCRUDs();
+    buildManager.buildCRUDs(this.configSpider.getCruds());
 	}
 	
 	public void buildCRUD(Crud crud) throws Exception {
@@ -38,7 +38,7 @@ public class CrudByMappingPage implements Page {
     //Crud crud = CrudUtil.findCrudByClass(crudClassName);
     
     BuildManager buildManager = new BuildManager(this.configSpider);
-    buildManager.buildCRUDs(); //s� gera 1 crud 
+    buildManager.buildCRUDs(this.configSpider.getCruds()); //s� gera 1 crud 
 	}
 	
 	
